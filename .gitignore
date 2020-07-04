@@ -1,0 +1,8 @@
+.nyc_output
+npm-debug.log
+papers
+node_modules
+c.bat
+**\play
+assembly
+index.html

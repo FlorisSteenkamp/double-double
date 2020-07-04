@@ -1,0 +1,1 @@
+{"version":3,"file":"dd-max.js","sourceRoot":"","sources":["../../src/double-double/dd-max.ts"],"names":[],"mappings":";;;AACA,6CAAwC;AAGxC;;;;GAIG;AACH,SAAS,KAAK,CAAC,CAAW,EAAE,CAAW;IACnC,IAAI,GAAG,GAAG,qBAAQ,CAAC,CAAC,EAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;IAE3B,OAAO,GAAG,GAAG,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC3B,CAAC;AAGQ,sBAAK"}
