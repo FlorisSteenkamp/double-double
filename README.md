@@ -28,18 +28,19 @@ blocks of double-word arithmetic*](https://hal.archives-ouvertes.fr/hal-01351529
 
 ## Benchmark
 
-
+... coming soon!
 
 ## Documentation
-[Documentation](https://mat-demo.appspot.com/docs/index.html)
+
+... coming soon!
 
 ## Introduction
 
+... coming soon!
+
 ## Examples
 
-```typescript
-import { toScaleAxis } from 'flo-mat';
-```
+... coming soon!
 
 ## Installation
 
