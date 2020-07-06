@@ -1,5 +1,5 @@
 
-import { ddDivDd } from "../double-double/dd-div-dd";
+import { ddDivDd } from "../double-double/binary/dd-div-dd";
 
 
 const abs = Math.abs;

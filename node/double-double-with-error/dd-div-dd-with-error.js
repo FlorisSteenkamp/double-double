@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ddDivDdWithError = void 0;
-const dd_div_dd_1 = require("../double-double/dd-div-dd");
+const dd_div_dd_1 = require("../double-double/binary/dd-div-dd");
 const abs = Math.abs;
 const eps = Number.EPSILON;
 const u = eps / 2;
