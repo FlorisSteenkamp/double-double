@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.twoProduct = void 0;
-let f = Math.pow(2, 27) + 1;
+const f = 134217729; // 2**27 + 1;
 /**
  * Returns the exact result of multiplying two doubles.
  *
@@ -18,20 +18,20 @@ let f = Math.pow(2, 27) + 1;
  * @param b Another double
  */
 function twoProduct(a, b) {
-    let x = a * b;
-    //let [ah, al] = split(a);
-    let c = f * a;
-    let ah = c - (c - a);
-    let al = a - ah;
-    //let [bh, bl] = split(b);
-    let d = f * b;
-    let bh = d - (d - b);
-    let bl = b - bh;
-    let y = (al * bl) - ((x - (ah * bh)) - (al * bh) - (ah * bl));
-    //let err1 = x - (ah * bh);
-    //let err2 = err1 - (al * bh);
-    //let err3 = err2 - (ah * bl);
-    //let y = (al * bl) - err3;
+    const x = a * b;
+    //const [ah, al] = split(a);
+    const c = f * a;
+    const ah = c - (c - a);
+    const al = a - ah;
+    //const [bh, bl] = split(b);
+    const d = f * b;
+    const bh = d - (d - b);
+    const bl = b - bh;
+    const y = (al * bl) - ((x - (ah * bh)) - (al * bh) - (ah * bl));
+    //const err1 = x - (ah * bh);
+    //const err2 = err1 - (al * bh);
+    //const err3 = err2 - (ah * bl);
+    //const y = (al * bl) - err3;
     return [y, x];
 }
 exports.twoProduct = twoProduct;

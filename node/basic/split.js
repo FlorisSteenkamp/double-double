@@ -4,7 +4,7 @@ exports.split = void 0;
 /**
  * === Math.ceil(p/2) where p is the # of significand bits in a double === 53.
  */
-let f = Math.pow(2, 27) + 1;
+const f = 134217729; // 2**27 + 1;
 /**
  * Returns the result of splitting a double into 2 26-bit doubles.
  *
@@ -18,9 +18,9 @@ let f = Math.pow(2, 27) + 1;
  * @param a A double floating point number
  */
 function split(a) {
-    let c = f * a;
-    let a_h = c - (c - a);
-    let a_l = a - a_h;
+    const c = f * a;
+    const a_h = c - (c - a);
+    const a_l = a - a_h;
     return [a_h, a_l];
 }
 exports.split = split;

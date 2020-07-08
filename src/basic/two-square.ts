@@ -1,6 +1,5 @@
 
-
-let f = 2**27 + 1;
+const f = 2**27 + 1;
 
 
 /**
@@ -18,12 +17,12 @@ let f = 2**27 + 1;
  * @param a A double
  */
 function twoSquare(a: number): number[] { 
-    let x = a*a;
+    const x = a*a;
 
-    //let [ah, al] = split(a);
-    let c = f * a; let ah = c - (c - a); let al = a - ah;
+    //const [ah, al] = split(a);
+    const c = f * a; const ah = c - (c - a); const al = a - ah;
 
-    let y = (al*al) - ((x - (ah*ah)) - 2*(ah*al));
+    const y = (al*al) - ((x - (ah*ah)) - 2*(ah*al));
 
     return [y,x];
 }

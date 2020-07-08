@@ -4,5 +4,5 @@
  * or -1
  * * prefer inlining this - it is really only here for reference
  */
-declare function ddSign([q, Q]: number[]): number;
+declare function ddSign(f: number[]): number;
 export { ddSign };

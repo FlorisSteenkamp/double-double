@@ -5,8 +5,8 @@
  * or -1
  * * prefer inlining this - it is really only here for reference
  */
-function ddSign([q,Q]: number[]) {
-    return Q;
+function ddSign(f: number[]) {
+    return f[1];
 }
 
 

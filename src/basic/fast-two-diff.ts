@@ -11,8 +11,8 @@
  * See https://people.eecs.berkeley.edu/~jrs/papers/robustr.pdf
  */
 function fastTwoDiff(a: number, b: number) {
-    let x = a - b;
-    let y = (a - x) - b;
+    const x = a - b;
+    const y = (a - x) - b;
 
     return [y, x];
 }

@@ -1,6 +1,5 @@
 
-import { twoProduct } from "../../basic/two-product";
-import { fastTwoSum } from "../../basic/fast-two-sum";
+const f = 2**27 + 1;
 
 
 /**
@@ -12,15 +11,26 @@ import { fastTwoSum } from "../../basic/fast-two-sum";
  * authors were 5u^2
  * 
  * * ALGORITHM 10 of https://hal.archives-ouvertes.fr/hal-01351529v3/document
- * @param xl low order double (of x in x*y)
- * @param xh hight order double (of x in x*y)
- * @param yl low order double (of y in x*y)
- * @param yh hight order double (of y in x*y)
+ * @param x a double-double precision floating point number
+ * @param y another double-double precision floating point number
  */
-function ddMultDd([xl,xh]: number[], [yl,yh]: number[]): number[] {
-    let [cl1,ch] = twoProduct(xh,yh);
+function ddMultDd(x: number[], y: number[]): number[] {
+    //const xl = x[0];
+    const xh = x[1];
+    //const yl = y[0];
+    const yh = y[1];
 
-    return fastTwoSum(ch,cl1 + (xh*yl + xl*yh));
+    //const [cl1,ch] = twoProduct(xh,yh);
+    const ch = xh*yh;
+    const c = f * xh; const ah = c - (c - xh); const al = xh - ah;
+    const d = f * yh; const bh = d - (d - yh); const bl = yh - bh;
+    const cl1 = (al*bl) - ((ch - (ah*bh)) - (al*bh) - (ah*bl));
+
+    //return fastTwoSum(ch,cl1 + (xh*yl + xl*yh));
+    const b = cl1 + (xh*y[0] + x[0]*yh);
+    const xx = ch + b;
+
+    return [b - (xx - ch), xx];
 }
 
 

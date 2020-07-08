@@ -19,21 +19,21 @@ function divWithErr(
         dE: number) {
 
     // estimate the result of the division
-    let est = n/d;
+    const est = n/d;
 
-    let _n = abs(n);
-    let _d = abs(d);
+    const _n = abs(n);
+    const _d = abs(d);
 
     // if the error in the denominator is too high the error can be 
     // arbitrarily high
-    let minD = _d - dE;
+    const minD = _d - dE;
     // maxErr is only valid if minD > 0
     if (minD <= 0) { 
         // the error can be arbitrarily high; est is mostly irrelevant
         return {est, err: Number.POSITIVE_INFINITY}; 
     }
 
-    let err = ((_d*nE + _n*dE) / minD**2) + u*abs(_n/_d);
+    const err = ((_d*nE + _n*dE) / minD**2) + u*abs(_n/_d);
 
     return { est, err };
 

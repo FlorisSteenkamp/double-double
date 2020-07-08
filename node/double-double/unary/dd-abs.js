@@ -7,8 +7,8 @@ exports.ddAbs = void 0;
  * @param f a double-double precision floating point number
  */
 function ddAbs(f) {
-    let [q, Q] = f;
-    return (Q < 0) ? [-q, -Q] : f;
+    const Q = f[1];
+    return (Q < 0) ? [-f[0], -Q] : f;
 }
 exports.ddAbs = ddAbs;
 //# sourceMappingURL=dd-abs.js.map

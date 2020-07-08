@@ -11,24 +11,30 @@ exports.ddAddDd = void 0;
  * authors were 2.25u^2
  *
  * ALGORITHM 6 of https://hal.archives-ouvertes.fr/hal-01351529v3/document
+ * @param x a double-double precision floating point number
+ * @param y another double-double precision floating point number
  */
-function ddAddDd([xl, xh], [yl, yh]) {
-    //let [sl,sh] = twoSum(xh,yh);
-    let sh = xh + yh;
-    let _1 = sh - xh;
-    let sl = (xh - (sh - _1)) + (yh - _1);
-    //let [tl,th] = twoSum(xl,yl);
-    let th = xl + yl;
-    let _2 = th - xl;
-    let tl = (xl - (th - _2)) + (yl - _2);
-    let c = sl + th;
-    //let [vl,vh] = fastTwoSum(sh,c)
-    let vh = sh + c;
-    let vl = c - (vh - sh);
-    let w = tl + vl;
-    //let [zl,zh] = fastTwoSum(vh,w)
-    let zh = vh + w;
-    let zl = w - (zh - vh);
+function ddAddDd(x, y) {
+    const xl = x[0];
+    const xh = x[1];
+    const yl = y[0];
+    const yh = y[1];
+    //const [sl,sh] = twoSum(xh,yh);
+    const sh = xh + yh;
+    const _1 = sh - xh;
+    const sl = (xh - (sh - _1)) + (yh - _1);
+    //const [tl,th] = twoSum(xl,yl);
+    const th = xl + yl;
+    const _2 = th - xl;
+    const tl = (xl - (th - _2)) + (yl - _2);
+    const c = sl + th;
+    //const [vl,vh] = fastTwoSum(sh,c)
+    const vh = sh + c;
+    const vl = c - (vh - sh);
+    const w = tl + vl;
+    //const [zl,zh] = fastTwoSum(vh,w)
+    const zh = vh + w;
+    const zl = w - (zh - vh);
     return [zl, zh];
 }
 exports.ddAddDd = ddAddDd;

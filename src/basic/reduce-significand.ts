@@ -18,11 +18,11 @@ function reduceSignificand(
         a: number, 
         bits: number): number {
 
-    let s = 53 - bits;
-    let f = 2**s + 1;
+    const s = 53 - bits;
+    const f = 2**s + 1;
 
-    let c = f * a;
-    let r = c - (c - a);
+    const c = f * a;
+    const r = c - (c - a);
 
     return r;
 }

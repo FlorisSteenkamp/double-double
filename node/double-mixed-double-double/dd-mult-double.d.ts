@@ -11,10 +11,9 @@
  *
  * * ALGORITHM 7 of https://hal.archives-ouvertes.fr/hal-01351529v3/document
  * @param y a double
- * @param xl low order double (of x in x*y)
- * @param xh high order double (of x in x*y)
+ * @param x a double-double precision floating point number
  */
-declare function ddMultDouble1(y: number, [xl, xh]: number[]): number[];
+declare function ddMultDouble1(y: number, x: number[]): number[];
 /**
  * Returns the product of a double-double-precision floating point number and a double.
  *
@@ -27,8 +26,7 @@ declare function ddMultDouble1(y: number, [xl, xh]: number[]): number[];
  *
  * * ALGORITHM 8 of https://hal.archives-ouvertes.fr/hal-01351529v3/document
  * @param y a double
- * @param xl low order double (of x in x*y)
- * @param xh high order double (of x in x*y)
+ * @param x a double-double precision floating point number
  */
-declare function ddMultDouble2(y: number, [xl, xh]: number[]): number[];
+declare function ddMultDouble2(y: number, x: number[]): number[];
 export { ddMultDouble1, ddMultDouble2 };

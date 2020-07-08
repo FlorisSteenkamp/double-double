@@ -8,7 +8,7 @@ const dd_diff_dd_1 = require("./dd-diff-dd");
  * @param b another double-double precision floating point number
  */
 function ddMin(a, b) {
-    let res = dd_diff_dd_1.ddDiffDd(a, b)[1];
+    const res = dd_diff_dd_1.ddDiffDd(a, b)[1];
     return res > 0 ? b : a;
 }
 exports.ddMin = ddMin;

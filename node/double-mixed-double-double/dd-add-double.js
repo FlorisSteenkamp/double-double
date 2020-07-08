@@ -10,19 +10,20 @@ exports.ddAddDouble = void 0;
  * * the error bound is sharp
  *
  * ALGORITHM 4 of https://hal.archives-ouvertes.fr/hal-01351529v3/document
- * @param xl low part of a double-double precision floating point number
- * @param xh high part of a double-double precision floating point number
+ * @param x a double-double precision floating point number
  * @param y a double precision floating point number
  */
-function ddAddDouble([xl, xh], y) {
-    //let [sl,sh] = twoSum(xh, y);
-    let sh = xh + y;
-    let c = sh - xh;
-    let sl = (xh - (sh - c)) + (y - c);
-    let v = xl + sl;
-    //let [zl,zh] = fastTwoSum(sh,v);
-    let zh = sh + v;
-    let zl = v - (zh - sh);
+function ddAddDouble(x, y) {
+    const xl = x[0];
+    const xh = x[1];
+    //const [sl,sh] = twoSum(xh, y);
+    const sh = xh + y;
+    const c = sh - xh;
+    const sl = (xh - (sh - c)) + (y - c);
+    const v = xl + sl;
+    //const [zl,zh] = fastTwoSum(sh,v);
+    const zh = sh + v;
+    const zl = v - (zh - sh);
     return [zl, zh];
 }
 exports.ddAddDouble = ddAddDouble;

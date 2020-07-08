@@ -8,6 +8,8 @@
  * authors were 2.25u^2
  *
  * ALGORITHM 6 of https://hal.archives-ouvertes.fr/hal-01351529v3/document
+ * @param x a double-double precision floating point number
+ * @param y another double-double precision floating point number
  */
-declare function ddAddDd([xl, xh]: number[], [yl, yh]: number[]): number[];
+declare function ddAddDd(x: number[], y: number[]): number[];
 export { ddAddDd };

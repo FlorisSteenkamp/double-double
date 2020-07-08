@@ -1,7 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ddDivDd = void 0;
-const fast_two_sum_1 = require("../../basic/fast-two-sum");
 const dd_mult_double_1 = require("../../double-mixed-double-double/dd-mult-double");
 /**
  * Returns the result of dividing two double-double-precision floating point
@@ -12,20 +11,24 @@ const dd_mult_double_1 = require("../../double-mixed-double-double/dd-mult-doubl
  * * the largest error found was 8.465u^2
  *
  * * ALGORITHM 17 of https://hal.archives-ouvertes.fr/hal-01351529v3/document
- * @param xl the double-double dividend - low part
- * @param xh the double-double dividend - high part
- * @param yl the double-double divisor - low part
- * @param yh the double-double divisor - high part
+ * @param x a double-double precision floating point number
+ * @param y another double-double precision floating point number
  */
-function ddDivDd([xl, xh], [yl, yh]) {
-    let th = xh / yh;
+function ddDivDd(x, y) {
+    const xl = x[0];
+    const xh = x[1];
+    const yl = y[0];
+    const yh = y[1];
+    const th = xh / yh;
     // approximation to th*(yh + yl) using Algorithm 7
-    let [rl, rh] = dd_mult_double_1.ddMultDouble1(th, [yl, yh]);
-    let πh = xh - rh; // exact operation
-    let δl = xl - rl;
-    let δ = πh + δl;
-    let tl = δ / yh;
-    return fast_two_sum_1.fastTwoSum(th, tl);
+    const [rl, rh] = dd_mult_double_1.ddMultDouble1(th, [yl, yh]);
+    const πh = xh - rh; // exact operation
+    const δl = xl - rl;
+    const δ = πh + δl;
+    const tl = δ / yh;
+    //return fastTwoSum(th,tl);
+    const xx = th + tl;
+    return [tl - (xx - th), xx];
 }
 exports.ddDivDd = ddDivDd;
 //# sourceMappingURL=dd-div-dd.js.map

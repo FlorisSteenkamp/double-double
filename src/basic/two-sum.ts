@@ -12,12 +12,12 @@
  * See https://people.eecs.berkeley.edu/~jrs/papers/robustr.pdf
  */
 function twoSum(a: number, b: number) {
-    let x = a + b;
-    let bv = x - a;
+    const x = a + b;
+    const bv = x - a;
 
     return [(a - (x - bv)) + (b - bv), x];
 }
 // inlined
-//let R = a + b; let _ = R - a; let r = (a - (R - _)) + (b - _); return [r,R]
+//const R = a + b; const _ = R - a; const r = (a - (R - _)) + (b - _); return [r,R]
 
 export { twoSum }

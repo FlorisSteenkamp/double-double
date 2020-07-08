@@ -14,8 +14,8 @@ exports.twoSum = void 0;
  * See https://people.eecs.berkeley.edu/~jrs/papers/robustr.pdf
  */
 function twoSum(a, b) {
-    let x = a + b;
-    let bv = x - a;
+    const x = a + b;
+    const bv = x - a;
     return [(a - (x - bv)) + (b - bv), x];
 }
 exports.twoSum = twoSum;

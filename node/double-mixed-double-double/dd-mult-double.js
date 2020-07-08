@@ -1,8 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ddMultDouble2 = exports.ddMultDouble1 = void 0;
-const two_product_1 = require("../basic/two-product");
-const fast_two_sum_1 = require("../basic/fast-two-sum");
+const f = 134217729; // 2**27 + 1;
 /**
  * Returns the product of a double-double-precision floating point number and a
  * double.
@@ -16,15 +15,28 @@ const fast_two_sum_1 = require("../basic/fast-two-sum");
  *
  * * ALGORITHM 7 of https://hal.archives-ouvertes.fr/hal-01351529v3/document
  * @param y a double
- * @param xl low order double (of x in x*y)
- * @param xh high order double (of x in x*y)
+ * @param x a double-double precision floating point number
  */
-function ddMultDouble1(y, [xl, xh]) {
-    let [cl1, ch] = two_product_1.twoProduct(xh, y);
-    let cl2 = xl * y;
-    let [tl1, th] = fast_two_sum_1.fastTwoSum(ch, cl2);
-    let tl2 = tl1 + cl1;
-    let [zl, zh] = fast_two_sum_1.fastTwoSum(th, tl2);
+function ddMultDouble1(y, x) {
+    const xl = x[0];
+    const xh = x[1];
+    //const [cl1,ch] = twoProduct(xh,y);
+    const ch = xh * y;
+    const c = f * xh;
+    const ah = c - (c - xh);
+    const al = xh - ah;
+    const d = f * y;
+    const bh = d - (d - y);
+    const bl = y - bh;
+    const cl1 = (al * bl) - ((ch - (ah * bh)) - (al * bh) - (ah * bl));
+    const cl2 = xl * y;
+    //const [tl1,th] = fastTwoSum(ch,cl2);
+    const th = ch + cl2;
+    const tl1 = cl2 - (th - ch);
+    const tl2 = tl1 + cl1;
+    //const [zl,zh] = fastTwoSum(th,tl2);
+    const zh = th + tl2;
+    const zl = tl2 - (zh - th);
     return [zl, zh];
 }
 exports.ddMultDouble1 = ddMultDouble1;
@@ -40,14 +52,25 @@ exports.ddMultDouble1 = ddMultDouble1;
  *
  * * ALGORITHM 8 of https://hal.archives-ouvertes.fr/hal-01351529v3/document
  * @param y a double
- * @param xl low order double (of x in x*y)
- * @param xh high order double (of x in x*y)
+ * @param x a double-double precision floating point number
  */
-function ddMultDouble2(y, [xl, xh]) {
-    let [cl1, ch] = two_product_1.twoProduct(xh, y);
-    let cl2 = xl * y;
-    let cl3 = cl1 + cl2;
-    return fast_two_sum_1.fastTwoSum(ch, cl3);
+function ddMultDouble2(y, x) {
+    const xl = x[0];
+    const xh = x[1];
+    //const [cl1,ch] = twoProduct(xh,y);
+    const ch = xh * y;
+    const c = f * xh;
+    const ah = c - (c - xh);
+    const al = xh - ah;
+    const d = f * y;
+    const bh = d - (d - y);
+    const bl = y - bh;
+    const cl1 = (al * bl) - ((ch - (ah * bh)) - (al * bh) - (ah * bl));
+    const cl2 = xl * y;
+    const cl3 = cl1 + cl2;
+    //return fastTwoSum(ch,cl3);
+    const xx = ch + cl3;
+    return [cl3 - (xx - ch), xx];
 }
 exports.ddMultDouble2 = ddMultDouble2;
 //# sourceMappingURL=dd-mult-double.js.map

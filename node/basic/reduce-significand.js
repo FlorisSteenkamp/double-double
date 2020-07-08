@@ -17,10 +17,10 @@ exports.reduceSignificand = void 0;
  * @param bits the number of significand bits to leave intact
  */
 function reduceSignificand(a, bits) {
-    let s = 53 - bits;
-    let f = Math.pow(2, s) + 1;
-    let c = f * a;
-    let r = c - (c - a);
+    const s = 53 - bits;
+    const f = Math.pow(2, s) + 1;
+    const c = f * a;
+    const r = c - (c - a);
     return r;
 }
 exports.reduceSignificand = reduceSignificand;

@@ -7,8 +7,8 @@ exports.ddSign = void 0;
  * or -1
  * * prefer inlining this - it is really only here for reference
  */
-function ddSign([q, Q]) {
-    return Q;
+function ddSign(f) {
+    return f[1];
 }
 exports.ddSign = ddSign;
 //# sourceMappingURL=dd-sign.js.map

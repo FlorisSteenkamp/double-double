@@ -2,9 +2,6 @@
 const abs = Math.abs;
 const eps = Number.EPSILON;
 const u = eps / 2;
-const sqrt = Math.sqrt;
-const min = Math.min;
-const max = Math.max;
 
 
 /**
@@ -25,17 +22,17 @@ function sqrtWithErr(
 
     // estimate the result of the square root
     if (x - x_ <= 0) {
-        let est = x > 0 ? sqrt(x) : 0;
+        const est = x > 0 ? Math.sqrt(x) : 0;
         return { 
             est,
-            err: max(sqrt(x + x_) - est, est)
+            err: Math.max(Math.sqrt(x + x_) - est, est)
         }
     }
 
-    let est = sqrt(x);
-    let minSqrt = sqrt(x - x_);
-    let maxSqrt = sqrt(x + x_);
-    let err = max(
+    const est = Math.sqrt(x);
+    const minSqrt = Math.sqrt(x - x_);
+    const maxSqrt = Math.sqrt(x + x_);
+    const err = Math.max(
         abs(minSqrt - est), 
         abs(maxSqrt - est)
     );
@@ -44,10 +41,10 @@ function sqrtWithErr(
     //err = eps*abs(est + err);
 
     // approx relative input error
-    //let rel = x_/abs(x);
+    //const rel = x_/abs(x);
 
     // propogated error bound
-    //let err = est*(sqrt(1 + rel) - 1) + u*abs(est);
+    //const err = est*(Math.sqrt(1 + rel) - 1) + u*abs(est);
     
     return { est, err };
 

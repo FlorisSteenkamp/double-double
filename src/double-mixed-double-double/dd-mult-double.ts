@@ -1,6 +1,5 @@
 
-import { twoProduct } from "../basic/two-product";
-import { fastTwoSum } from "../basic/fast-two-sum";
+const f = 134217729;  // 2**27 + 1;
 
 
 /**
@@ -16,15 +15,27 @@ import { fastTwoSum } from "../basic/fast-two-sum";
  * 
  * * ALGORITHM 7 of https://hal.archives-ouvertes.fr/hal-01351529v3/document
  * @param y a double
- * @param xl low order double (of x in x*y)
- * @param xh high order double (of x in x*y)
+ * @param x a double-double precision floating point number
  */
-function ddMultDouble1(y: number, [xl,xh]: number[]): number[] {
-    let [cl1,ch] = twoProduct(xh,y)
-    let cl2 = xl*y;
-    let [tl1,th] = fastTwoSum(ch,cl2);
-    let tl2 = tl1 + cl1;
-    let [zl, zh] = fastTwoSum(th,tl2)
+function ddMultDouble1(y: number, x: number[]): number[] {
+    const xl = x[0];
+    const xh = x[1];
+
+    //const [cl1,ch] = twoProduct(xh,y);
+    const ch = xh*y;
+    const c = f * xh; const ah = c - (c - xh); const al = xh - ah;
+    const d = f * y; const bh = d - (d - y); const bl = y - bh;
+    const cl1 = (al*bl) - ((ch - (ah*bh)) - (al*bh) - (ah*bl));
+
+    const cl2 = xl*y;
+    //const [tl1,th] = fastTwoSum(ch,cl2);
+    const th = ch + cl2;
+    const tl1 = cl2 - (th - ch);
+
+    const tl2 = tl1 + cl1;
+    //const [zl,zh] = fastTwoSum(th,tl2);
+    const zh = th + tl2;
+    const zl = tl2 - (zh - th);
 
     return [zl,zh];
 }
@@ -42,15 +53,24 @@ function ddMultDouble1(y: number, [xl,xh]: number[]): number[] {
  * 
  * * ALGORITHM 8 of https://hal.archives-ouvertes.fr/hal-01351529v3/document
  * @param y a double
- * @param xl low order double (of x in x*y)
- * @param xh high order double (of x in x*y)
+ * @param x a double-double precision floating point number
  */
-function ddMultDouble2(y: number, [xl,xh]: number[]): number[] {
-    let [cl1,ch] = twoProduct(xh,y)
-    let cl2 = xl*y;
-    let cl3 = cl1 + cl2;
+function ddMultDouble2(y: number, x: number[]): number[] {
+    const xl = x[0];
+    const xh = x[1];
 
-    return fastTwoSum(ch,cl3);
+    //const [cl1,ch] = twoProduct(xh,y);
+    const ch = xh*y;
+    const c = f * xh; const ah = c - (c - xh); const al = xh - ah;
+    const d = f * y; const bh = d - (d - y); const bl = y - bh;
+    const cl1 = (al*bl) - ((ch - (ah*bh)) - (al*bh) - (ah*bl));
+
+    const cl2 = xl*y;
+    const cl3 = cl1 + cl2;
+
+    //return fastTwoSum(ch,cl3);
+    const xx = ch + cl3;
+    return [cl3 - (xx - ch), xx];
 }
 
 

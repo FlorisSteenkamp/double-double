@@ -8,10 +8,8 @@
  * authors were 2.25u^2
  *
  * ALGORITHM 6 of https://hal.archives-ouvertes.fr/hal-01351529v3/document
- * @param xl low order double (of x in x - y)
- * @param xh high order double (of x in x - y)
- * @param yl low order double (of y in x - y)
- * @param yh high order double (of y in x - y)
+ * @param x a double-double precision floating point number
+ * @param y another double-double precision floating point number
  */
-declare function ddDiffDd([xl, xh]: number[], [yl, yh]: number[]): number[];
+declare function ddDiffDd(x: number[], y: number[]): number[];
 export { ddDiffDd };

@@ -1,6 +1,5 @@
 
-import { twoProduct } from "../basic/two-product";
-import { fastTwoSum } from "../basic/fast-two-sum";
+const f = 134217729;  // 2**27 + 1;
 
 
 /**
@@ -18,14 +17,22 @@ import { fastTwoSum } from "../basic/fast-two-sum";
  * @param y divisor
  */
 function doubleDivDouble(x: number, y: number): number[] {
-    let th = x/y;
-    let [πl,πh] = twoProduct(th,y);
-    let δh = x - πh;  // exact operation
-    let δt = δh - πl;  // exact operation
+    const th = x/y;
 
-    let tl = δt/y;
+    //const [πl,πh] = twoProduct(th,y);
+    const πh = th*y;
+    const c = f * th; const ah = c - (c - th); const al = th - ah;
+    const d = f * y; const bh = d - (d - y); const bl = y - bh;
+    const πl = (al*bl) - ((πh - (ah*bh)) - (al*bh) - (ah*bl));
 
-    return fastTwoSum(th,tl);
+    const δh = x - πh;  // exact operation
+    const δt = δh - πl;  // exact operation
+
+    const tl = δt/y;
+
+    //return fastTwoSum(th,tl);
+    const xx = th + tl;
+    return [tl - (xx - th), xx];
 }
 
 

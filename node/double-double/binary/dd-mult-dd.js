@@ -1,8 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ddMultDd = void 0;
-const two_product_1 = require("../../basic/two-product");
-const fast_two_sum_1 = require("../../basic/fast-two-sum");
+const f = Math.pow(2, 27) + 1;
 /**
  * Returns the product of two double-double-precision floating point numbers.
  *
@@ -12,14 +11,27 @@ const fast_two_sum_1 = require("../../basic/fast-two-sum");
  * authors were 5u^2
  *
  * * ALGORITHM 10 of https://hal.archives-ouvertes.fr/hal-01351529v3/document
- * @param xl low order double (of x in x*y)
- * @param xh hight order double (of x in x*y)
- * @param yl low order double (of y in x*y)
- * @param yh hight order double (of y in x*y)
+ * @param x a double-double precision floating point number
+ * @param y another double-double precision floating point number
  */
-function ddMultDd([xl, xh], [yl, yh]) {
-    let [cl1, ch] = two_product_1.twoProduct(xh, yh);
-    return fast_two_sum_1.fastTwoSum(ch, cl1 + (xh * yl + xl * yh));
+function ddMultDd(x, y) {
+    //const xl = x[0];
+    const xh = x[1];
+    //const yl = y[0];
+    const yh = y[1];
+    //const [cl1,ch] = twoProduct(xh,yh);
+    const ch = xh * yh;
+    const c = f * xh;
+    const ah = c - (c - xh);
+    const al = xh - ah;
+    const d = f * yh;
+    const bh = d - (d - yh);
+    const bl = yh - bh;
+    const cl1 = (al * bl) - ((ch - (ah * bh)) - (al * bh) - (ah * bl));
+    //return fastTwoSum(ch,cl1 + (xh*yl + xl*yh));
+    const b = cl1 + (xh * y[0] + x[0] * yh);
+    const xx = ch + b;
+    return [b - (xx - ch), xx];
 }
 exports.ddMultDd = ddMultDd;
 //# sourceMappingURL=dd-mult-dd.js.map

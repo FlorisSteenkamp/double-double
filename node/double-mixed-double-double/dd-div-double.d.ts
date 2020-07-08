@@ -7,9 +7,8 @@
  * * the bound is very sharp
  *
  * * ALGORITHM 15 of https://hal.archives-ouvertes.fr/hal-01351529v3/document
- * @param xl the double-double dividend - low part
- * @param xh the double-double dividend - high part
+ * @param x a double-double precision floating point number
  * @param y the double-precision divisor
  */
-declare function ddDivDouble([xl, xh]: number[], y: number): number[];
+declare function ddDivDouble(x: number[], y: number): number[];
 export { ddDivDouble };

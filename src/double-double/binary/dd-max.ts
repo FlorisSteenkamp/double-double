@@ -8,7 +8,7 @@ import { ddDiffDd } from "./dd-diff-dd";
  * @param b another double-double precision floating point number
  */
 function ddMax(a: number[], b: number[]) {
-    let res = ddDiffDd(a,b)[1];
+    const res = ddDiffDd(a,b)[1];
 
     return res > 0 ? a : b;
 }

@@ -1,5 +1,11 @@
 # Pure double & double-double floating point arithmetic functions *with strict error bounds*
 
+## Installation
+
+```cli
+npm install double-double
+```
+
 ## Overview
 * **[Double-double precision](https://en.wikipedia.org/wiki/Quadruple-precision_floating-point_format#Double-double_arithmetic)** floating point operators (similar to quad precision)
 * Optimized for speed (see benchmark below)
@@ -42,11 +48,6 @@ blocks of double-word arithmetic*](https://hal.archives-ouvertes.fr/hal-01351529
 
 ... coming soon!
 
-## Installation
-
-```cli
-npm install double-double
-```
 
 ## Usage
 

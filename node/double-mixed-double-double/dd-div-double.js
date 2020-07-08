@@ -1,8 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ddDivDouble = void 0;
-const two_product_1 = require("../basic/two-product");
-const fast_two_sum_1 = require("../basic/fast-two-sum");
+const f = 134217729; // 2**27 + 1;
 /**
  * Returns the result of dividing a double-double-precision floating point
  * number by a double.
@@ -12,18 +11,29 @@ const fast_two_sum_1 = require("../basic/fast-two-sum");
  * * the bound is very sharp
  *
  * * ALGORITHM 15 of https://hal.archives-ouvertes.fr/hal-01351529v3/document
- * @param xl the double-double dividend - low part
- * @param xh the double-double dividend - high part
+ * @param x a double-double precision floating point number
  * @param y the double-precision divisor
  */
-function ddDivDouble([xl, xh], y) {
-    let th = xh / y;
-    let [πl, πh] = two_product_1.twoProduct(th, y);
-    let δh = xh - πh; // exact operation
-    let δt = δh - πl; // exact operation
-    let δ = δt + xl;
-    let tl = δ / y;
-    return fast_two_sum_1.fastTwoSum(th, tl);
+function ddDivDouble(x, y) {
+    const xl = x[0];
+    const xh = x[1];
+    const th = xh / y;
+    //const [πl,πh] = twoProduct(th,y);
+    const πh = th * y;
+    const c = f * th;
+    const ah = c - (c - th);
+    const al = th - ah;
+    const d = f * y;
+    const bh = d - (d - y);
+    const bl = y - bh;
+    const πl = (al * bl) - ((πh - (ah * bh)) - (al * bh) - (ah * bl));
+    const δh = xh - πh; // exact operation
+    const δt = δh - πl; // exact operation
+    const δ = δt + xl;
+    const tl = δ / y;
+    //return fastTwoSum(th,tl);
+    const rl = th + tl;
+    return [tl - (rl - th), rl];
 }
 exports.ddDivDouble = ddDivDouble;
 //# sourceMappingURL=dd-div-double.js.map

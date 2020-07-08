@@ -13,8 +13,8 @@ exports.fastTwoDiff = void 0;
  * See https://people.eecs.berkeley.edu/~jrs/papers/robustr.pdf
  */
 function fastTwoDiff(a, b) {
-    let x = a - b;
-    let y = (a - x) - b;
+    const x = a - b;
+    const y = (a - x) - b;
     return [y, x];
 }
 exports.fastTwoDiff = fastTwoDiff;

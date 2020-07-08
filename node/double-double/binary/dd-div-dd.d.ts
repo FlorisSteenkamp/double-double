@@ -7,10 +7,8 @@
  * * the largest error found was 8.465u^2
  *
  * * ALGORITHM 17 of https://hal.archives-ouvertes.fr/hal-01351529v3/document
- * @param xl the double-double dividend - low part
- * @param xh the double-double dividend - high part
- * @param yl the double-double divisor - low part
- * @param yh the double-double divisor - high part
+ * @param x a double-double precision floating point number
+ * @param y another double-double precision floating point number
  */
-declare function ddDivDd([xl, xh]: number[], [yl, yh]: number[]): number[];
+declare function ddDivDd(x: number[], y: number[]): number[];
 export { ddDivDd };

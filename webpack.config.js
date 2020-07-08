@@ -21,5 +21,12 @@ module.exports = {
         path: path.resolve(__dirname, 'browser'),
         library: 'doubleDouble',
         libraryTarget: 'var'
+    },
+    stats: {
+        // Don't display most things
+        all: false,
+        colors: true,
+        errors: true,
+        builtAt: true
     }
 };

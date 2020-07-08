@@ -8,9 +8,9 @@ exports.twoDiff = void 0;
  * @param b
  */
 function twoDiff(a, b) {
-    let x = a - b;
-    let bvirt = a - x;
-    let y = (a - (x + bvirt)) + (bvirt - b);
+    const x = a - b;
+    const bvirt = a - x;
+    const y = (a - (x + bvirt)) + (bvirt - b);
     return [y, x];
 }
 exports.twoDiff = twoDiff;

@@ -10,12 +10,12 @@
  * See https://people.eecs.berkeley.edu/~jrs/papers/robustr.pdf
  */
 function fastTwoSum(a: number, b: number) {
-    let x = a + b;
+    const x = a + b;
 
     return [b - (x - a), x];
 }
 // inlined
-//let R = a + b; let r = b - (R - a); return [r, R];
+//const R = a + b; const r = b - (R - a); return [r, R];
 
 
 export { fastTwoSum }

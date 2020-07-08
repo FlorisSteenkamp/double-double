@@ -7,10 +7,8 @@
  * authors were 5u^2
  *
  * * ALGORITHM 10 of https://hal.archives-ouvertes.fr/hal-01351529v3/document
- * @param xl low order double (of x in x*y)
- * @param xh hight order double (of x in x*y)
- * @param yl low order double (of y in x*y)
- * @param yh hight order double (of y in x*y)
+ * @param x a double-double precision floating point number
+ * @param y another double-double precision floating point number
  */
-declare function ddMultDd([xl, xh]: number[], [yl, yh]: number[]): number[];
+declare function ddMultDd(x: number[], y: number[]): number[];
 export { ddMultDd };

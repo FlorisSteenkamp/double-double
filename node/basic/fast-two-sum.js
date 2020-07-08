@@ -12,7 +12,7 @@ exports.fastTwoSum = void 0;
  * See https://people.eecs.berkeley.edu/~jrs/papers/robustr.pdf
  */
 function fastTwoSum(a, b) {
-    let x = a + b;
+    const x = a + b;
     return [b - (x - a), x];
 }
 exports.fastTwoSum = fastTwoSum;

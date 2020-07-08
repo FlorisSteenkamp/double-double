@@ -2,8 +2,7 @@
  * Returns the negative of the given double-double precision floating point
  * number.
  * * the result is exact
- * @param q low order double
- * @param Q high order double
+ * @param f a double-double precision floating point number
  */
-declare function ddNegativeOf([q, Q]: number[]): number[];
+declare function ddNegativeOf(f: number[]): number[];
 export { ddNegativeOf };
