@@ -32,6 +32,7 @@ npm install double-double
 
 ## Overview
 * **[Double-double precision](https://en.wikipedia.org/wiki/Quadruple-precision_floating-point_format#Double-double_arithmetic)** floating point operators (similar to quad precision)
+* Each function documents a strict error bound (see research [1] below)
 * Optimized for speed (see benchmark below)
 * Operators include: +, -, *, /, √, abs, <, >, ===, etc.
 * No classes ⇒ a double-double is simply a length 2 `Number` array, e.g.
@@ -51,15 +52,16 @@ const c = ddAddDd(a,b);  // => [-2.42072459299969e-10, 11638931.841152497]
 
 ## Research
 The following research / books / lectures have been used or are directly relevant to this library (especially the first two):
-* [Mioara Joldes, Jean-Michel Muller, Valentina Popescu, *Tight and rigourous error bounds for basic building
+1. [Mioara Joldes, Jean-Michel Muller, Valentina Popescu, *Tight and rigourous error bounds for basic building
 blocks of double-word arithmetic*](https://hal.archives-ouvertes.fr/hal-01351529v3/document)
-* [T. J. Dekker, *A Floating-Point Technique for Extending the Available Precision*](http://csclub.uwaterloo.ca/~pbarfuss/dekker1971.pdf)
-* [Yozo Hida, Xiaoye S. Li, David H. Bailey, *Library for Double-Double and Quad-Double Arithmetic*](https://www.researchgate.net/publication/228570156_Library_for_Double-Double_and_Quad-Double_Arithmetic)
-* [Nicholas J. Higham, *Accuracy and Stability of Numerical Algorithms*](http://ftp.demec.ufpr.br/CFD/bibliografia/Higham_2002_Accuracy%20and%20Stability%20of%20Numerical%20Algorithms.pdf)
+2. [T. J. Dekker, *A Floating-Point Technique for Extending the Available Precision*](http://csclub.uwaterloo.ca/~pbarfuss/dekker1971.pdf)
+3. [Yozo Hida, Xiaoye S. Li, David H. Bailey, *Library for Double-Double and Quad-Double Arithmetic*](https://www.researchgate.net/publication/228570156_Library_for_Double-Double_and_Quad-Double_Arithmetic)
+4. [Nicholas J. Higham, *Accuracy and Stability of Numerical Algorithms*](http://ftp.demec.ufpr.br/CFD/bibliografia/Higham_2002_Accuracy%20and%20Stability%20of%20Numerical%20Algorithms.pdf)
 
-## Benchmark
+## [Benchmark]()
 
-... coming soon!
+![benchmark](assets/benchmark.png)
+
 
 ## Documentation
 
