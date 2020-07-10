@@ -2,6 +2,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ddDivDdWithError = void 0;
 const dd_div_dd_1 = require("../double-double/binary/dd-div-dd");
+// We *have* to do the below❗ The assignee is a getter❗ The assigned is a pure function❗
+const div = dd_div_dd_1.ddDivDd;
 const eps = Number.EPSILON;
 const u = eps / 2;
 const uu = u * u;
@@ -21,7 +23,7 @@ function ddDivDdWithError(numer, denom, nE, dE) {
     const d = denom[0];
     const D = denom[1];
     // estimate the result of the division
-    const est = dd_div_dd_1.ddDivDd(numer, denom);
+    const est = div(numer, denom);
     const _n = Math.abs(n + N); // absolute value of estimate of n accurate to within 1/2 ulp
     const _d = Math.abs(d + D); // absolute value of estimate of d accurate to within 1/2 ulp
     const δd = u * _d; // the max error in the rounding to _d

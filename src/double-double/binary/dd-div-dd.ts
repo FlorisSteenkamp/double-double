@@ -1,5 +1,5 @@
 
-import { ddMultDouble1 } from "../../double-mixed-double-double/dd-mult-double";
+const f = 134217729;  // 2**27 + 1;
 
 
 /**
@@ -22,7 +22,20 @@ function ddDivDd(x: number[], y: number[]): number[] {
 
     const th = xh/yh;
     // approximation to th*(yh + yl) using Algorithm 7
-    const [rl,rh] = ddMultDouble1(th,[yl,yh]);  
+
+    //const [rl,rh] = ddMultDouble1(th,[yl,yh]);  
+    const ch = yh*th;
+    const c = f * yh; const ah = c - (c - yh); const al = yh - ah;
+    const d = f * th; const bh = d - (d - th); const bl = th - bh;
+    const cl1 = (al*bl) - ((ch - (ah*bh)) - (al*bh) - (ah*bl));
+    const cl2 = yl*th;
+    const th_ = ch + cl2;
+    const tl1 = cl2 - (th_ - ch);
+    const tl2 = tl1 + cl1;
+    const rh = th_ + tl2;
+    const rl = tl2 - (rh - th_);
+
+    
     const πh = xh - rh;  // exact operation
     const δl = xl - rl;
     const δ = πh + δl;

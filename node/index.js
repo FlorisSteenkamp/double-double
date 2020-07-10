@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.multBy2 = exports.mult = exports.diff = exports.add = exports.significand = exports.exponent = exports.getLowestSetBit = exports.getHighestSetBit = exports.doubleToOctets = exports.doubleToBinaryString = exports.bitLength = exports.lsbExponent = exports.msbExponent = exports.isBitAligned = exports.parseDoubleDetailed = exports.parseDouble = exports.sqrtWithErr = exports.divWithErr = exports.ddDivDdWithError = exports.ddMax = exports.ddMin = exports.ddMultByNeg4 = exports.ddMultByNeg2 = exports.ddDivBy2 = exports.ddMultBy4 = exports.ddMultBy2 = exports.ddSign = exports.ddNegativeOf = exports.ddDivDd = exports.ddDivDouble = exports.ddMultDd = exports.ddMultDouble2 = exports.ddMultDouble1 = exports.ddDiffDd = exports.ddCompare = exports.ddSum = exports.ddProduct = exports.ddAddDd = exports.ddAddDouble = exports.ddAbs = exports.ddSqrt = exports.doubleSqrt = exports.reduceSignificand = exports.twoSum = exports.doubleDivDouble = exports.twoProduct = exports.twoDiff = exports.split = exports.fastTwoSum = exports.fastTwoDiff = void 0;
+exports.significand = exports.exponent = exports.getLowestSetBit = exports.getHighestSetBit = exports.doubleToOctets = exports.doubleToBinaryString = exports.bitLength = exports.lsbExponent = exports.msbExponent = exports.isBitAligned = exports.parseDoubleDetailed = exports.parseDouble = exports.sqrtWithErr = exports.divWithErr = exports.ddDivDdWithError = exports.ddMax = exports.ddMin = exports.ddMultByNeg4 = exports.ddMultByNeg2 = exports.ddDivBy2 = exports.ddMultBy4 = exports.ddMultBy2 = exports.ddSign = exports.ddNegativeOf = exports.ddDivDd = exports.ddDivDouble = exports.ddMultDd = exports.ddMultDouble2 = exports.ddMultDouble1 = exports.ddDiffDd = exports.ddCompare = exports.ddSum = exports.ddProduct = exports.ddAddDd = exports.ddAddDouble = exports.ddAbs = exports.ddSqrt = exports.doubleSqrt = exports.reduceSignificand = exports.twoSum = exports.doubleDivDouble = exports.twoProduct = exports.twoDiff = exports.split = exports.fastTwoSum = exports.fastTwoDiff = exports.operators = void 0;
 const dd_min_1 = require("./double-double/binary/dd-min");
 Object.defineProperty(exports, "ddMin", { enumerable: true, get: function () { return dd_min_1.ddMin; } });
 const dd_max_1 = require("./double-double/binary/dd-max");
@@ -90,12 +90,58 @@ const dd_div_dd_with_error_1 = require("./double-double-with-error/dd-div-dd-wit
 Object.defineProperty(exports, "ddDivDdWithError", { enumerable: true, get: function () { return dd_div_dd_with_error_1.ddDivDdWithError; } });
 const div_with_err_1 = require("./double-with-err/div-with-err");
 Object.defineProperty(exports, "divWithErr", { enumerable: true, get: function () { return div_with_err_1.divWithErr; } });
-const add_1 = require("./double/add");
-Object.defineProperty(exports, "add", { enumerable: true, get: function () { return add_1.add; } });
-const diff_1 = require("./double/diff");
-Object.defineProperty(exports, "diff", { enumerable: true, get: function () { return diff_1.diff; } });
-const mult_1 = require("./double/mult");
-Object.defineProperty(exports, "mult", { enumerable: true, get: function () { return mult_1.mult; } });
-const mult_by_2_1 = require("./double/mult-by-2");
-Object.defineProperty(exports, "multBy2", { enumerable: true, get: function () { return mult_by_2_1.multBy2; } });
+const operators = {
+    //---- basic ----//
+    fastTwoDiff: fast_two_diff_1.fastTwoDiff,
+    fastTwoSum: fast_two_sum_1.fastTwoSum,
+    split: split_1.split,
+    twoDiff: two_diff_1.twoDiff,
+    twoProduct: two_product_1.twoProduct,
+    doubleDivDouble: double_div_double_1.doubleDivDouble,
+    twoSum: two_sum_1.twoSum,
+    reduceSignificand: reduce_significand_1.reduceSignificand,
+    //---- double-double precision ----//
+    doubleSqrt: double_sqrt_1.doubleSqrt,
+    ddSqrt: dd_sqrt_1.ddSqrt,
+    ddAbs: dd_abs_1.ddAbs,
+    ddAddDouble: dd_add_double_1.ddAddDouble,
+    ddAddDd: dd_add_dd_1.ddAddDd,
+    ddProduct: dd_product_1.ddProduct,
+    ddSum: dd_sum_1.ddSum,
+    ddCompare: dd_compare_1.ddCompare,
+    ddDiffDd: dd_diff_dd_1.ddDiffDd,
+    ddMultDouble1: dd_mult_double_1.ddMultDouble1,
+    ddMultDouble2: dd_mult_double_1.ddMultDouble2,
+    ddMultDd: dd_mult_dd_1.ddMultDd,
+    ddDivDouble: dd_div_double_1.ddDivDouble,
+    ddDivDd: dd_div_dd_1.ddDivDd,
+    ddNegativeOf: dd_negative_of_1.ddNegativeOf,
+    ddSign: dd_sign_1.ddSign,
+    ddMultBy2: dd_mult_by_2_1.ddMultBy2,
+    ddMultBy4: dd_mult_by_4_1.ddMultBy4,
+    ddDivBy2: dd_div_by_2_1.ddDivBy2,
+    ddMultByNeg2: dd_mult_by_neg_2_1.ddMultByNeg2,
+    ddMultByNeg4: dd_mult_by_neg_4_1.ddMultByNeg4,
+    ddMin: dd_min_1.ddMin,
+    ddMax: dd_max_1.ddMax,
+    //---- double-double precision error propagation - with error bound on input parameters
+    ddDivDdWithError: dd_div_dd_with_error_1.ddDivDdWithError,
+    //---- double precision error propagation - with error bound on input parameters
+    divWithErr: div_with_err_1.divWithErr,
+    sqrtWithErr: sqrt_with_err_1.sqrtWithErr,
+    //---- double floating point representation ----//
+    parseDouble: parse_double_1.parseDouble,
+    parseDoubleDetailed: parse_double_1.parseDoubleDetailed,
+    isBitAligned: is_bit_aligned_1.isBitAligned,
+    msbExponent: msb_exponent_1.msbExponent,
+    lsbExponent: lsb_exponent_1.lsbExponent,
+    bitLength: bit_length_1.bitLength,
+    doubleToBinaryString: double_to_binary_string_1.doubleToBinaryString,
+    doubleToOctets: double_to_octets_1.doubleToOctets,
+    getHighestSetBit: get_max_set_bit_1.getHighestSetBit,
+    getLowestSetBit: get_max_set_bit_1.getLowestSetBit,
+    exponent: exponent_1.exponent,
+    significand: significand_1.significand
+};
+exports.operators = operators;
 //# sourceMappingURL=index.js.map

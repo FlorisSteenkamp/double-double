@@ -42,10 +42,68 @@ import { doubleToOctets } from './double-representation/double-to-octets';
 import { getHighestSetBit, getLowestSetBit } from './double-representation/get-max-set-bit';
 import { ddDivDdWithError } from './double-double-with-error/dd-div-dd-with-error';
 import { divWithErr } from './double-with-err/div-with-err';
-import { add } from './double/add';
-import { diff } from './double/diff';
-import { mult } from './double/mult';
-import { multBy2 } from './double/mult-by-2';
+
+
+const operators = { 
+    //---- basic ----//
+    fastTwoDiff,
+    fastTwoSum,
+    split,
+    twoDiff,
+    twoProduct,
+    doubleDivDouble,
+    twoSum,
+    reduceSignificand,
+
+    //---- double-double precision ----//
+    doubleSqrt,
+    ddSqrt,
+    ddAbs,
+    ddAddDouble,
+    ddAddDd,
+    ddProduct,
+    ddSum,
+    ddCompare,
+    ddDiffDd,
+    ddMultDouble1, 
+    ddMultDouble2,
+    ddMultDd,
+    ddDivDouble,
+    ddDivDd,
+    ddNegativeOf,
+    ddSign,
+    ddMultBy2,
+    ddMultBy4,
+    ddDivBy2,
+    ddMultByNeg2,
+    ddMultByNeg4,
+    ddMin,
+    ddMax,
+
+    //---- double-double precision error propagation - with error bound on input parameters
+    ddDivDdWithError,    
+
+    //---- double precision error propagation - with error bound on input parameters
+    divWithErr,
+    sqrtWithErr,
+
+    //---- double floating point representation ----//
+    parseDouble, 
+    parseDoubleDetailed,
+	isBitAligned,
+	msbExponent,
+	lsbExponent,
+    bitLength,
+    doubleToBinaryString,
+    doubleToOctets, 
+    getHighestSetBit, 
+    getLowestSetBit,
+    exponent, 
+    significand
+};
+
+
+export { operators }
 
 
 export { 
@@ -103,11 +161,5 @@ export {
     getHighestSetBit, 
     getLowestSetBit,
     exponent, 
-    significand,
-
-    //---- double (for benchmark testing only)
-    add,
-    diff,
-    mult,
-    multBy2
+    significand
 }

@@ -2,6 +2,10 @@
 import { ddDivDd } from "../double-double/binary/dd-div-dd";
 
 
+// We *have* to do the below❗ The assignee is a getter❗ The assigned is a pure function❗
+const div = ddDivDd;
+
+
 const eps = Number.EPSILON;
 const u = eps / 2;
 const uu = u*u;
@@ -29,7 +33,7 @@ function ddDivDdWithError(
     const D = denom[1];
 
     // estimate the result of the division
-    const est = ddDivDd(numer, denom);
+    const est = div(numer, denom);
 
     const _n = Math.abs(n+N);  // absolute value of estimate of n accurate to within 1/2 ulp
     const _d = Math.abs(d+D);  // absolute value of estimate of d accurate to within 1/2 ulp
