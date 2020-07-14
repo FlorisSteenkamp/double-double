@@ -1,6 +1,7 @@
 
 /** 
- * === Math.ceil(p/2) where p is the # of significand bits in a double === 53.
+ * === 2^Math.ceil(p/2) + 1 where p is the # of significand bits in a double === 53.
+ * @internal
  */
 const f = 134217729;  // 2**27 + 1;
 

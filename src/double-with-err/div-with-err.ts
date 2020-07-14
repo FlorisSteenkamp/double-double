@@ -1,5 +1,6 @@
 
-const abs = Math.abs;
+
+/** @internal */
 const u = Number.EPSILON / 2;
 
 
@@ -21,8 +22,8 @@ function divWithErr(
     // estimate the result of the division
     const est = n/d;
 
-    const _n = abs(n);
-    const _d = abs(d);
+    const _n = Math.abs(n);
+    const _d = Math.abs(d);
 
     // if the error in the denominator is too high the error can be 
     // arbitrarily high
@@ -33,7 +34,7 @@ function divWithErr(
         return {est, err: Number.POSITIVE_INFINITY}; 
     }
 
-    const err = ((_d*nE + _n*dE) / minD**2) + u*abs(_n/_d);
+    const err = ((_d*nE + _n*dE) / minD**2) + u*Math.abs(_n/_d);
 
     return { est, err };
 

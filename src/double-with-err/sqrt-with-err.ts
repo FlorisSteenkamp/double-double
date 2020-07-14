@@ -1,7 +1,6 @@
 
-const abs = Math.abs;
+/** @internal */
 const eps = Number.EPSILON;
-const u = eps / 2;
 
 
 /**
@@ -33,8 +32,8 @@ function sqrtWithErr(
     const minSqrt = Math.sqrt(x - x_);
     const maxSqrt = Math.sqrt(x + x_);
     const err = Math.max(
-        abs(minSqrt - est), 
-        abs(maxSqrt - est)
+        Math.abs(minSqrt - est), 
+        Math.abs(maxSqrt - est)
     );
     
     //err += eps*abs(est + err);

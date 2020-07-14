@@ -6,6 +6,7 @@
 import { doubleToOctets } from "./double-to-octets";
 
 
+/** @internal */
 function doubleToBinaryString(number: number) {
     return octetsToBinaryString(doubleToOctets(number) );
 }
@@ -13,6 +14,7 @@ function doubleToBinaryString(number: number) {
 
 /**
  * @param octets The 8 bytes composing a double (msb first)
+ * @internal
  */
 function octetsToBinaryString(octets: number[]) {
     return octets
@@ -23,6 +25,7 @@ function octetsToBinaryString(octets: number[]) {
 
 /**
  * intToBinaryString(8) -> "00001000"
+ * @internal
  */ 
 function int8ToBinaryString(i: number) {
     let iStr = i.toString(2);

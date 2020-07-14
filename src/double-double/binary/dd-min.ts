@@ -3,6 +3,7 @@ import { ddDiffDd } from "./dd-diff-dd";
 
 
 // We *have* to do the below❗ The assignee is a getter❗ The assigned is a pure function❗
+/** @internal */
 const diff = ddDiffDd;
 
 

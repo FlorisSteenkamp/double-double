@@ -51,6 +51,6 @@
         "build-browser": "rimraf browser && webpack",
         "build-wasm": "asc assembly/index.ts -d index.d.ts --use abort= --runtime full -O3s -b index.wasm -t index.wat",
         "test": "nyc mocha",
-        "docs": "npx typedoc --plugin typedoc-plugin-markdown --theme markdown"
+        "docs": "npx typedoc --options typedoc-ds.json"
     }
 }

@@ -1,9 +1,9 @@
 
 /**
- * Returns the exact result of subtracting b from a (as a floating point 
- * expansion).
- * @param a 
- * @param b 
+ * Returns the exact result of subtracting b from a.
+ * 
+ * @param a minuend - a double-double precision floating point number
+ * @param b subtrahend - a double-double precision floating point number
  */
 function twoDiff(a: number, b: number) {
     const x = a - b;

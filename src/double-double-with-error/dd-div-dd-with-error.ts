@@ -3,11 +3,15 @@ import { ddDivDd } from "../double-double/binary/dd-div-dd";
 
 
 // We *have* to do the below❗ The assignee is a getter❗ The assigned is a pure function❗
+/** @internal */
 const div = ddDivDd;
 
 
+/** @internal */
 const eps = Number.EPSILON;
+/** @internal */
 const u = eps / 2;
+/** @internal */
 const uu = u*u;
 
 
