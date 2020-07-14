@@ -62,23 +62,9 @@ blocks of double-word arithmetic*](https://hal.archives-ouvertes.fr/hal-01351529
 
 ![benchmark](assets/benchmark.png)
 
-
 ## Documentation
 
-... coming soon!
-
-## Introduction
-
-... coming soon!
-
-## Usage
-
-....
-
-## Examples
-
-... coming soon!
-
+## [Docs](https://florissteenkamp.github.io/double-double/)
 
 ## License
 MIT
