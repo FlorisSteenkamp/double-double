@@ -5,12 +5,14 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.doubleToBinaryString = void 0;
 const double_to_octets_1 = require("./double-to-octets");
+/** @internal */
 function doubleToBinaryString(number) {
     return octetsToBinaryString(double_to_octets_1.doubleToOctets(number));
 }
 exports.doubleToBinaryString = doubleToBinaryString;
 /**
  * @param octets The 8 bytes composing a double (msb first)
+ * @internal
  */
 function octetsToBinaryString(octets) {
     return octets
@@ -19,6 +21,7 @@ function octetsToBinaryString(octets) {
 }
 /**
  * intToBinaryString(8) -> "00001000"
+ * @internal
  */
 function int8ToBinaryString(i) {
     let iStr = i.toString(2);

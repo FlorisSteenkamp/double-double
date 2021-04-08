@@ -17,7 +17,7 @@ module.exports = {
                     'modules/_basic_two_square_',
                     'modules/_basic_two_sum_',
                 ],
-                collapsed: true
+                collapsed: false
             },
             {
                 type: 'category',

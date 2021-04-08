@@ -8,6 +8,7 @@ const significand_1 = require("./significand");
  * NaN, otherwise if the number is out of range returns a non-finite
  * number.
  * See https://stackoverflow.com/a/35190288/2010061
+ * @internal
  */
 function getLowestSetBit_(a) {
     return Math.log2(a & -a);
@@ -42,6 +43,7 @@ exports.getLowestSetBit = getLowestSetBit;
  * Returns the highest set bit of the given value in [1, 255], i.e. from 1 up
  * to 255. If the input number === 0 returns NaN.
  * See https://stackoverflow.com/a/35190288/2010061
+ * @internal
  */
 function getHighestSetBit_(a) {
     return a >= 128 ? 7

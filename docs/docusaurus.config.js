@@ -34,14 +34,14 @@ module.exports = {
                 {
                     title: 'Quick Links',
                     items: [
-                    {
-                        label: 'Docs',
-                        to: 'docs/',
-                    },
-                    {
-                        label: 'GitHub',
-                        href: 'https://github.com/FlorisSteenkamp/double-double',
-                    },
+                        {
+                            label: 'Docs',
+                            to: 'docs/',
+                        },
+                        {
+                            label: 'GitHub',
+                            href: 'https://github.com/FlorisSteenkamp/double-double',
+                        },
                     ],
                 },
                 /*
@@ -81,23 +81,23 @@ module.exports = {
             ],
             copyright: `Copyright © ${new Date().getFullYear()} - Built with Docusaurus.`,
         },
-        },
-        presets: [
+    },
+    presets: [
         [
             '@docusaurus/preset-classic',
             {
-            docs: {
-                homePageId: 'index',
-                sidebarPath: require.resolve('./sidebars.js'),
-                //editUrl: 'https://github.com/FlorisSteenkamp/double-double',
-            },
-            blog: {
-                showReadingTime: true,
-                //editUrl: 'https://github.com/facebook/docusaurus/edit/master/website/blog/',
-            },
-            theme: {
-                customCss: require.resolve('./src/css/custom.css'),
-            },
+                docs: {
+                    homePageId: 'index',
+                    sidebarPath: require.resolve('./sidebars.js'),
+                    //editUrl: 'https://github.com/FlorisSteenkamp/double-double',
+                },
+                blog: {
+                    showReadingTime: true,
+                    //editUrl: 'https://github.com/facebook/docusaurus/edit/master/website/blog/',
+                },
+                theme: {
+                    customCss: require.resolve('./src/css/custom.css'),
+                },
             },
         ],
     ],

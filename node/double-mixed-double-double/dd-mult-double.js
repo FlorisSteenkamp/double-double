@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ddMultDouble2 = exports.ddMultDouble1 = void 0;
+/** @internal */
 const f = 134217729; // 2**27 + 1;
 /**
  * Returns the product of a double-double-precision floating point number and a

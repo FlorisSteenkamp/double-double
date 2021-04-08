@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ddDivDd = void 0;
+/** @internal */
 const f = 134217729; // 2**27 + 1;
 /**
  * Returns the result of dividing two double-double-precision floating point

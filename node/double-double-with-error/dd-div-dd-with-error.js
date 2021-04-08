@@ -3,9 +3,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ddDivDdWithError = void 0;
 const dd_div_dd_1 = require("../double-double/binary/dd-div-dd");
 // We *have* to do the below❗ The assignee is a getter❗ The assigned is a pure function❗
+/** @internal */
 const div = dd_div_dd_1.ddDivDd;
+/** @internal */
 const eps = Number.EPSILON;
+/** @internal */
 const u = eps / 2;
+/** @internal */
 const uu = u * u;
 /**
  * Returns the result of dividing two double-double-precision floating point

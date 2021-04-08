@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ddMin = void 0;
 const dd_diff_dd_1 = require("./dd-diff-dd");
 // We *have* to do the below❗ The assignee is a getter❗ The assigned is a pure function❗
+/** @internal */
 const diff = dd_diff_dd_1.ddDiffDd;
 /**
  * Returns the minimum of a and b.

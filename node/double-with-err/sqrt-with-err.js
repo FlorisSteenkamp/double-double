@@ -1,9 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.sqrtWithErr = void 0;
-const abs = Math.abs;
+/** @internal */
 const eps = Number.EPSILON;
-const u = eps / 2;
 /**
  * Returns the result of the square root of a double floating point number
  * together with an absolute error bound where x_ is an absolute error
@@ -27,7 +26,7 @@ function sqrtWithErr(x, x_) {
     const est = Math.sqrt(x);
     const minSqrt = Math.sqrt(x - x_);
     const maxSqrt = Math.sqrt(x + x_);
-    const err = Math.max(abs(minSqrt - est), abs(maxSqrt - est));
+    const err = Math.max(Math.abs(minSqrt - est), Math.abs(maxSqrt - est));
     //err += eps*abs(est + err);
     //err = eps*abs(est + err);
     // approx relative input error

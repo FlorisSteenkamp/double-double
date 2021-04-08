@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ddMultDd = void 0;
+/** @internal */
 const f = Math.pow(2, 27) + 1;
 /**
  * Returns the product of two double-double-precision floating point numbers.

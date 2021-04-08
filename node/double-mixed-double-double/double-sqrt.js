@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.doubleSqrt = void 0;
+/** @internal */
 const f = 134217729; // 2**27 + 1;
 // Taken from https://github.com/munrocket/double.js/blob/master/src/double.ts
 // Unfortunately no error bound given
