@@ -1,10 +1,7 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.ddDivDdWithError = void 0;
-const dd_div_dd_1 = require("../double-double/binary/dd-div-dd");
+import { ddDivDd } from "../double-double/binary/dd-div-dd";
 // We *have* to do the below❗ The assignee is a getter❗ The assigned is a pure function❗
 /** @internal */
-const div = dd_div_dd_1.ddDivDd;
+const div = ddDivDd;
 /** @internal */
 const eps = Number.EPSILON;
 /** @internal */
@@ -39,8 +36,8 @@ function ddDivDdWithError(numer, denom, nE, dE) {
         // the error can be arbitrarily high; est is mostly irrelevant
         return { est, err: Number.POSITIVE_INFINITY };
     }
-    const err = ((_d * nE + _n * dE) / Math.pow(minD, 2)) + 9 * uu * Math.abs(_n / _d);
+    const err = ((_d * nE + _n * dE) / minD ** 2) + 9 * uu * Math.abs(_n / _d);
     return { est, err };
 }
-exports.ddDivDdWithError = ddDivDdWithError;
+export { ddDivDdWithError };
 //# sourceMappingURL=dd-div-dd-with-error.js.map

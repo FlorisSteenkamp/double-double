@@ -1,11 +1,8 @@
-"use strict";
 // Modified from https://github.com/bartaz/ieee754-visualization/
 // under the MIT license
 // Copyright 2013 Bartek Szopka (original author)
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.parseDoubleDetailed = exports.parseDouble = void 0;
-const double_to_binary_string_1 = require("./double-to-binary-string");
-const double_to_octets_1 = require("./double-to-octets");
+import { doubleToBinaryString } from "./double-to-binary-string";
+import { doubleToOctets } from "./double-to-octets";
 /**
  * Returns the relevant parts of the given IEEE-754 double. The returned
  * exponent has been normalized (i.e. 1023 ha been subtracted) and the
@@ -13,7 +10,7 @@ const double_to_octets_1 = require("./double-to-octets");
  * See https://github.com/bartaz/ieee754-visualization
  */
 function parseDouble(x) {
-    let parts = double_to_octets_1.doubleToOctets(x);
+    let parts = doubleToOctets(x);
     let p0 = parts[0];
     let p1 = parts[1];
     let sign = p0 >> 7;
@@ -33,7 +30,6 @@ function parseDouble(x) {
         significand
     };
 }
-exports.parseDouble = parseDouble;
 /**
  * Returns the relevant parts of the given IEEE-754 double.
  * See https://github.com/bartaz/ieee754-visualization.
@@ -41,7 +37,7 @@ exports.parseDouble = parseDouble;
  * representations of the components.
  */
 function parseDoubleDetailed(x) {
-    let str = double_to_binary_string_1.doubleToBinaryString(x);
+    let str = doubleToBinaryString(x);
     // sign{1} exponent{11} fraction{52} === 64 bits (+1 hidden!)
     let [, sign, exponent, significand] = str.match(/^(.)(.{11})(.{52})$/);
     let exponent_ = parseInt(exponent, 2);
@@ -54,5 +50,5 @@ function parseDoubleDetailed(x) {
         significand
     };
 }
-exports.parseDoubleDetailed = parseDoubleDetailed;
+export { parseDouble, parseDoubleDetailed };
 //# sourceMappingURL=parse-double.js.map

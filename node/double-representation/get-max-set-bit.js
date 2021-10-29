@@ -1,7 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.getHighestSetBit = exports.getLowestSetBit = void 0;
-const significand_1 = require("./significand");
+import { significand } from "./significand";
 /**
  * Returns the lowest set bit of the given value in [1, (2**31)-1],
  * i.e. from 1 up to 2147483647 else if no bit is set (input === 0) returns
@@ -25,7 +22,7 @@ function getLowestSetBit(a) {
         return NaN;
     }
     // Note: the significand includes the hidden bit!
-    let s = significand_1.significand(a);
+    let s = significand(a);
     let len = s.length;
     for (let i = len - 1; i >= 0; i--) {
         if (s[i] === 0) {
@@ -38,7 +35,6 @@ function getLowestSetBit(a) {
     }
     return NaN;
 }
-exports.getLowestSetBit = getLowestSetBit;
 /**
  * Returns the highest set bit of the given value in [1, 255], i.e. from 1 up
  * to 255. If the input number === 0 returns NaN.
@@ -68,7 +64,7 @@ function getHighestSetBit(a) {
     }
     // At this point there must be a highest set bit (always === 52 if the 
     // number is not a subnormal.
-    let s = significand_1.significand(a);
+    let s = significand(a);
     let len = s.length;
     for (let i = 0; i < len; i++) {
         let l = getHighestSetBit_(s[i]);
@@ -78,5 +74,5 @@ function getHighestSetBit(a) {
     }
     return NaN;
 }
-exports.getHighestSetBit = getHighestSetBit;
+export { getLowestSetBit, getHighestSetBit };
 //# sourceMappingURL=get-max-set-bit.js.map

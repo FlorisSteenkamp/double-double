@@ -1,7 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.ddProduct = void 0;
-const dd_mult_dd_1 = require("../binary/dd-mult-dd");
+import { ddMultDd } from "../binary/dd-mult-dd";
 /**
  * Returns the result of multiplying together an array of double-double-precision
  * floating point numbers naively (i.e. not using pairwise addition to reduce
@@ -13,9 +10,9 @@ const dd_mult_dd_1 = require("../binary/dd-mult-dd");
 function ddProduct(qs) {
     let q = qs[0];
     for (let i = 1; i < qs.length; i++) {
-        q = dd_mult_dd_1.ddMultDd(q, qs[i]);
+        q = ddMultDd(q, qs[i]);
     }
     return q;
 }
-exports.ddProduct = ddProduct;
+export { ddProduct };
 //# sourceMappingURL=dd-product.js.map

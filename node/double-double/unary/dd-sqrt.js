@@ -1,6 +1,3 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.ddSqrt = void 0;
 /** @internal */
 const f = 134217729; // 2**27 + 1;
 // Taken from https://github.com/munrocket/double.js/blob/master/src/double.ts
@@ -28,5 +25,5 @@ function ddSqrt(x) {
     const e = (xh - th - tl + xl) * 0.5 / s;
     return [e - ((s + e) - s), s + e];
 }
-exports.ddSqrt = ddSqrt;
+export { ddSqrt };
 //# sourceMappingURL=dd-sqrt.js.map

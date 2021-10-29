@@ -1,6 +1,3 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.ddCompare = void 0;
 /**
  * Returns 0 if a === b, a +tive value if a > b or a negative value if a < b.
  *
@@ -30,5 +27,5 @@ function ddCompare(x, y) {
     const zh = vh + w;
     return zh;
 }
-exports.ddCompare = ddCompare;
+export { ddCompare };
 //# sourceMappingURL=dd-compare.js.map

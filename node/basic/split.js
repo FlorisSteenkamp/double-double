@@ -1,6 +1,3 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.split = void 0;
 /**
  * === 2^Math.ceil(p/2) + 1 where p is the # of significand bits in a double === 53.
  * @internal
@@ -24,5 +21,7 @@ function split(a) {
     const a_l = a - a_h;
     return [a_h, a_l];
 }
-exports.split = split;
+// inlined - input a, output a_h, a_l
+// const c = f * a; const a_h = c - (c - a); const a_l = a - a_h; return [a_h, a_l];
+export { split };
 //# sourceMappingURL=split.js.map

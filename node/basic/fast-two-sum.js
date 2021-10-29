@@ -1,6 +1,3 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.fastTwoSum = void 0;
 /**
  * Returns the sum and exact error of adding two floating point numbers.
  * Uses an EFT (error-free transformation), i.e. a+b === x+y exactly.
@@ -15,5 +12,7 @@ function fastTwoSum(a, b) {
     const x = a + b;
     return [b - (x - a), x];
 }
-exports.fastTwoSum = fastTwoSum;
+// inlined
+//const R = a + b; const r = b - (R - a); return [r, R];
+export { fastTwoSum };
 //# sourceMappingURL=fast-two-sum.js.map

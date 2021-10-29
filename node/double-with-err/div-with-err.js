@@ -1,6 +1,3 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.divWithErr = void 0;
 /** @internal */
 const u = Number.EPSILON / 2;
 /**
@@ -25,8 +22,8 @@ function divWithErr(n, d, nE, dE) {
         // the error can be arbitrarily high; est is mostly irrelevant
         return { est, err: Number.POSITIVE_INFINITY };
     }
-    const err = ((_d * nE + _n * dE) / Math.pow(minD, 2)) + u * Math.abs(_n / _d);
+    const err = ((_d * nE + _n * dE) / minD ** 2) + u * Math.abs(_n / _d);
     return { est, err };
 }
-exports.divWithErr = divWithErr;
+export { divWithErr };
 //# sourceMappingURL=div-with-err.js.map

@@ -1,8 +1,5 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.twoSquare = void 0;
 /** @internal */
-const f = Math.pow(2, 27) + 1;
+const f = 2 ** 27 + 1;
 /**
  * Returns the exact result of squaring a double.
  *
@@ -26,5 +23,5 @@ function twoSquare(a) {
     const y = (al * al) - ((x - (ah * ah)) - 2 * (ah * al));
     return [y, x];
 }
-exports.twoSquare = twoSquare;
+export { twoSquare };
 //# sourceMappingURL=two-square.js.map

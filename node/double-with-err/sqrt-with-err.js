@@ -1,6 +1,3 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.sqrtWithErr = void 0;
 /** @internal */
 const eps = Number.EPSILON;
 /**
@@ -35,5 +32,5 @@ function sqrtWithErr(x, x_) {
     //const err = est*(Math.sqrt(1 + rel) - 1) + u*abs(est);
     return { est, err };
 }
-exports.sqrtWithErr = sqrtWithErr;
+export { sqrtWithErr };
 //# sourceMappingURL=sqrt-with-err.js.map

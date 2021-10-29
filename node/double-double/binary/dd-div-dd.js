@@ -1,6 +1,3 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.ddDivDd = void 0;
 /** @internal */
 const f = 134217729; // 2**27 + 1;
 /**
@@ -45,5 +42,5 @@ function ddDivDd(x, y) {
     const xx = th + tl;
     return [tl - (xx - th), xx];
 }
-exports.ddDivDd = ddDivDd;
+export { ddDivDd };
 //# sourceMappingURL=dd-div-dd.js.map

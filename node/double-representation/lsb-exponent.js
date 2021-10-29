@@ -1,8 +1,5 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.lsbExponent = void 0;
-const get_max_set_bit_1 = require("./get-max-set-bit");
-const exponent_1 = require("./exponent");
+import { getLowestSetBit } from "./get-max-set-bit";
+import { exponent } from "./exponent";
 /**
  * Returns the true exponent of the lsb that is set of the given number or
  * NaN if a === 0 or +-inf or NaN.
@@ -12,8 +9,8 @@ function lsbExponent(a) {
     if (a === 0 || !Number.isFinite(a)) {
         return NaN;
     }
-    let e = exponent_1.exponent(a);
-    return get_max_set_bit_1.getLowestSetBit(a) - 52 + e;
+    let e = exponent(a);
+    return getLowestSetBit(a) - 52 + e;
 }
-exports.lsbExponent = lsbExponent;
+export { lsbExponent };
 //# sourceMappingURL=lsb-exponent.js.map

@@ -1,6 +1,3 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.reduceSignificand = void 0;
 /**
  * Truncates a floating point value's significand and returns the result.
  * Similar to split, but with the ability to specify the number of bits to keep.
@@ -18,10 +15,10 @@ exports.reduceSignificand = void 0;
  */
 function reduceSignificand(a, bits) {
     const s = 53 - bits;
-    const f = Math.pow(2, s) + 1;
+    const f = 2 ** s + 1;
     const c = f * a;
     const r = c - (c - a);
     return r;
 }
-exports.reduceSignificand = reduceSignificand;
+export { reduceSignificand };
 //# sourceMappingURL=reduce-significand.js.map

@@ -1,6 +1,3 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.twoSum = void 0;
 /**
  * Returns the exact result of adding two doubles.
  *
@@ -18,5 +15,7 @@ function twoSum(a, b) {
     const bv = x - a;
     return [(a - (x - bv)) + (b - bv), x];
 }
-exports.twoSum = twoSum;
+// inlined
+//const R = a + b; const _ = R - a; const r = (a - (R - _)) + (b - _); return [r,R]
+export { twoSum };
 //# sourceMappingURL=two-sum.js.map

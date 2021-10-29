@@ -1,6 +1,3 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.ddAddDd = void 0;
 /**
  * Returns the result of adding two double-double-precision floating point
  * numbers.
@@ -37,5 +34,5 @@ function ddAddDd(x, y) {
     const zl = w - (zh - vh);
     return [zl, zh];
 }
-exports.ddAddDd = ddAddDd;
+export { ddAddDd };
 //# sourceMappingURL=dd-add-dd.js.map

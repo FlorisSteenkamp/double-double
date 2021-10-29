@@ -1,6 +1,3 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.ddSign = void 0;
 /**
  * Returns the sign of the given double-double-precision floating point number.
  * * a positive or negative double or zero is returned - not necessarily +1, 0
@@ -10,5 +7,5 @@ exports.ddSign = void 0;
 function ddSign(f) {
     return f[1];
 }
-exports.ddSign = ddSign;
+export { ddSign };
 //# sourceMappingURL=dd-sign.js.map

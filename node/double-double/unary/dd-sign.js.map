@@ -1,1 +1,1 @@
-{"version":3,"file":"dd-sign.js","sourceRoot":"","sources":["../../../src/double-double/unary/dd-sign.ts"],"names":[],"mappings":";;;AACA;;;;;GAKG;AACH,SAAS,MAAM,CAAC,CAAW;IACvB,OAAO,CAAC,CAAC,CAAC,CAAC,CAAC;AAChB,CAAC;AAGQ,wBAAM"}
+{"version":3,"file":"dd-sign.js","sourceRoot":"","sources":["../../../src/double-double/unary/dd-sign.ts"],"names":[],"mappings":"AACA;;;;;GAKG;AACH,SAAS,MAAM,CAAC,CAAW;IACvB,OAAO,CAAC,CAAC,CAAC,CAAC,CAAC;AAChB,CAAC;AAGD,OAAO,EAAE,MAAM,EAAE,CAAA"}

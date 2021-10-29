@@ -1,6 +1,3 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.twoDiff = void 0;
 /**
  * Returns the exact result of subtracting b from a.
  *
@@ -13,5 +10,5 @@ function twoDiff(a, b) {
     const y = (a - (x + bvirt)) + (bvirt - b);
     return [y, x];
 }
-exports.twoDiff = twoDiff;
+export { twoDiff };
 //# sourceMappingURL=two-diff.js.map

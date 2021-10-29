@@ -1,13 +1,10 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.exponent = void 0;
-const parse_double_1 = require("./parse-double");
+import { parseDouble } from './parse-double';
 /**
  * Returns the normalized exponent of the given number.
  * @param a A double
  */
 function exponent(a) {
-    return parse_double_1.parseDouble(a).exponent;
+    return parseDouble(a).exponent;
 }
-exports.exponent = exponent;
+export { exponent };
 //# sourceMappingURL=exponent.js.map

@@ -1,6 +1,3 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.ddMultDouble2 = exports.ddMultDouble1 = void 0;
 /** @internal */
 const f = 134217729; // 2**27 + 1;
 /**
@@ -40,7 +37,6 @@ function ddMultDouble1(y, x) {
     const zl = tl2 - (zh - th);
     return [zl, zh];
 }
-exports.ddMultDouble1 = ddMultDouble1;
 /**
  * Returns the product of a double-double-precision floating point number and a double.
  *
@@ -73,5 +69,5 @@ function ddMultDouble2(y, x) {
     const xx = ch + cl3;
     return [cl3 - (xx - ch), xx];
 }
-exports.ddMultDouble2 = ddMultDouble2;
+export { ddMultDouble1, ddMultDouble2 };
 //# sourceMappingURL=dd-mult-double.js.map

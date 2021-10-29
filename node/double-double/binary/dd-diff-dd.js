@@ -1,6 +1,3 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.ddDiffDd = void 0;
 /**
  * Returns the result of subtracting the second given double-double-precision
  * floating point number from the first.
@@ -37,5 +34,5 @@ function ddDiffDd(x, y) {
     const zl = w - (zh - vh);
     return [zl, zh];
 }
-exports.ddDiffDd = ddDiffDd;
+export { ddDiffDd };
 //# sourceMappingURL=dd-diff-dd.js.map

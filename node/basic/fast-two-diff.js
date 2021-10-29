@@ -1,6 +1,3 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.fastTwoDiff = void 0;
 /**
  * Returns the difference and exact error of subtracting two floating point
  * numbers.
@@ -17,5 +14,5 @@ function fastTwoDiff(a, b) {
     const y = (a - x) - b;
     return [y, x];
 }
-exports.fastTwoDiff = fastTwoDiff;
+export { fastTwoDiff };
 //# sourceMappingURL=fast-two-diff.js.map
