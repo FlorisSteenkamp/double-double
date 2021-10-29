@@ -1,5 +1,4 @@
-
-import { ddMultDd } from "../binary/dd-mult-dd";
+import { ddMultDd } from "../binary/dd-mult-dd.js";
 
 
 /**

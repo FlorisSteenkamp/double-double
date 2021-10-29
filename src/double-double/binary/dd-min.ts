@@ -1,5 +1,4 @@
-
-import { ddDiffDd } from "./dd-diff-dd";
+import { ddDiffDd } from "./dd-diff-dd.js";
 
 
 // We *have* to do the below❗ The assignee is a getter❗ The assigned is a pure function❗

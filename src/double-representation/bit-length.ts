@@ -1,5 +1,4 @@
-
-import { getLowestSetBit, getHighestSetBit } from "./get-max-set-bit";
+import { getLowestSetBit, getHighestSetBit } from "./get-max-set-bit.js";
 
 
 /**

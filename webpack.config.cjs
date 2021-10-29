@@ -1,20 +1,28 @@
 const path = require('path');
 const CircularDependencyPlugin = require('circular-dependency-plugin');
+const ResolveTypeScriptPlugin = require("resolve-typescript-plugin").default;
+
+// console.log(ResolveTypeScriptPlugin);
 
 module.exports = {
     entry: './src/index.ts',
     mode: 'production',
+    resolve: {
+        // extensions: ['.tsx', '.ts', '.js', '.d.ts' ]
+        extensions: ['.js'],
+        plugins: [new ResolveTypeScriptPlugin({
+            includeNodeModules: false
+        })]
+    },
     module: {
         rules: [
             {
                 test: /\.tsx?$/,
+                // test: /\.(js|tsx?)$/,
                 use: 'ts-loader',
                 exclude: /node_modules/
             }
         ]
-    },
-    resolve: {
-        extensions: [ '.tsx', '.ts', '.js', '.d.ts' ]
     },
     output: {
         filename: 'index.min.js',

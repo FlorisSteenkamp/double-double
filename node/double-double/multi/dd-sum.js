@@ -1,4 +1,4 @@
-import { ddAddDd } from "../binary/dd-add-dd";
+import { ddAddDd } from "../binary/dd-add-dd.js";
 /**
  * Returns the result of summing an array of double-double-precision floating
  * point numbers naively (i.e. not using pairwise addition to reduce error a bit).

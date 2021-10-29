@@ -1,4 +1,4 @@
-import { parseDouble } from "./parse-double";
+import { parseDouble } from "./parse-double.js";
 /**
  * Return the significand of the given double with the hidden bit added (in case
  * a is not subnormal or 0, etc.)

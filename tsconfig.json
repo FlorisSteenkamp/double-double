@@ -7,10 +7,11 @@
         "declaration": true,
         "noEmitOnError": true,
         "sourceMap": true,
-        "outDir": "node"
+        "outDir": "node",
+        // "esModuleInterop": true
     },
     "include": [
-        "src/**/*.ts"
+        "src/index.ts"
     ],
     "exclude": [
         "node_modules"

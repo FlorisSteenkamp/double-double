@@ -1,5 +1,4 @@
-
-import { ddDivDd } from "../double-double/binary/dd-div-dd";
+import { ddDivDd } from "../double-double/binary/dd-div-dd.js";
 
 
 // We *have* to do the below❗ The assignee is a getter❗ The assigned is a pure function❗

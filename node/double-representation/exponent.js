@@ -1,4 +1,4 @@
-import { parseDouble } from './parse-double';
+import { parseDouble } from './parse-double.js';
 /**
  * Returns the normalized exponent of the given number.
  * @param a A double

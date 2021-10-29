@@ -1,8 +1,8 @@
 // Modified from https://github.com/bartaz/ieee754-visualization/
 // under the MIT license
 // Copyright 2013 Bartek Szopka (original author)
-import { doubleToBinaryString } from "./double-to-binary-string";
-import { doubleToOctets } from "./double-to-octets";
+import { doubleToBinaryString } from "./double-to-binary-string.js";
+import { doubleToOctets } from "./double-to-octets.js";
 /**
  * Returns the relevant parts of the given IEEE-754 double. The returned
  * exponent has been normalized (i.e. 1023 ha been subtracted) and the

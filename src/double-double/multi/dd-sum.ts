@@ -1,5 +1,4 @@
-
-import { ddAddDd } from "../binary/dd-add-dd";
+import { ddAddDd } from "../binary/dd-add-dd.js";
 
 
 /**

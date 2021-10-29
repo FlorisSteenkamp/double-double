@@ -1,4 +1,4 @@
-import { significand } from "./significand";
+import { significand } from "./significand.js";
 /**
  * Returns the lowest set bit of the given value in [1, (2**31)-1],
  * i.e. from 1 up to 2147483647 else if no bit is set (input === 0) returns

@@ -1,6 +1,5 @@
-
-import { getHighestSetBit, getLowestSetBit } from "./get-max-set-bit";
-import { exponent } from "./exponent";
+import { getHighestSetBit, getLowestSetBit } from "./get-max-set-bit.js";
+import { exponent } from "./exponent.js";
 
 
 /**

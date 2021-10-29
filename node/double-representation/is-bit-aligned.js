@@ -1,5 +1,5 @@
-import { getHighestSetBit, getLowestSetBit } from "./get-max-set-bit";
-import { exponent } from "./exponent";
+import { getHighestSetBit, getLowestSetBit } from "./get-max-set-bit.js";
+import { exponent } from "./exponent.js";
 /**
  * Returns true if the given number is bit-aligned in the sense that its a
  * multiple of a given power of 2, say e, and such that the number, say a,
