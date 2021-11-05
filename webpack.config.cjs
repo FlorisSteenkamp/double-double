@@ -2,14 +2,16 @@ const path = require('path');
 const CircularDependencyPlugin = require('circular-dependency-plugin');
 const ResolveTypeScriptPlugin = require("resolve-typescript-plugin").default;
 
-// console.log(ResolveTypeScriptPlugin);
 
-module.exports = {
-    entry: './src/index.ts',
+const config_Basic = {
+    // mode: 'development',
     mode: 'production',
+    entry: './src/index.ts',
     resolve: {
-        // extensions: ['.tsx', '.ts', '.js', '.d.ts' ]
-        extensions: ['.js'],
+        extensions: [
+            '.js', '.mjs', '.cjs', 
+            '.jsx', '.cjsx', '.mjsx'
+        ],
         plugins: [new ResolveTypeScriptPlugin({
             includeNodeModules: false
         })]
@@ -18,17 +20,10 @@ module.exports = {
         rules: [
             {
                 test: /\.tsx?$/,
-                // test: /\.(js|tsx?)$/,
                 use: 'ts-loader',
                 exclude: /node_modules/
             }
         ]
-    },
-    output: {
-        filename: 'index.min.js',
-        path: path.resolve(__dirname, 'browser'),
-        library: 'doubleDouble',
-        libraryTarget: 'var'
     },
     stats: {
         // Don't display most things
@@ -40,11 +35,90 @@ module.exports = {
     plugins: [
         new CircularDependencyPlugin({
             // exclude detection of files based on a RegExp
-            exclude: /a\.js|node_modules/,
+            exclude: /node_modules/,
             // add errors to webpack instead of warnings
             failOnError: true,
             // set the current working directory for displaying module paths
             cwd: process.cwd(),
         })
     ]
+}
+
+
+const lib = {
+    path: path.resolve(__dirname, 'browser'),
+    library: 'doubleDouble',
+    libraryTarget: 'var'
 };
+
+
+/** Global var library, minified */ 
+const config_VarMinify = {
+    ...config_Basic,
+    output: {
+        filename: 'index.min.js',
+        ...lib
+    },
+    optimization: {
+        minimize: true
+    }
+};
+
+
+/** Global var library, not minified */ 
+const config_VarNoMinify = {
+    ...config_Basic,
+    output: {
+        filename: 'index.js',
+        ...lib
+    },
+    optimization: {
+        minimize: false
+    }
+}
+
+
+/** ESM, minified */ 
+const config_EsmMinify = {
+    ...config_Basic,
+    output: {
+        filename: 'index.module.min.js',
+        path: path.resolve(__dirname, 'browser'),
+        library: {
+            type: 'module'
+        }
+    },
+    optimization: {
+        minimize: true
+    },
+    experiments: {
+        outputModule: true
+    }
+};
+
+
+/** ESM, not minified */ 
+const config_EsmNoMinify = {
+    ...config_Basic,
+    output: {
+        filename: 'index.module.js',
+        path: path.resolve(__dirname, 'browser'),
+        library: {
+            type: 'module'
+        }
+    },
+    optimization: {
+        minimize: false
+    },
+    experiments: {
+        outputModule: true
+    }
+};
+
+
+module.exports = [
+    config_VarMinify,
+    config_VarNoMinify,
+    config_EsmMinify,
+    config_EsmNoMinify
+];

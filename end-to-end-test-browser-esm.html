@@ -6,12 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>End to end test</title>
-    <meta name="description" content="End to end test for the `global var browser build`">
+    <meta name="description" content="End to end test for the module browser build">
 
-    <!-- <script src="./browser/index.js"></script> -->
-    <script src="./browser/index.min.js"></script>
-    <script>
-        const { ddAddDd } = doubleDouble;
+    <script type="module">
+        // import { ddAddDd } from "./browser/index.module.js";
+        import { ddAddDd } from "./browser/index.module.min.js";
 
         const dd1 = [-4.357806199228875e-10, 11638607.274152497];  // some double-double
         const dd2 = [4.511949494578893e-11, -2797357.2918064594];  // another double-double

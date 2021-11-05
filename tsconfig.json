@@ -8,7 +8,7 @@
         "noEmitOnError": true,
         "sourceMap": true,
         "outDir": "node",
-        // "esModuleInterop": true
+        "moduleResolution": "node"  // node12 option was supposed to be available in TypeScript 4.5 but was dropped
     },
     "include": [
         "src/index.ts"
