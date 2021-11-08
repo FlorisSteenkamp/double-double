@@ -160,23 +160,6 @@ and follow the instructions given at [resolve-typescript-plugin](https://www.npm
 
 Additionally, follow this [guide](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c#how-can-i-make-my-typescript-project-output-esm).
 
-If you want your bundle to also export an ESM Module then to your `webpack.config.cjs`
-file add:
-```JavaScript
-module.exports = {
-    //...
-    experiments: {
-        outputModule: true  // if still necessary...
-    },
-    output: {
-        //...
-        library: {
-            type: 'module'
-        }
-    },
-    //...
-}
-```
 
 >**❗Important❗**
 >

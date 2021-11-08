@@ -2,8 +2,12 @@
 npm-debug.log
 papers
 node_modules
+coverage
 c.bat
 **\play
 assembly
 mandel
 notes.txt
+typedoc-md.json
+sidebars.js
+.nycrc

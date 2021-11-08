@@ -22,6 +22,7 @@
     "keywords": [
         "floating point",
         "infinite precision",
+        "double-double",
         "adaptive"
     ],
     "bugs": {
@@ -29,20 +30,15 @@
     },
     "dependencies": {},
     "devDependencies": {
-        "@assemblyscript/loader": "^0.19.17",
-        "@istanbuljs/nyc-config-typescript": "^1.0.1",
-        "@types/chai": "^4.2.22",
-        "@types/mocha": "^9.0.0",
         "@types/node": "^16.11.6",
-        "chai": "^4.3.4",
-        "circular-dependency-plugin": "^5.2.2",
-        "coverage-node": "^5.0.1",
+        "@types/mocha": "^9.0.0",
+        "@types/chai": "^4.2.22",
         "mocha": "^9.1.3",
-        "nyc": "^15.1.0",
+        "chai": "^4.3.4",
+        "c8": "^7.10.0",
+        "circular-dependency-plugin": "^5.2.2",
         "resolve-typescript-plugin": "^1.1.1",
         "rimraf": "^3.0.2",
-        "source-map-support": "^0.5.20",
-        "test-director": "^7.0.0",
         "ts-loader": "^9.2.6",
         "ts-node": "^10.4.0",
         "typescript": "^4.4.4",
@@ -53,8 +49,8 @@
         "build": "npm run build-browser && npm run build-node",
         "build-node": "rimraf node && tsc",
         "build-browser": "rimraf browser && webpack",
-        "test": "mocha --require source-map-support/register \"test/**/*.spec.js\" --recursive",
-        "coverage": "nyc npm test",
+        "test": "mocha",
+        "coverage": "c8 mocha",
         "test-e2e": "node end-to-end-test-node.js",
         "docs": "npx typedoc --options typedoc-ds.json"
     }

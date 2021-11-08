@@ -3,6 +3,11 @@ const CircularDependencyPlugin = require('circular-dependency-plugin');
 const ResolveTypeScriptPlugin = require("resolve-typescript-plugin").default;
 
 
+////////////////////////////////
+const library = 'doubleDouble';
+////////////////////////////////
+
+
 const config_Basic = {
     // mode: 'development',
     mode: 'production',
@@ -47,7 +52,7 @@ const config_Basic = {
 
 const lib = {
     path: path.resolve(__dirname, 'browser'),
-    library: 'doubleDouble',
+    library,
     libraryTarget: 'var'
 };
 
