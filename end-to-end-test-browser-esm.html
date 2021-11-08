@@ -2,15 +2,8 @@
 
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>End to end test</title>
-    <meta name="description" content="End to end test for the module browser build">
-
     <script type="module">
-        // import { ddAddDd } from "./browser/index.module.js";
-        import { ddAddDd } from "./browser/index.module.min.js";
+        import { ddAddDd } from "./node_modules/double-double/browser/index.module.min.js";
 
         const dd1 = [-4.357806199228875e-10, 11638607.274152497];  // some double-double
         const dd2 = [4.511949494578893e-11, -2797357.2918064594];  // another double-double
@@ -26,11 +19,6 @@
     </script>
 </head>
 
-<body>
-    Check the console.
-</body>
+<body>Check the console.</body>
 
 </html>
-
-
-

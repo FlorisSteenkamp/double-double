@@ -70,14 +70,8 @@ if (r1[0] === r2[0] && r1[1] === r2[1]) {
 
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>Double-double</title>
-    <meta name="description" content="Double-double example usage in the browser - using ECMAScript Modules - full example">
-
     <script type="module">
-        import { ddAddDd } from "./node_modules/double-double/node/index.js";
+        import { ddAddDd } from "./node_modules/double-double/browser/index.module.min.js";
 
         const dd1 = [-4.357806199228875e-10, 11638607.274152497];  // some double-double
         const dd2 = [4.511949494578893e-11, -2797357.2918064594];  // another double-double
@@ -93,9 +87,7 @@ if (r1[0] === r2[0] && r1[1] === r2[1]) {
     </script>
 </head>
 
-<body>
-    Check the console.
-</body>
+<body>Check the console.</body>
 
 </html>
 ```
@@ -107,13 +99,6 @@ if (r1[0] === r2[0] && r1[1] === r2[1]) {
 
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>Double-double</title>
-    <meta name="description" content="End to end test for the `global var browser build`">
-
-    <!-- <script src="./browser/index.js"></script> -->
     <script src="./browser/index.min.js"></script>
     <script>
         const { ddAddDd } = doubleDouble;
@@ -132,9 +117,7 @@ if (r1[0] === r2[0] && r1[1] === r2[1]) {
     </script>
 </head>
 
-<body>
-    Check the console.
-</body>
+<body>Check the console.</body>
 
 </html>
 ```
