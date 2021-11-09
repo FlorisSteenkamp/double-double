@@ -1,5 +1,8 @@
 # Pure double & double-double floating point arithmetic functions *with strict error bounds*
 
+>This library is only possible through the research of [Mioara Joldes, Jean-Michel Muller, Valentina 
+>Popescu, *Tight and rigourous error bounds for basic building blocks of double-word arithmetic*](https://hal.>archives-ouvertes.fr/hal-01351529v3/document)
+
 ## [Documentation](https://florissteenkamp.github.io/double-double/)
 
 ## Overview
@@ -8,7 +11,7 @@
 * Optimized for speed (see benchmark below)
 * Operators include: +, -, *, /, √, abs, <, >, ===, min, max, etc.
 * Operators mixing double and double-doubles are also included, e.g. `ddAddDouble` (for adding a double to a double-double)
-* Error free double precision operators also included, e.g. `twoProduct` (for calculating the *exact* result of multiplying to doubles)
+* Error free double precision operators also included, e.g. `twoProduct` (for calculating the *exact* result of multiplying two doubles)
 * No classes ⇒ a double-double is simply a length 2 `Number` array, e.g.
 ```typescript
 import { twoSum } from 'double-double';
@@ -42,6 +45,81 @@ and `index.min.js` in the `./browser` folder. Either script exposes a global
 variable called `doubleDouble`.
 
 See full examples below.
+
+## A Practical example (Node.js)
+Let's say you want to calculate the determinant of the following 2x2 matrix:\
+ ┌─   ─┐\
+ │ A B │\
+ │ C D │\
+ └─   ─┘
+
+In other words, let's say you want to calculate `(A*D - B*C)`.
+
+Let's further assume:
+```javascript
+const A = 11.13;               // A is double precision ieee754 floating point number
+const B = 8.664;               // ...
+const C = 3.6329224376731304;  // ...
+const D = 2.828;               // ...
+```
+
+In double precision the calculation is easy:
+```javascript
+const d = A*D - B*C  // => 0
+```
+
+but gives the completely wrong answer of `0` due to round-off combined with
+catastrophic cancellation.
+
+Using double-double precision gives:
+```javascript
+import { twoProduct, ddDiffDd } from 'double-double';
+
+// dd = A*D - B*C
+const dd = ddDiffDd(twoProduct(A,D), twoProduct(B,C)); // => [0, -9.743145041148111e-17]
+
+// The final answer can easily be rounded to the 'nearest' double:
+const d1 = dd[0] + dd[1];  // => -9.743145041148111e-17
+// or, alternatively truncated
+const d2 = dd[1];  // => -9.743145041148111e-17
+```
+
+So the final result (after rounding back to double precision) is `-9.743145041148111e-17`
+which is the *exact* result (i.e. no error) in this case.
+
+As another example, if we take:
+```javascript
+const A = 0.13331;
+const B = 8.668;
+const C = 3.609;
+const D = 2.885;
+```
+
+we get the result (again after rounding to double precision) to be:
+```javascript
+const d2 = -30.898212649999998;
+```
+
+Let us calculate an absolute error bound of the above? (This may or may not be
+important depending on the application.)
+
+The documentation of `ddDiffDd` states:
+* Relative error bound: `3u^2 + 13u^3`, i.e. `fl(a-b) = (a-b)(1+ϵ)`, where `ϵ <= 3u^2 + 13u^3`, `u = 0.5 * Number.EPSILON`
+
+For simplicity we incorporate the 3rd order term of `13u^3` in 
+the 2nd order term, i.e. `3u^2` becomes `4u^2` === `4.930380657631324e-32` < `5e-32`. 
+(Note that the `fl()` function above is not the usual one in double precision, but
+instead represents a double-double precision calculation. Also, `fl(a - b)` is
+often denoted by `a ⊖ b` as for example in [What Every Computer Scientist Should Know About Floating-Point Arithmetic](https://docs.oracle.com/cd/E19957-01/806-3568/ncg_goldberg.html).)
+
+The maximum absolute error bound is then `|a - b||ϵ| = |0.13331*2.885 - 8.668*3.609||5e-32| = 1.5449106325000001e-30`
+where `A, B, C` and `D` is as given previously. (The actual error is `4.930380657631324e-32`)
+
+In other words the calculation of `dd` above as a double-double represented as
+the length 2 array `[6.3219416368554e-16, -30.898212649999998]` with exact value
+`6.3219416368554e-16 + -30.898212649999998` is accurate up to roughly the 30th
+digit. (Typically the calculations will be more complex such as when the matrix is, say, `3x3`
+and the final result is often truncated to double precision.)
 
 ## Usage
 
@@ -180,7 +258,7 @@ blocks of double-word arithmetic*](https://hal.archives-ouvertes.fr/hal-01351529
 
 ![benchmark](assets/benchmark.png)
 
-## Similar libraries
+## Similar libraries in Javascript / TypeScript
 * [double.js](https://github.com/munrocket/double.js)
 
 ## License
