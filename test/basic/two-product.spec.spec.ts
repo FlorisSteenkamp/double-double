@@ -2,7 +2,7 @@
 import { expect } from 'chai';
 import { describe } from 'mocha';
 
-import { twoProduct } from '../../node/index.js';
+import { twoProduct } from '../../src/index.js';
 
 describe('multiply', function() {
 	it('should multiply two doubles without any error', 

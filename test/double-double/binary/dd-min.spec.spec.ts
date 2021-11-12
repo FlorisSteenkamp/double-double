@@ -2,7 +2,7 @@
 import { expect } from 'chai';
 import { describe } from 'mocha';
 
-import { ddMin } from '../../../node/index.js';
+import { ddMin } from '../../../src/index.js';
 
 
 describe('ddMin', function() {

@@ -2,7 +2,7 @@
 import { expect } from 'chai';
 import { describe } from 'mocha';
 
-import { ddCompare } from '../../../node/index.js';
+import { ddCompare } from '../../../src/index.js';
 
 
 describe('ddCompare', function() {

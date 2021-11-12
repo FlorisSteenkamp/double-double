@@ -2,7 +2,7 @@
 import { assert, expect } from 'chai';
 import { describe } from 'mocha';
 
-import { bitLength } from '../../node/index.js';
+import { bitLength } from '../../src/index.js';
 
 
 describe('bit length', function() {

@@ -2,7 +2,7 @@
 import { expect } from 'chai';
 import { describe } from 'mocha';
 
-import { ddDivDd } from '../../../node/index.js';
+import { ddDivDd } from '../../../src/index.js';
 
 
 describe('ddDivDd', function() {

@@ -2,7 +2,7 @@
 import { expect } from 'chai';
 import { describe } from 'mocha';
 
-import { doubleSqrt } from '../../node/index.js';
+import { doubleSqrt } from '../../src/index.js';
 
 
 describe('ddSqrt', function() {

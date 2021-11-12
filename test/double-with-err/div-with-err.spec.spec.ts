@@ -2,7 +2,7 @@
 import { expect } from 'chai';
 import { describe } from 'mocha';
 
-import { divWithErr } from '../../node/index.js';
+import { divWithErr } from '../../src/index.js';
 
 
 describe('divWithErr', function() {

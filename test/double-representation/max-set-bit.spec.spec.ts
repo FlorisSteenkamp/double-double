@@ -2,7 +2,7 @@
 import { assert, expect } from 'chai';
 import { describe } from 'mocha';
 
-import { getHighestSetBit, getLowestSetBit } from '../../node/index.js';
+import { getHighestSetBit, getLowestSetBit } from '../../src/index.js';
 
 
 describe('max set bits', function() {

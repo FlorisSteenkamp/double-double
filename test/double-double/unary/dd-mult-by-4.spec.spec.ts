@@ -2,7 +2,7 @@
 import { expect } from 'chai';
 import { describe } from 'mocha';
 
-import { ddMultBy4 } from '../../../node/index.js';
+import { ddMultBy4 } from '../../../src/index.js';
 
 
 describe('ddMultBy4', function() {

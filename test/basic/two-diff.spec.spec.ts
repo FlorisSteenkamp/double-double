@@ -2,7 +2,7 @@
 import { expect } from 'chai';
 import { describe } from 'mocha';
 
-import { twoDiff } from '../../node/index.js';
+import { twoDiff } from '../../src/index.js';
 
 
 describe('twoDiff', function() {

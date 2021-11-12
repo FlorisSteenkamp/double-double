@@ -2,7 +2,7 @@
 import { expect } from 'chai';
 import { describe } from 'mocha';
 
-import { split } from '../../node/index.js';
+import { split } from '../../src/index.js';
 
 
 describe('split', function() {

@@ -2,7 +2,7 @@
 import { expect } from 'chai';
 import { describe } from 'mocha';
 
-import { doubleDivDouble } from '../../node/index.js';
+import { doubleDivDouble } from '../../src/index.js';
 
 describe('divide', function() {
 	it('should divide two doubles with the result accurately given as a double-double', 

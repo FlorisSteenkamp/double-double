@@ -1,5 +1,5 @@
 
-import { parseDouble, parseDoubleDetailed } from '../../node/index.js';
+import { parseDouble, parseDoubleDetailed } from '../../src/index.js';
 import { expect } from 'chai';
 import { describe } from 'mocha';
 

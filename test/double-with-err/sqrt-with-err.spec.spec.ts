@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 import { describe } from 'mocha';
 
-import { sqrtWithErr } from '../../node/index.js';
+import { sqrtWithErr } from '../../src/index.js';
 
 
 describe('sqrtWithErr', function() {

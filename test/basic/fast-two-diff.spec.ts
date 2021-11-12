@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { twoSum, fastTwoDiff } from '../../node/index.js';
+import { twoSum, fastTwoDiff } from '../../src/index.js';
 
 
 describe('fastTwoDiff', function() {

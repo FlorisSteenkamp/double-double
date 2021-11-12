@@ -2,7 +2,7 @@
 import { expect } from 'chai';
 import { describe } from 'mocha';
 
-import { twoSum } from '../../node/index.js';
+import { twoSum } from '../../src/index.js';
 
 
 describe('twoSum', function() {

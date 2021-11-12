@@ -2,7 +2,7 @@
 import { expect } from 'chai';
 import { describe } from 'mocha';
 
-import { ddNegativeOf } from '../../../node/index.js';
+import { ddNegativeOf } from '../../../src/index.js';
 
 
 describe('ddNegativeOf', function() {

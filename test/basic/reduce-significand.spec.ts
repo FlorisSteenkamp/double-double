@@ -2,7 +2,7 @@
 import { expect } from 'chai';
 import { describe } from 'mocha';
 
-import { reduceSignificand } from '../../node/index.js';
+import { reduceSignificand } from '../../src/index.js';
 
 
 describe('reduce significand', function() {

@@ -2,7 +2,7 @@
 import { expect } from 'chai';
 import { describe } from 'mocha';
 
-import { ddMultDouble1, ddMultDouble2 } from '../../node/index.js';
+import { ddMultDouble1, ddMultDouble2 } from '../../src/index.js';
 
 
 describe('ddMultDouble', function() {

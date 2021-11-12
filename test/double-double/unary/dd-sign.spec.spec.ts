@@ -2,7 +2,7 @@
 import { expect } from 'chai';
 import { describe } from 'mocha';
 
-import { ddSign } from '../../../node/index.js';
+import { ddSign } from '../../../src/index.js';
 
 
 describe('ddSign', function() {

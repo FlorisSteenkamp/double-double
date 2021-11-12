@@ -2,7 +2,7 @@
 import { assert } from 'chai';
 import { describe } from 'mocha';
 
-import { isBitAligned } from '../../node/index.js';
+import { isBitAligned } from '../../src/index.js';
 
 
 describe('grid aligned', function() {
