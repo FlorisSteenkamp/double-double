@@ -177,7 +177,7 @@ if (r1[0] === r2[0] && r1[1] === r2[1]) {
 
 <html lang="en">
 <head>
-    <script src="./browser/index.min.js"></script>
+    <script src="./node_modules/double-double/browser/index.min.js"></script>
     <script>
         const { ddAddDd } = doubleDouble;
 
