@@ -2,7 +2,6 @@
 npm-debug.log
 papers
 node_modules/
-coverage
 c.bat
 **\play
 assembly
@@ -12,3 +11,4 @@ typedoc-md.json
 sidebars.js
 .nycrc
 *.tgz
+coverage/
