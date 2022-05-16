@@ -3,7 +3,7 @@
  * Truncates a floating point value's significand and returns the result. 
  * Similar to split, but with the ability to specify the number of bits to keep.
  * 
- * Theorem 17 (Veltkamp-Dekker): Let a be a p-bit floating-point number, where
+ * **Theorem 17 (Veltkamp-Dekker)**: Let a be a p-bit floating-point number, where
  * p >= 3. Choose a splitting point s such that p/2 <= s <= p-1. Then the 
  * following algorithm will produce a (p-s)-bit value a_hi and a 
  * nonoverlapping (s-1)-bit value a_lo such that abs(a_hi) >= abs(a_lo) and

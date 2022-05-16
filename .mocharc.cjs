@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-    extension: ['js', 'jsx', 'ts', 'tsx'],
+    extension: ['ts', 'tsx'],
     spec: ['test/**/*.spec.ts'],
     recursive: true,
     loader: ['ts-node/esm'],
