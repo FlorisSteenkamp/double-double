@@ -12,7 +12,7 @@ function msbExponent(a: number): number {
         return NaN;
     }
 
-    let e = exponent(a);
+    const e = exponent(a);
 
     // Will return e for all but subnormal numbers
     return getHighestSetBit(a) - 52 + e;

@@ -12,7 +12,7 @@ function lsbExponent(a: number) {
         return NaN; 
     }
 
-    let e = exponent(a);
+    const e = exponent(a);
 
     return getLowestSetBit(a) - 52 + e;
 }

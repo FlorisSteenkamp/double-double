@@ -36,13 +36,13 @@ function isBitAligned(
 
     if (a === 0) { return true; }
 
-    let e = exponent(a);
+    const e = exponent(a);
 
-    let maxSetBit = getHighestSetBit(a) - 52 + e;
-    let minSetBit = getLowestSetBit (a) - 52 + e;
+    const maxSetBit = getHighestSetBit(a) - 52 + e;
+    const minSetBit = getLowestSetBit (a) - 52 + e;
 
-    let minBitBigEnough = minSetBit >= gridSpacingExponent;
-    let maxBitSmallEnough = maxSetBit <= maxBitLength-1 + gridSpacingExponent;
+    const minBitBigEnough = minSetBit >= gridSpacingExponent;
+    const maxBitSmallEnough = maxSetBit <= maxBitLength-1 + gridSpacingExponent;
 
     return minBitBigEnough && maxBitSmallEnough;
 }

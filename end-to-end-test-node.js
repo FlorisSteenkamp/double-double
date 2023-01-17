@@ -1,3 +1,4 @@
+ /* eslint-disable */
 import { ddAddDd } from './node/double-double/binary/dd-add-dd.js';
 
 const dd1 = [-4.357806199228875e-10, 11638607.274152497];

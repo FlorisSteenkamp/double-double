@@ -141,7 +141,9 @@ if (r1[0] === r2[0] && r1[1] === r2[1]) {
 }
 ```
 
-### Browsers - ESM - (Chrome 61+, Safari 11+, Firefox 60+, Opera 48+, Edge 16+, ~~Internet Explorer~~)
+### Browsers - directly, without a bundler, using the pre-bundled minified .js file
+
+Please note that no tree shaking will take place in this case.
 
 ```html
 <!doctype html>
@@ -149,37 +151,7 @@ if (r1[0] === r2[0] && r1[1] === r2[1]) {
 <html lang="en">
 <head>
     <script type="module">
-        import { ddAddDd } from "./node_modules/double-double/browser/index.module.min.js";
-
-        const dd1 = [-4.357806199228875e-10, 11638607.274152497];  // some double-double
-        const dd2 = [4.511949494578893e-11, -2797357.2918064594];  // another double-double
-
-        const r1 = ddAddDd(dd1,dd2);  // sum the two double-doubles
-        const r2 = [-3.906611249770986e-10, 8841249.982346037];  // the correct result
-
-        if (r1[0] === r2[0] && r1[1] === r2[1]) {
-            console.log('success! 😁');  // we should get to here!
-        } else {
-            console.log('failure! 😥');  // ...and not here
-        }
-    </script>
-</head>
-
-<body>Check the console.</body>
-
-</html>
-```
-
-### Browsers (older) - Legacy Scripts
-
-```html
-<!doctype html>
-
-<html lang="en">
-<head>
-    <script src="./node_modules/double-double/browser/index.min.js"></script>
-    <script>
-        const { ddAddDd } = doubleDouble;
+        import { ddAddDd } from "./node_modules/double-double/browser/index.min.js";
 
         const dd1 = [-4.357806199228875e-10, 11638607.274152497];  // some double-double
         const dd2 = [4.511949494578893e-11, -2797357.2918064594];  // another double-double
@@ -201,6 +173,8 @@ if (r1[0] === r2[0] && r1[1] === r2[1]) {
 ```
 
 ### Bundlers (Webpack, Rollup, ...)
+
+Tree shaking will take place if supported by your bundler.
 
 Webpack will be taken as an example here.
 

@@ -11,7 +11,7 @@
  * @internal
  */
 function doubleToOctets(number: number) {
-    var buffer = new ArrayBuffer(8);
+    const buffer = new ArrayBuffer(8);
     new DataView(buffer).setFloat64(0, number, false);
     return Array.from(new Uint8Array(buffer));
 }

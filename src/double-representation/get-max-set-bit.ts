@@ -27,12 +27,12 @@ function getLowestSetBit(a: number) {
     }
 
     // Note: the significand includes the hidden bit!
-    let s = significand(a);
+    const s = significand(a);
 
-    let len = s.length;
+    const len = s.length;
     for (let i=len-1; i>=0; i--) {
         if (s[i] === 0) { continue; }
-        let l = getLowestSetBit_(s[i]);
+        const l = getLowestSetBit_(s[i]);
         if (Number.isFinite(l)) {
             return (8*(len-i-1)) + l;
         }
@@ -75,12 +75,12 @@ function getHighestSetBit(a: number): number {
     // At this point there must be a highest set bit (always === 52 if the 
     // number is not a subnormal.
 
-    let s = significand(a);
+    const s = significand(a);
 
-    let len = s.length;
+    const len = s.length;
     for (let i=0; i<len; i++) {
         
-        let l = getHighestSetBit_(s[i]);
+        const l = getHighestSetBit_(s[i]);
         if (Number.isFinite(l)) {
             return (8*(len-i-1)) + l;
         }

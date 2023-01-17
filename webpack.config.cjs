@@ -1,11 +1,6 @@
 const path = require('path');
 const CircularDependencyPlugin = require('circular-dependency-plugin');
-const ResolveTypeScriptPlugin = require("resolve-typescript-plugin").default;
-
-
-////////////////////////////////
-const library = 'doubleDouble';
-////////////////////////////////
+const ResolveTypeScriptPlugin = require("resolve-typescript-plugin");
 
 
 const config_Basic = {
@@ -50,55 +45,14 @@ const config_Basic = {
 }
 
 
-const lib = {
-    path: path.resolve(__dirname, 'browser'),
-    library,
-    libraryTarget: 'var'
-};
-
-
-/** Global var library, minified */ 
-const config_VarMinify = {
-    ...config_Basic,
-    output: {
-        filename: 'index.min.js',
-        ...lib
-    },
-    optimization: {
-        minimize: true
-    }
-};
-
-
-/** Global var library, not minified */ 
-const config_VarNoMinify = {
-    ...config_Basic,
-    output: {
-        filename: 'index.js',
-        ...lib
-    },
-    optimization: {
-        minimize: false
-    }
-}
-
-
 /** ESM, minified */ 
 const config_EsmMinify = {
     ...config_Basic,
     output: {
-        filename: 'index.module.min.js',
-        path: path.resolve(__dirname, 'browser'),
-        library: {
-            type: 'module'
-        }
+        ...config_Basic.output,
+        filename: 'index.min.js',
     },
-    optimization: {
-        minimize: true
-    },
-    experiments: {
-        outputModule: true
-    }
+    optimization: { minimize: true }
 };
 
 
@@ -106,24 +60,14 @@ const config_EsmMinify = {
 const config_EsmNoMinify = {
     ...config_Basic,
     output: {
-        filename: 'index.module.js',
-        path: path.resolve(__dirname, 'browser'),
-        library: {
-            type: 'module'
-        }
+        ...config_Basic.output,
+        filename: 'index.js',
     },
-    optimization: {
-        minimize: false
-    },
-    experiments: {
-        outputModule: true
-    }
+    optimization: { minimize: false },
 };
 
 
 module.exports = [
-    config_VarMinify,
-    config_VarNoMinify,
     config_EsmMinify,
     config_EsmNoMinify
 ];
