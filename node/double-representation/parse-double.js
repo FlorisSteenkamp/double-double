@@ -10,19 +10,19 @@ import { doubleToOctets } from "./double-to-octets.js";
  * See https://github.com/bartaz/ieee754-visualization
  */
 function parseDouble(x) {
-    let parts = doubleToOctets(x);
-    let p0 = parts[0];
-    let p1 = parts[1];
-    let sign = p0 >> 7;
-    let exponent_ = ((p0 & 127) << 4) + ((p1 & 0b11110000) >> 4);
+    const parts = doubleToOctets(x);
+    const p0 = parts[0];
+    const p1 = parts[1];
+    const sign = p0 >> 7;
+    const exponent_ = ((p0 & 127) << 4) + ((p1 & 0b11110000) >> 4);
     //---- Check for negative / positive zero / denormalized numbers.
-    let hiddenMsb = exponent_ === 0 ? 0 : 16;
+    const hiddenMsb = exponent_ === 0 ? 0 : 16;
     // Note: exponent === 0 => 0 or denormalized number (a.k.a. subnormal number).
-    let exponent = exponent_ === 0
+    const exponent = exponent_ === 0
         ? exponent_ - 1022 // Subnormals use a biased exponent of 1 (not 0!)
         : exponent_ - 1023;
     //---- Break up the significand into bytes
-    let significand = parts.slice(1);
+    const significand = parts.slice(1);
     significand[0] = (p1 & 15) + hiddenMsb;
     return {
         sign,
@@ -37,11 +37,11 @@ function parseDouble(x) {
  * representations of the components.
  */
 function parseDoubleDetailed(x) {
-    let str = doubleToBinaryString(x);
+    const str = doubleToBinaryString(x);
     // sign{1} exponent{11} fraction{52} === 64 bits (+1 hidden!)
-    let [, sign, exponent, significand] = str.match(/^(.)(.{11})(.{52})$/);
-    let exponent_ = parseInt(exponent, 2);
-    let hidden = exponent_ === 0 ? "0" : "1";
+    const [, sign, exponent, significand] = str.match(/^(.)(.{11})(.{52})$/);
+    const exponent_ = parseInt(exponent, 2);
+    const hidden = exponent_ === 0 ? "0" : "1";
     return {
         full: sign + exponent + hidden + significand,
         sign,

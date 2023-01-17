@@ -41,7 +41,12 @@ const config_Basic = {
             // set the current working directory for displaying module paths
             cwd: process.cwd(),
         })
-    ]
+    ],
+    output: {
+        path: path.resolve(__dirname, 'browser'),
+        library: { type: 'module' }
+    },
+    experiments: { outputModule: true }
 }
 
 

@@ -1,92 +1,76 @@
-var doubleDouble;
-/******/ (() => { // webpackBootstrap
-/******/ 	"use strict";
-/******/ 	// The require scope
-/******/ 	var __webpack_require__ = {};
-/******/ 	
+/******/ // The require scope
+/******/ var __webpack_require__ = {};
+/******/ 
 /************************************************************************/
-/******/ 	/* webpack/runtime/define property getters */
-/******/ 	(() => {
-/******/ 		// define getter functions for harmony exports
-/******/ 		__webpack_require__.d = (exports, definition) => {
-/******/ 			for(var key in definition) {
-/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
-/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
-/******/ 				}
+/******/ /* webpack/runtime/define property getters */
+/******/ (() => {
+/******/ 	// define getter functions for harmony exports
+/******/ 	__webpack_require__.d = (exports, definition) => {
+/******/ 		for(var key in definition) {
+/******/ 			if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 				Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
 /******/ 			}
-/******/ 		};
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
-/******/ 	(() => {
-/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/make namespace object */
-/******/ 	(() => {
-/******/ 		// define __esModule on exports
-/******/ 		__webpack_require__.r = (exports) => {
-/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
-/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
-/******/ 			}
-/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
-/******/ 		};
-/******/ 	})();
-/******/ 	
+/******/ 		}
+/******/ 	};
+/******/ })();
+/******/ 
+/******/ /* webpack/runtime/hasOwnProperty shorthand */
+/******/ (() => {
+/******/ 	__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ })();
+/******/ 
 /************************************************************************/
 var __webpack_exports__ = {};
-// ESM COMPAT FLAG
-__webpack_require__.r(__webpack_exports__);
 
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, {
-  "bitLength": () => (/* binding */ src_bitLength),
-  "ddAbs": () => (/* binding */ src_ddAbs),
-  "ddAddDd": () => (/* binding */ src_ddAddDd),
-  "ddAddDouble": () => (/* binding */ src_ddAddDouble),
-  "ddCompare": () => (/* binding */ src_ddCompare),
-  "ddDiffDd": () => (/* binding */ src_ddDiffDd),
-  "ddDivBy2": () => (/* binding */ src_ddDivBy2),
-  "ddDivDd": () => (/* binding */ src_ddDivDd),
-  "ddDivDdWithError": () => (/* binding */ src_ddDivDdWithError),
-  "ddDivDouble": () => (/* binding */ src_ddDivDouble),
-  "ddMax": () => (/* binding */ src_ddMax),
-  "ddMin": () => (/* binding */ src_ddMin),
-  "ddMultBy2": () => (/* binding */ src_ddMultBy2),
-  "ddMultBy4": () => (/* binding */ src_ddMultBy4),
-  "ddMultByNeg2": () => (/* binding */ src_ddMultByNeg2),
-  "ddMultByNeg4": () => (/* binding */ src_ddMultByNeg4),
-  "ddMultDd": () => (/* binding */ src_ddMultDd),
-  "ddMultDouble1": () => (/* binding */ src_ddMultDouble1),
-  "ddMultDouble2": () => (/* binding */ src_ddMultDouble2),
-  "ddNegativeOf": () => (/* binding */ src_ddNegativeOf),
-  "ddProduct": () => (/* binding */ src_ddProduct),
-  "ddSign": () => (/* binding */ src_ddSign),
-  "ddSqrt": () => (/* binding */ src_ddSqrt),
-  "ddSum": () => (/* binding */ src_ddSum),
-  "divWithErr": () => (/* binding */ src_divWithErr),
-  "doubleDivDouble": () => (/* binding */ src_doubleDivDouble),
-  "doubleSqrt": () => (/* binding */ src_doubleSqrt),
-  "doubleToBinaryString": () => (/* binding */ src_doubleToBinaryString),
-  "doubleToOctets": () => (/* binding */ src_doubleToOctets),
-  "exponent": () => (/* binding */ src_exponent),
-  "fastTwoDiff": () => (/* binding */ src_fastTwoDiff),
-  "fastTwoSum": () => (/* binding */ src_fastTwoSum),
-  "getHighestSetBit": () => (/* binding */ src_getHighestSetBit),
-  "getLowestSetBit": () => (/* binding */ src_getLowestSetBit),
-  "isBitAligned": () => (/* binding */ src_isBitAligned),
-  "lsbExponent": () => (/* binding */ src_lsbExponent),
-  "msbExponent": () => (/* binding */ src_msbExponent),
-  "operators": () => (/* binding */ operators),
-  "parseDouble": () => (/* binding */ src_parseDouble),
-  "parseDoubleDetailed": () => (/* binding */ src_parseDoubleDetailed),
-  "reduceSignificand": () => (/* binding */ src_reduceSignificand),
-  "significand": () => (/* binding */ src_significand),
-  "split": () => (/* binding */ src_split),
-  "sqrtWithErr": () => (/* binding */ src_sqrtWithErr),
-  "twoDiff": () => (/* binding */ src_twoDiff),
-  "twoProduct": () => (/* binding */ src_twoProduct),
-  "twoSum": () => (/* binding */ src_twoSum)
+  "ZS": () => (/* binding */ src_bitLength),
+  "V9": () => (/* binding */ src_ddAbs),
+  "aX": () => (/* binding */ src_ddAddDd),
+  "mi": () => (/* binding */ src_ddAddDouble),
+  "Nx": () => (/* binding */ src_ddCompare),
+  "Pz": () => (/* binding */ src_ddDiffDd),
+  "ZX": () => (/* binding */ src_ddDivBy2),
+  "TN": () => (/* binding */ src_ddDivDd),
+  "YH": () => (/* binding */ src_ddDivDdWithError),
+  "El": () => (/* binding */ src_ddDivDouble),
+  "HY": () => (/* binding */ src_ddMax),
+  "aS": () => (/* binding */ src_ddMin),
+  "c8": () => (/* binding */ src_ddMultBy2),
+  "WB": () => (/* binding */ src_ddMultBy4),
+  "Su": () => (/* binding */ src_ddMultByNeg2),
+  "F5": () => (/* binding */ src_ddMultByNeg4),
+  "tO": () => (/* binding */ src_ddMultDd),
+  "RJ": () => (/* binding */ src_ddMultDouble1),
+  "MU": () => (/* binding */ src_ddMultDouble2),
+  "Xo": () => (/* binding */ src_ddNegativeOf),
+  "WH": () => (/* binding */ src_ddProduct),
+  "Sv": () => (/* binding */ src_ddSign),
+  "$r": () => (/* binding */ src_ddSqrt),
+  "_j": () => (/* binding */ src_ddSum),
+  "T0": () => (/* binding */ src_divWithErr),
+  "By": () => (/* binding */ src_doubleDivDouble),
+  "cC": () => (/* binding */ src_doubleSqrt),
+  "pr": () => (/* binding */ src_doubleToBinaryString),
+  "xm": () => (/* binding */ src_doubleToOctets),
+  "ts": () => (/* binding */ src_exponent),
+  "Fz": () => (/* binding */ src_fastTwoDiff),
+  "vz": () => (/* binding */ src_fastTwoSum),
+  "kx": () => (/* binding */ src_getHighestSetBit),
+  "hK": () => (/* binding */ src_getLowestSetBit),
+  "m5": () => (/* binding */ src_isBitAligned),
+  "pt": () => (/* binding */ src_lsbExponent),
+  "Jw": () => (/* binding */ src_msbExponent),
+  "Gn": () => (/* binding */ operators),
+  "Ds": () => (/* binding */ src_parseDouble),
+  "JO": () => (/* binding */ src_parseDoubleDetailed),
+  "S4": () => (/* binding */ src_reduceSignificand),
+  "aK": () => (/* binding */ src_significand),
+  "Vl": () => (/* binding */ src_split),
+  "iN": () => (/* binding */ src_sqrtWithErr),
+  "BH": () => (/* binding */ src_twoDiff),
+  "Q6": () => (/* binding */ src_twoProduct),
+  "d9": () => (/* binding */ src_twoSum)
 });
 
 ;// CONCATENATED MODULE: ./src/double-double/binary/dd-diff-dd.ts
@@ -889,7 +873,7 @@ function reduceSignificand(a, bits) {
  * @internal
  */
 function doubleToOctets(number) {
-    var buffer = new ArrayBuffer(8);
+    const buffer = new ArrayBuffer(8);
     new DataView(buffer).setFloat64(0, number, false);
     return Array.from(new Uint8Array(buffer));
 }
@@ -938,19 +922,19 @@ function int8ToBinaryString(i) {
  * See https://github.com/bartaz/ieee754-visualization
  */
 function parseDouble(x) {
-    let parts = doubleToOctets(x);
-    let p0 = parts[0];
-    let p1 = parts[1];
-    let sign = p0 >> 7;
-    let exponent_ = ((p0 & 127) << 4) + ((p1 & 0b11110000) >> 4);
+    const parts = doubleToOctets(x);
+    const p0 = parts[0];
+    const p1 = parts[1];
+    const sign = p0 >> 7;
+    const exponent_ = ((p0 & 127) << 4) + ((p1 & 0b11110000) >> 4);
     //---- Check for negative / positive zero / denormalized numbers.
-    let hiddenMsb = exponent_ === 0 ? 0 : 16;
+    const hiddenMsb = exponent_ === 0 ? 0 : 16;
     // Note: exponent === 0 => 0 or denormalized number (a.k.a. subnormal number).
-    let exponent = exponent_ === 0
+    const exponent = exponent_ === 0
         ? exponent_ - 1022 // Subnormals use a biased exponent of 1 (not 0!)
         : exponent_ - 1023;
     //---- Break up the significand into bytes
-    let significand = parts.slice(1);
+    const significand = parts.slice(1);
     significand[0] = (p1 & 15) + hiddenMsb;
     return {
         sign,
@@ -965,11 +949,11 @@ function parseDouble(x) {
  * representations of the components.
  */
 function parseDoubleDetailed(x) {
-    let str = doubleToBinaryString(x);
+    const str = doubleToBinaryString(x);
     // sign{1} exponent{11} fraction{52} === 64 bits (+1 hidden!)
-    let [, sign, exponent, significand] = str.match(/^(.)(.{11})(.{52})$/);
-    let exponent_ = parseInt(exponent, 2);
-    let hidden = exponent_ === 0 ? "0" : "1";
+    const [, sign, exponent, significand] = str.match(/^(.)(.{11})(.{52})$/);
+    const exponent_ = parseInt(exponent, 2);
+    const hidden = exponent_ === 0 ? "0" : "1";
     return {
         full: sign + exponent + hidden + significand,
         sign,
@@ -1018,13 +1002,13 @@ function getLowestSetBit(a) {
         return NaN;
     }
     // Note: the significand includes the hidden bit!
-    let s = significand(a);
-    let len = s.length;
+    const s = significand(a);
+    const len = s.length;
     for (let i = len - 1; i >= 0; i--) {
         if (s[i] === 0) {
             continue;
         }
-        let l = getLowestSetBit_(s[i]);
+        const l = getLowestSetBit_(s[i]);
         if (Number.isFinite(l)) {
             return (8 * (len - i - 1)) + l;
         }
@@ -1060,10 +1044,10 @@ function getHighestSetBit(a) {
     }
     // At this point there must be a highest set bit (always === 52 if the 
     // number is not a subnormal.
-    let s = significand(a);
-    let len = s.length;
+    const s = significand(a);
+    const len = s.length;
     for (let i = 0; i < len; i++) {
-        let l = getHighestSetBit_(s[i]);
+        const l = getHighestSetBit_(s[i]);
         if (Number.isFinite(l)) {
             return (8 * (len - i - 1)) + l;
         }
@@ -1117,11 +1101,11 @@ function isBitAligned(a, maxBitLength, gridSpacingExponent) {
     if (a === 0) {
         return true;
     }
-    let e = exponent(a);
-    let maxSetBit = getHighestSetBit(a) - 52 + e;
-    let minSetBit = getLowestSetBit(a) - 52 + e;
-    let minBitBigEnough = minSetBit >= gridSpacingExponent;
-    let maxBitSmallEnough = maxSetBit <= maxBitLength - 1 + gridSpacingExponent;
+    const e = exponent(a);
+    const maxSetBit = getHighestSetBit(a) - 52 + e;
+    const minSetBit = getLowestSetBit(a) - 52 + e;
+    const minBitBigEnough = minSetBit >= gridSpacingExponent;
+    const maxBitSmallEnough = maxSetBit <= maxBitLength - 1 + gridSpacingExponent;
     return minBitBigEnough && maxBitSmallEnough;
 }
 
@@ -1138,7 +1122,7 @@ function msbExponent(a) {
     if (a === 0 || !Number.isFinite(a)) {
         return NaN;
     }
-    let e = exponent(a);
+    const e = exponent(a);
     // Will return e for all but subnormal numbers
     return getHighestSetBit(a) - 52 + e;
 }
@@ -1156,7 +1140,7 @@ function lsbExponent(a) {
     if (a === 0 || !Number.isFinite(a)) {
         return NaN;
     }
-    let e = exponent(a);
+    const e = exponent(a);
     return getLowestSetBit(a) - 52 + e;
 }
 
@@ -1396,6 +1380,51 @@ const operators = {
 
 
 
-doubleDouble = __webpack_exports__;
-/******/ })()
-;
+var __webpack_exports__bitLength = __webpack_exports__.ZS;
+var __webpack_exports__ddAbs = __webpack_exports__.V9;
+var __webpack_exports__ddAddDd = __webpack_exports__.aX;
+var __webpack_exports__ddAddDouble = __webpack_exports__.mi;
+var __webpack_exports__ddCompare = __webpack_exports__.Nx;
+var __webpack_exports__ddDiffDd = __webpack_exports__.Pz;
+var __webpack_exports__ddDivBy2 = __webpack_exports__.ZX;
+var __webpack_exports__ddDivDd = __webpack_exports__.TN;
+var __webpack_exports__ddDivDdWithError = __webpack_exports__.YH;
+var __webpack_exports__ddDivDouble = __webpack_exports__.El;
+var __webpack_exports__ddMax = __webpack_exports__.HY;
+var __webpack_exports__ddMin = __webpack_exports__.aS;
+var __webpack_exports__ddMultBy2 = __webpack_exports__.c8;
+var __webpack_exports__ddMultBy4 = __webpack_exports__.WB;
+var __webpack_exports__ddMultByNeg2 = __webpack_exports__.Su;
+var __webpack_exports__ddMultByNeg4 = __webpack_exports__.F5;
+var __webpack_exports__ddMultDd = __webpack_exports__.tO;
+var __webpack_exports__ddMultDouble1 = __webpack_exports__.RJ;
+var __webpack_exports__ddMultDouble2 = __webpack_exports__.MU;
+var __webpack_exports__ddNegativeOf = __webpack_exports__.Xo;
+var __webpack_exports__ddProduct = __webpack_exports__.WH;
+var __webpack_exports__ddSign = __webpack_exports__.Sv;
+var __webpack_exports__ddSqrt = __webpack_exports__.$r;
+var __webpack_exports__ddSum = __webpack_exports__._j;
+var __webpack_exports__divWithErr = __webpack_exports__.T0;
+var __webpack_exports__doubleDivDouble = __webpack_exports__.By;
+var __webpack_exports__doubleSqrt = __webpack_exports__.cC;
+var __webpack_exports__doubleToBinaryString = __webpack_exports__.pr;
+var __webpack_exports__doubleToOctets = __webpack_exports__.xm;
+var __webpack_exports__exponent = __webpack_exports__.ts;
+var __webpack_exports__fastTwoDiff = __webpack_exports__.Fz;
+var __webpack_exports__fastTwoSum = __webpack_exports__.vz;
+var __webpack_exports__getHighestSetBit = __webpack_exports__.kx;
+var __webpack_exports__getLowestSetBit = __webpack_exports__.hK;
+var __webpack_exports__isBitAligned = __webpack_exports__.m5;
+var __webpack_exports__lsbExponent = __webpack_exports__.pt;
+var __webpack_exports__msbExponent = __webpack_exports__.Jw;
+var __webpack_exports__operators = __webpack_exports__.Gn;
+var __webpack_exports__parseDouble = __webpack_exports__.Ds;
+var __webpack_exports__parseDoubleDetailed = __webpack_exports__.JO;
+var __webpack_exports__reduceSignificand = __webpack_exports__.S4;
+var __webpack_exports__significand = __webpack_exports__.aK;
+var __webpack_exports__split = __webpack_exports__.Vl;
+var __webpack_exports__sqrtWithErr = __webpack_exports__.iN;
+var __webpack_exports__twoDiff = __webpack_exports__.BH;
+var __webpack_exports__twoProduct = __webpack_exports__.Q6;
+var __webpack_exports__twoSum = __webpack_exports__.d9;
+export { __webpack_exports__bitLength as bitLength, __webpack_exports__ddAbs as ddAbs, __webpack_exports__ddAddDd as ddAddDd, __webpack_exports__ddAddDouble as ddAddDouble, __webpack_exports__ddCompare as ddCompare, __webpack_exports__ddDiffDd as ddDiffDd, __webpack_exports__ddDivBy2 as ddDivBy2, __webpack_exports__ddDivDd as ddDivDd, __webpack_exports__ddDivDdWithError as ddDivDdWithError, __webpack_exports__ddDivDouble as ddDivDouble, __webpack_exports__ddMax as ddMax, __webpack_exports__ddMin as ddMin, __webpack_exports__ddMultBy2 as ddMultBy2, __webpack_exports__ddMultBy4 as ddMultBy4, __webpack_exports__ddMultByNeg2 as ddMultByNeg2, __webpack_exports__ddMultByNeg4 as ddMultByNeg4, __webpack_exports__ddMultDd as ddMultDd, __webpack_exports__ddMultDouble1 as ddMultDouble1, __webpack_exports__ddMultDouble2 as ddMultDouble2, __webpack_exports__ddNegativeOf as ddNegativeOf, __webpack_exports__ddProduct as ddProduct, __webpack_exports__ddSign as ddSign, __webpack_exports__ddSqrt as ddSqrt, __webpack_exports__ddSum as ddSum, __webpack_exports__divWithErr as divWithErr, __webpack_exports__doubleDivDouble as doubleDivDouble, __webpack_exports__doubleSqrt as doubleSqrt, __webpack_exports__doubleToBinaryString as doubleToBinaryString, __webpack_exports__doubleToOctets as doubleToOctets, __webpack_exports__exponent as exponent, __webpack_exports__fastTwoDiff as fastTwoDiff, __webpack_exports__fastTwoSum as fastTwoSum, __webpack_exports__getHighestSetBit as getHighestSetBit, __webpack_exports__getLowestSetBit as getLowestSetBit, __webpack_exports__isBitAligned as isBitAligned, __webpack_exports__lsbExponent as lsbExponent, __webpack_exports__msbExponent as msbExponent, __webpack_exports__operators as operators, __webpack_exports__parseDouble as parseDouble, __webpack_exports__parseDoubleDetailed as parseDoubleDetailed, __webpack_exports__reduceSignificand as reduceSignificand, __webpack_exports__significand as significand, __webpack_exports__split as split, __webpack_exports__sqrtWithErr as sqrtWithErr, __webpack_exports__twoDiff as twoDiff, __webpack_exports__twoProduct as twoProduct, __webpack_exports__twoSum as twoSum };

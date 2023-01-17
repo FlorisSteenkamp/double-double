@@ -9,7 +9,7 @@ function lsbExponent(a) {
     if (a === 0 || !Number.isFinite(a)) {
         return NaN;
     }
-    let e = exponent(a);
+    const e = exponent(a);
     return getLowestSetBit(a) - 52 + e;
 }
 export { lsbExponent };

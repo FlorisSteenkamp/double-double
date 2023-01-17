@@ -15,7 +15,6 @@ module.exports = {
         "unused/**/*",
         "src-unused/**/*",
         "test/**/*",
-
         "play/**/*",
         "mandel/**/*",
         "docs/**/*",
