@@ -22,6 +22,11 @@ const config_Basic = {
                 test: /\.tsx?$/,
                 use: 'ts-loader',
                 exclude: /node_modules/
+            },
+            {
+                test: /\.wat$/,
+                loader: "wast-loader",
+                type: "webassembly/experimental"
             }
         ]
     },
