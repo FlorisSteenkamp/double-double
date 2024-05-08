@@ -1,12 +1,15 @@
 
-
 /**
  * 
  * @param str 
  * @param from 
  * @param to 
+ * 
+ * @internal
  */
 function set0FromTo(str: string, from: number, to?: number) {
+    // TODO - this function is currently slow since it replaces one zero at a time.
+
     const pointAt = str.indexOf('.');
     let i = from + (pointAt !== -1 && pointAt < from ? 1 : 0);
     let j = i;
@@ -23,6 +26,9 @@ function set0FromTo(str: string, from: number, to?: number) {
 }
 
 
+/**
+ * @internal
+ */
 function set0At(str: string, idx: number) {
     if (idx > str.length - 1) { return str };
     return str.substring(0,idx) + '0' + str.substring(idx + 1);

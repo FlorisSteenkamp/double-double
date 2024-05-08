@@ -3,6 +3,8 @@
  * Returns the number of leading extraneous zeros before the decimal point.
  * 
  * @param str 
+ * 
+ * @internal
  */
 function getNumLeadingZeros(str: string) {
     if (Number(str) === 0) { return 0; }
@@ -25,14 +27,3 @@ function getNumLeadingZeros(str: string) {
 
 
 export { getNumLeadingZeros }
-
-
-
-// Quokka tests
-
-// getNumLeadingZeros('000000000000.001');  //?
-// getNumLeadingZeros('0001000000000.001');  //?
-// getNumLeadingZeros('000000000000');  //?
-// getNumLeadingZeros('0000.00000000');  //?
-// getNumLeadingZeros('001000000000000');  //?
-// getNumLeadingZeros('1000000000000');  //?

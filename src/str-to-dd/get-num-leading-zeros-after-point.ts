@@ -16,6 +16,8 @@
  * `getNumLeadingZeros(0)      // => 0
  * 
  * @param str 
+ * 
+ * @internal
  */
 function getNumLeadingZerosAfterPoint(str: string) {
     if (!str.startsWith('0.')) { return 0; }
@@ -35,14 +37,3 @@ function getNumLeadingZerosAfterPoint(str: string) {
 
 
 export { getNumLeadingZerosAfterPoint }
-
-
-// Quokka tests
-// getNumLeadingZerosAfterPoint('0.1');    //?
-// getNumLeadingZerosAfterPoint('0.001');  //?
-// getNumLeadingZerosAfterPoint('3.001');  //?
-// getNumLeadingZerosAfterPoint('1');  //?
-// getNumLeadingZerosAfterPoint('0');  //?
-// getNumLeadingZerosAfterPoint('0.0');  //?
-// getNumLeadingZerosAfterPoint('0.00000000000000000000000000000000000000000000000000000000000000000000000000001');  //?
-// getNumLeadingZerosAfterPoint('0.1001');  //?

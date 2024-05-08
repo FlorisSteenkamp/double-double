@@ -41,6 +41,8 @@ import { doubleToOctets as doubleToOctets_ } from './double-representation/doubl
 import { getHighestSetBit as getHighestSetBit_, getLowestSetBit as getLowestSetBit_ } from './double-representation/get-max-set-bit.js';
 import { ddDivDdWithError as ddDivDdWithError_ } from './double-double-with-error/dd-div-dd-with-error.js';
 import { divWithErr as divWithErr_ } from './double-with-err/div-with-err.js';
+import { ddToStr as ddToStr_ } from './dd-to-str/dd-to-str.js';
+import { strToDd as strToDd_ } from './str-to-dd/str-to-dd.js';
 
 
 const ddMultDouble2 = ddMultDouble2_;
@@ -89,6 +91,8 @@ const doubleToOctets = doubleToOctets_;
 const getHighestSetBit = getHighestSetBit_;
 const ddDivDdWithError = ddDivDdWithError_;
 const divWithErr = divWithErr_;
+const ddToStr = ddToStr_;
+const strToDd = strToDd_;
 
 
 const operators = { 
@@ -146,7 +150,9 @@ const operators = {
     getHighestSetBit, 
     getLowestSetBit,
     exponent, 
-    significand
+    significand,
+    ddToStr,
+    strToDd
 };
 
 
@@ -208,5 +214,7 @@ export {
     getHighestSetBit, 
     getLowestSetBit,
     exponent, 
-    significand
+    significand,
+    ddToStr,
+    strToDd
 }

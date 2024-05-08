@@ -1,27 +1,35 @@
-import { getNumLeadingZerosAfterPoint } from "./get-num-leading-zeros-after-point"
-import { getNumLeadingZerosBeforePoint } from "./get-num-leading-zeros-before-point";
-import { d } from "./num-significant-digits";
+import { getNumLeadingZerosAfterPoint } from "./get-num-leading-zeros-after-point.js"
+import { getNumLeadingZerosBeforePoint } from "./get-num-leading-zeros-before-point.js";
+import { d } from "./num-significant-digits.js";
+import { extractExp } from './extract-exp.js';
 
 
-function normalizeStr(s: string) {
+/**
+ * 
+ * @param s 
+ * 
+ * @internal
+ */
+function normalizeStr(
+        s: string): { str: string, exp: number, negative: boolean } {
+
     if (Number(s) === 0) {
-        return { str: '0', exp: 0 };
+        return { str: '0', exp: 0, negative: false };
     }
 
-    const z = getNumLeadingZerosAfterPoint(s);
+    const negative = s.startsWith('-');
+    if (negative) { s = s.slice(1); }
 
-    const idx = s.indexOf('e');
     let exp = 0;
-    if (idx !== -1) {
-        exp = Number(s.slice(idx + 1));
-        s = s.slice(0, idx);
-    }
+    ({ s, exp } = extractExp(s));
 
     let str: string;
+
+    const z = getNumLeadingZerosAfterPoint(s);
     if (z > 0) {
         s = s.slice(z + 1);
         str = s[0] + '.' + s.slice(1);
-        exp = exp -z;
+        exp = exp - z;
     } else {
         const Z = getNumLeadingZerosBeforePoint(s);
 
@@ -38,35 +46,8 @@ function normalizeStr(s: string) {
         str += zeros;
     }
 
-    return { str, exp };
+    return { str, exp, negative };
 }
 
 
 export { normalizeStr }
-
-
-// Quokka tests
-// normalizeStr('0');           //?
-// const lStr = '0.00001232938472139471239487129304871293487129834712903847123908470923108921382134098324';
-// normalizeStr(lStr);          //?
-
-// normalizeStr('0.123');       //?
-// normalizeStr('0.0123');      //?
-// normalizeStr('1.23');        //?
-// normalizeStr('12.3');        //?
-// normalizeStr('123.45');      //?
-// normalizeStr('1234');        //?
-
-// normalizeStr('0.123e+10');   //?
-// normalizeStr('0.0123e+11');  //?
-// normalizeStr('1.23e+12');    //?
-// normalizeStr('12.3e+13');    //?
-// normalizeStr('123.45e+14');  //?
-// normalizeStr('1234e+15');    //?
-
-// normalizeStr('0.123e-11');   //?
-// normalizeStr('0.0123e-12');  //?
-// normalizeStr('1.23e-13');    //?
-// normalizeStr('12.3e-14');    //?
-// normalizeStr('123.45e-15');  //?
-// normalizeStr('1234e-16');    //?

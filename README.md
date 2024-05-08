@@ -3,6 +3,19 @@
 >This library is only possible through the research of [Mioara Joldes, Jean-Michel Muller, Valentina 
 >Popescu, *Tight and rigourous error bounds for basic building blocks of double-word arithmetic*](https://hal.>archives-ouvertes.fr/hal-01351529v3/document)
 
+## New!  ★★★
+
+`ddToStr` and `strToDd`
+
+# Examples
+```
+strToDd('3.1415926535897932384626433832795');  //=> [1.2246467991473535e-16, 3.141592653589793]
+strToDd('6.0221408e+23');  //=> [-2097152, 6.0221408e+23]
+
+ddToStr([1.2246467991473535e-16, 3.141592653589793]);  //=> '3.1415926535897932384626433832795_30530870267274333'
+```
+
+
 ## [Documentation](https://florissteenkamp.github.io/double-double/)
 
 ## Overview

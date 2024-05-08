@@ -3,6 +3,8 @@
  * Returns the number of leading zeros before the decimal point.
  * 
  * @param str 
+ * 
+ * @internal
  */
 function getNumLeadingZerosBeforePoint(str: string) {
     if (str.startsWith('0.')) { return 0; }
@@ -15,13 +17,3 @@ function getNumLeadingZerosBeforePoint(str: string) {
 
 
 export { getNumLeadingZerosBeforePoint }
-
-
-// Quokka tests
-getNumLeadingZerosBeforePoint('0.1');      //?
-getNumLeadingZerosBeforePoint('0.001');    //?
-getNumLeadingZerosBeforePoint('3.001');    //?
-getNumLeadingZerosBeforePoint('121');      //?
-getNumLeadingZerosBeforePoint('123.456');  //?
-getNumLeadingZerosBeforePoint('0.0');      //?
-getNumLeadingZerosBeforePoint('0');        //?

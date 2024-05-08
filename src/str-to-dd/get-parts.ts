@@ -1,13 +1,11 @@
-import { getNumLeadingZerosAfterPoint } from "./get-num-leading-zeros-after-point";
-import { set0FromTo } from "./set-0-from-to";
-import { d } from './num-significant-digits';
+import { getNumLeadingZerosAfterPoint } from "./get-num-leading-zeros-after-point.js";
+import { set0FromTo } from "./set-0-from-to.js";
+import { d } from './num-significant-digits.js';
 
 
 /**
  * Returns the following parts of the number string as an object:
- * * `negative` -> `true` if the number is negative, `false` otherwise
- * * `Z` -> number of zeros after decimal point (plus 1)
- * * `Z` -> number of leading (non-significant) zeros
+ * * `Z`
  * * `seH` -> the exact high part string if interpreted as a real number
  * * `seL` -> the exact low part string if interpreted as a real number
  * * `seC` -> the exact correction part string if interpreted as a real number;
@@ -15,11 +13,10 @@ import { d } from './num-significant-digits';
  * checks up to 20 significant figures for rounding purposes (we check 45)
  * 
  * @param str 
+ * 
+ * @internal
  */
 function getParts(str: string) {
-    const negative = str.startsWith('-');
-    if (negative) { str = str.slice(1); }
-
     if (str.startsWith('+')) { str = str.slice(1); }
 
     let pointAt = str.indexOf('.');
@@ -48,26 +45,8 @@ function getParts(str: string) {
     seL = set0FromTo(seL, 2*d + Z);
     let seC = set0FromTo(str, 0,2*d + Z);
 
-    return { Z, seH, seL, seC, negative };
+    return { Z, seH, seL, seC };
 }
 
 
 export { getParts }
-
-
-// Quokka tests
-
-function test(str: string) {
-    const { Z, negative, seH, seL, seC } = getParts(str);
-    Z//?
-    negative//?
-    seH//?
-    seL//?
-    seC//?
-    seH.length;//?
-}
-
-// test('-123456789101112131415.161718192021222324252627282930');
-// test('30');
-// test('0.00161718192021222324252627282930313233343536373839');
-

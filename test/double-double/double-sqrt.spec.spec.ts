@@ -8,7 +8,7 @@ import { doubleSqrt } from '../../src/index.js';
 describe('ddSqrt', function() {
 	it('should correctly take the square root of some double precision values and return the result accurately as a double-double', 
 	function() {
-        // Some double-doubles
+        // Some doubles
         let a = 11_638_607.274152497;
         let b = -2_797_357.2918064594;
         let d = 1;
