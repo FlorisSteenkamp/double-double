@@ -24,53 +24,55 @@ var __webpack_exports__ = {};
 
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, {
-  "ZS": () => (/* binding */ src_bitLength),
-  "V9": () => (/* binding */ src_ddAbs),
-  "aX": () => (/* binding */ src_ddAddDd),
-  "mi": () => (/* binding */ src_ddAddDouble),
-  "Nx": () => (/* binding */ src_ddCompare),
-  "Pz": () => (/* binding */ src_ddDiffDd),
-  "ZX": () => (/* binding */ src_ddDivBy2),
-  "TN": () => (/* binding */ src_ddDivDd),
-  "YH": () => (/* binding */ src_ddDivDdWithError),
-  "El": () => (/* binding */ src_ddDivDouble),
-  "HY": () => (/* binding */ src_ddMax),
-  "aS": () => (/* binding */ src_ddMin),
-  "c8": () => (/* binding */ src_ddMultBy2),
-  "WB": () => (/* binding */ src_ddMultBy4),
-  "Su": () => (/* binding */ src_ddMultByNeg2),
-  "F5": () => (/* binding */ src_ddMultByNeg4),
-  "tO": () => (/* binding */ src_ddMultDd),
-  "RJ": () => (/* binding */ src_ddMultDouble1),
-  "MU": () => (/* binding */ src_ddMultDouble2),
-  "Xo": () => (/* binding */ src_ddNegativeOf),
-  "WH": () => (/* binding */ src_ddProduct),
-  "Sv": () => (/* binding */ src_ddSign),
-  "$r": () => (/* binding */ src_ddSqrt),
-  "_j": () => (/* binding */ src_ddSum),
-  "T0": () => (/* binding */ src_divWithErr),
-  "By": () => (/* binding */ src_doubleDivDouble),
-  "cC": () => (/* binding */ src_doubleSqrt),
-  "pr": () => (/* binding */ src_doubleToBinaryString),
-  "xm": () => (/* binding */ src_doubleToOctets),
-  "ts": () => (/* binding */ src_exponent),
-  "Fz": () => (/* binding */ src_fastTwoDiff),
-  "vz": () => (/* binding */ src_fastTwoSum),
-  "kx": () => (/* binding */ src_getHighestSetBit),
-  "hK": () => (/* binding */ src_getLowestSetBit),
-  "m5": () => (/* binding */ src_isBitAligned),
-  "pt": () => (/* binding */ src_lsbExponent),
-  "Jw": () => (/* binding */ src_msbExponent),
-  "Gn": () => (/* binding */ operators),
-  "Ds": () => (/* binding */ src_parseDouble),
-  "JO": () => (/* binding */ src_parseDoubleDetailed),
-  "S4": () => (/* binding */ src_reduceSignificand),
-  "aK": () => (/* binding */ src_significand),
-  "Vl": () => (/* binding */ src_split),
-  "iN": () => (/* binding */ src_sqrtWithErr),
-  "BH": () => (/* binding */ src_twoDiff),
-  "Q6": () => (/* binding */ src_twoProduct),
-  "d9": () => (/* binding */ src_twoSum)
+  ao: () => (/* binding */ src_bitLength),
+  NN: () => (/* binding */ src_ddAbs),
+  ei: () => (/* binding */ src_ddAddDd),
+  zR: () => (/* binding */ src_ddAddDouble),
+  e0: () => (/* binding */ src_ddCompare),
+  w0: () => (/* binding */ src_ddDiffDd),
+  vx: () => (/* binding */ src_ddDivBy2),
+  A5: () => (/* binding */ src_ddDivDd),
+  q$: () => (/* binding */ src_ddDivDdWithError),
+  pW: () => (/* binding */ src_ddDivDouble),
+  zZ: () => (/* binding */ src_ddMax),
+  Rp: () => (/* binding */ src_ddMin),
+  IH: () => (/* binding */ src_ddMultBy2),
+  Is: () => (/* binding */ src_ddMultBy4),
+  Em: () => (/* binding */ src_ddMultByNeg2),
+  Sw: () => (/* binding */ src_ddMultByNeg4),
+  tp: () => (/* binding */ src_ddMultDd),
+  Lz: () => (/* binding */ src_ddMultDouble1),
+  QP: () => (/* binding */ src_ddMultDouble2),
+  Vd: () => (/* binding */ src_ddNegativeOf),
+  Kq: () => (/* binding */ src_ddProduct),
+  cV: () => (/* binding */ src_ddSign),
+  VL: () => (/* binding */ src_ddSqrt),
+  K_: () => (/* binding */ src_ddSum),
+  Vx: () => (/* binding */ src_ddToStr),
+  P_: () => (/* binding */ src_divWithErr),
+  Mw: () => (/* binding */ src_doubleDivDouble),
+  O$: () => (/* binding */ src_doubleSqrt),
+  dC: () => (/* binding */ src_doubleToBinaryString),
+  T7: () => (/* binding */ src_doubleToOctets),
+  g6: () => (/* binding */ src_exponent),
+  gD: () => (/* binding */ src_fastTwoDiff),
+  uJ: () => (/* binding */ src_fastTwoSum),
+  QK: () => (/* binding */ src_getHighestSetBit),
+  aX: () => (/* binding */ src_getLowestSetBit),
+  O2: () => (/* binding */ src_isBitAligned),
+  pE: () => (/* binding */ src_lsbExponent),
+  Ei: () => (/* binding */ src_msbExponent),
+  II: () => (/* binding */ operators),
+  bt: () => (/* binding */ src_parseDouble),
+  $n: () => (/* binding */ src_parseDoubleDetailed),
+  K1: () => (/* binding */ src_reduceSignificand),
+  uI: () => (/* binding */ src_significand),
+  lD: () => (/* binding */ src_split),
+  oi: () => (/* binding */ src_sqrtWithErr),
+  DL: () => (/* binding */ src_strToDd),
+  QC: () => (/* binding */ src_twoDiff),
+  gB: () => (/* binding */ src_twoProduct),
+  S4: () => (/* binding */ src_twoSum)
 });
 
 ;// CONCATENATED MODULE: ./src/double-double/binary/dd-diff-dd.ts
@@ -334,9 +336,7 @@ const dd_mult_dd_f = 2 ** 27 + 1;
  * @param y another double-double precision floating point number
  */
 function ddMultDd(x, y) {
-    //const xl = x[0];
     const xh = x[1];
-    //const yl = y[0];
     const yh = y[1];
     //const [cl1,ch] = twoProduct(xh,yh);
     const ch = xh * yh;
@@ -1234,7 +1234,580 @@ function divWithErr(n, d, nE, dE) {
 }
 
 
+;// CONCATENATED MODULE: ./src/str-to-dd/get-zeros-str.ts
+/**
+ * Returns a string having the given number of zeros.
+ *
+ * @internal
+ */
+function getZerosStr(n) {
+    return new Array(n + 1).join('0');
+}
+
+
+;// CONCATENATED MODULE: ./src/str-to-dd/mult-str-by-pow-of-10.ts
+
+/**
+ * * string must not contain an `'e'`, e.g. `'1e-10'` is not allowed
+ *
+ * @internal
+ */
+function multStrByPowOf10(s, pow) {
+    if (pow === 0 || Number(s) === 0) {
+        return s;
+    }
+    const negative = s.indexOf('-') !== -1;
+    const negativeStr = negative ? '-' : '';
+    if (negative) {
+        s = s.slice(1);
+    }
+    if (s.startsWith('+')) {
+        s = s.slice(1);
+    }
+    const idx = s.indexOf('.');
+    if (pow > 0) {
+        // shift dot right
+        if (idx === -1) {
+            const zeros = getZerosStr(pow);
+            return negativeStr + s + zeros;
+        }
+        const [bef, aft] = s.split('.'); //?
+        if (aft.length < pow) {
+            return negativeStr + bef + aft + getZerosStr(pow - aft.length);
+        }
+        else {
+            const aftP1 = aft.substring(0, pow); //?
+            const aftP2 = aft.substring(pow);
+            return negativeStr + bef + aftP1 + (aftP2 ? '.' + aftP2 : '');
+        }
+    }
+    // shift dot left
+    pow = -pow;
+    let bef = '';
+    let aft = '';
+    if (idx === -1) {
+        bef = s;
+    }
+    else {
+        [bef, aft] = s.split('.');
+    }
+    if (bef.length === pow) {
+        return negativeStr + '0.' + bef + aft;
+    }
+    else if (bef.length > pow) {
+        const l = bef.length - pow; //?
+        const befP1 = bef.substring(0, l); //?
+        const befP2 = bef.substring(l); //?
+        return negativeStr + befP1 + '.' + befP2 + aft;
+    }
+    else {
+        const l = pow - bef.length; //?
+        const zeros = getZerosStr(l) || '0';
+        return negativeStr + '0.' + zeros + bef + aft;
+    }
+}
+
+
+;// CONCATENATED MODULE: ./src/dd-to-str/dd-to-str.ts
+
+const { floor, max, round, log2, log10, ceil } = Math;
+const LOG2_10 = log2(1024) / log10(1024);
+/**
+ * Converts the given double-double precision value to a string and returns the
+ * result.
+ *
+ * * there will always be enough decimal digits returned but some could be
+ * extraneous.
+ *
+ * @param dd
+ */
+function ddToStr(dd) {
+    let [l, h] = dd;
+    let negative = false;
+    if (h < 0) {
+        h = -h;
+        l = -l;
+        negative = true;
+    }
+    if (h === 0) {
+        return '0';
+    }
+    const scale2 = max(0, -floor(log2(h)) + 3 * 53);
+    if (scale2 === 0) {
+        const llb = BigInt(round(l));
+        const hhb = BigInt(round(h));
+        const str = (llb + hhb).toString();
+        return negative ? '-' + str : str;
+    }
+    const scale2b = BigInt(scale2);
+    const scale10 = ceil(scale2 / LOG2_10);
+    const scale10b = BigInt(scale10);
+    const ll = l * (2 ** scale2);
+    const hh = h * (2 ** scale2);
+    const llb = BigInt(round(ll));
+    const hhb = BigInt(round(hh));
+    const b = (llb + hhb) * (10n ** scale10b);
+    const bb = b / (2n ** (scale2b));
+    let bStr = bb.toString();
+    let str = multStrByPowOf10(bStr, -scale10);
+    str = removeExtraneousZeros(str);
+    return negative ? '-' + str : str;
+}
+function removeExtraneousZeros(str) {
+    const idx = str.indexOf('.');
+    if (idx === -1) {
+        return str;
+    }
+    let i = 0;
+    let c = 0;
+    while (i < str.length) {
+        if (str[str.length - 1 - i] === '0') {
+            c++;
+        }
+        else {
+            break;
+        }
+        i++;
+    }
+    if (c > 0) {
+        str = str.slice(0, str.length - c);
+    }
+    if (str.endsWith('.')) {
+        str = str.slice(0, str.length - 1);
+    }
+    return str;
+}
+
+
+;// CONCATENATED MODULE: ./src/str-to-dd/get-num-leading-zeros-after-point.ts
+/**
+ * Returns the number of leading zeros (plus 1) after the decimal point or `0`
+ * if the number is >= 1 or equal to zero.
+ *
+ * * the number string must be positive
+ * * the number string must not start with a `+` sign
+ * * the number string must must be a simple decimal expansion, e.g. no `e-8`
+ * at the end
+ *
+ * Examples:
+ * `getNumLeadingZeros(0.1)    // => 0`
+ * `getNumLeadingZeros(0.001)  // => 2`
+ * `getNumLeadingZeros(3.001)  // => 0`
+ * `getNumLeadingZeros(13)     // => 0`
+ * `getNumLeadingZeros(0)      // => 0
+ *
+ * @param str
+ *
+ * @internal
+ */
+function getNumLeadingZerosAfterPoint(str) {
+    if (!str.startsWith('0.')) {
+        return 0;
+    }
+    if (Number(str) === 0) {
+        return 0;
+    }
+    let numLeadingZeros = 1;
+    for (let i = 0; i < str.length; i++) {
+        if (str[i + 2] === '0') {
+            numLeadingZeros++;
+        }
+        else {
+            break;
+        }
+    }
+    return numLeadingZeros;
+}
+
+
+;// CONCATENATED MODULE: ./src/str-to-dd/set-0-from-to.ts
+/**
+ *
+ * @param str
+ * @param from
+ * @param to
+ *
+ * @internal
+ */
+function set0FromTo(str, from, to) {
+    // TODO - this function is currently slow since it replaces one zero at a time.
+    const pointAt = str.indexOf('.');
+    let i = from + (pointAt !== -1 && pointAt < from ? 1 : 0);
+    let j = i;
+    to = to || str.length;
+    while (i < to) {
+        if (str[j] === '.') {
+            j++;
+            continue;
+        }
+        str = set0At(str, j);
+        i++;
+        j++;
+    }
+    return str;
+}
+/**
+ * @internal
+ */
+function set0At(str, idx) {
+    if (idx > str.length - 1) {
+        return str;
+    }
+    ;
+    return str.substring(0, idx) + '0' + str.substring(idx + 1);
+}
+
+
+;// CONCATENATED MODULE: ./src/str-to-dd/num-significant-digits.ts
+/**
+ * The number of significant digits per nibble.
+ *
+ * Since we use 3 nibbles there are 3*15 significant decimal figures looked at
+ * to convert a string to a double-double.
+ */
+const d = 15;
+
+
+;// CONCATENATED MODULE: ./src/str-to-dd/get-parts.ts
+
+
+
+/**
+ * Returns the following parts of the number string as an object:
+ * * `Z`
+ * * `seH` -> the exact high part string if interpreted as a real number
+ * * `seL` -> the exact low part string if interpreted as a real number
+ * * `seC` -> the exact correction part string if interpreted as a real number;
+ * this is used for correctly rounding the lsb; interestingly ECMASCRIPT only
+ * checks up to 20 significant figures for rounding purposes (we check 45)
+ *
+ * @param str
+ *
+ * @internal
+ */
+function getParts(str) {
+    if (str.startsWith('+')) {
+        str = str.slice(1);
+    }
+    let pointAt = str.indexOf('.');
+    if (pointAt === -1) {
+        str += '.0';
+    }
+    pointAt = str.indexOf('.');
+    const Z = getNumLeadingZerosAfterPoint(str);
+    // Lengthen string to `3*d` significant figures
+    if (str.length < 3 * d + 1) {
+        const zeros = new Array(3 * d + 2 - str.length).join('0');
+        str += zeros;
+    }
+    // Shorten string to `3*d` significant figures
+    str = str.slice(0, 3 * d + (pointAt >= 3 * d ? 0 : 1) + Z);
+    if (pointAt >= 3 * d) {
+        // Take care of numbers > 10**(3*d)
+        const zeros = new Array(pointAt - 3 * d + 1).join('0');
+        str += zeros;
+    }
+    let seH = set0FromTo(str, d + Z);
+    let seL = set0FromTo(str, 0, d + Z);
+    seL = set0FromTo(seL, 2 * d + Z);
+    let seC = set0FromTo(str, 0, 2 * d + Z);
+    return { Z, seH, seL, seC };
+}
+
+
+;// CONCATENATED MODULE: ./src/str-to-dd/add-1-ulp.ts
+const { EPSILON: add_1_ulp_eps } = Number;
+const add_1_ulp_u = add_1_ulp_eps / 2;
+const es = (add_1_ulp_eps ** 2) / 2;
+const ups = add_1_ulp_u + es;
+/**
+ * Add one unit in the last place (ulp) to the given number.
+ *
+ * * subnormal numbers (and 0) are returned unaltered
+ *
+ * @internal
+ */
+function add1Ulp(n) {
+    return n > 0 ? n + n * ups : n - n * ups;
+}
+
+
+;// CONCATENATED MODULE: ./src/str-to-dd/get-num-leading-zeros.ts
+/**
+ * Returns the number of leading extraneous zeros before the decimal point.
+ *
+ * @param str
+ *
+ * @internal
+ */
+function getNumLeadingZeros(str) {
+    if (Number(str) === 0) {
+        return 0;
+    }
+    if (str.startsWith('0.')) {
+        return 0;
+    }
+    let numLeadingZeros = 0;
+    let i = 0;
+    for (; i < str.length; i++) {
+        if (str[i] === '0') {
+            numLeadingZeros++;
+        }
+        else {
+            break;
+        }
+    }
+    if (str[i] === '.') {
+        return 0;
+    }
+    return numLeadingZeros;
+}
+
+
+;// CONCATENATED MODULE: ./src/str-to-dd/get-num-leading-zeros-before-point.ts
+/**
+ * Returns the number of leading zeros before the decimal point.
+ *
+ * @param str
+ *
+ * @internal
+ */
+function getNumLeadingZerosBeforePoint(str) {
+    if (str.startsWith('0.')) {
+        return 0;
+    }
+    if (Number(str) === 0) {
+        return 0;
+    }
+    const idx = str.indexOf('.');
+    return idx === -1 ? str.length : idx;
+}
+
+
+;// CONCATENATED MODULE: ./src/str-to-dd/extract-exp.ts
+function extractExp(s) {
+    const idx = s.indexOf('e');
+    let exp = 0;
+    if (idx !== -1) {
+        exp = Number(s.slice(idx + 1));
+        s = s.slice(0, idx);
+    }
+    return { s, exp };
+}
+
+
+;// CONCATENATED MODULE: ./src/str-to-dd/normalize-str.ts
+
+
+
+
+/**
+ *
+ * @param s
+ *
+ * @internal
+ */
+function normalizeStr(s) {
+    if (Number(s) === 0) {
+        return { str: '0', exp: 0, negative: false };
+    }
+    const negative = s.startsWith('-');
+    if (negative) {
+        s = s.slice(1);
+    }
+    let exp = 0;
+    ({ s, exp } = extractExp(s));
+    let str;
+    const z = getNumLeadingZerosAfterPoint(s);
+    if (z > 0) {
+        s = s.slice(z + 1);
+        str = s[0] + '.' + s.slice(1);
+        exp = exp - z;
+    }
+    else {
+        const Z = getNumLeadingZerosBeforePoint(s);
+        s = s.split('').filter(s => s !== '.').join('');
+        str = s[0] + '.' + s.slice(1);
+        exp = exp + Z - 1;
+    }
+    str = str.slice(0, 3 * d + 1);
+    if (str.length < 3 * d + 1) {
+        const zeros = new Array(3 * d + 1 - str.length).join('0');
+        str += zeros;
+    }
+    return { str, exp, negative };
+}
+
+
+;// CONCATENATED MODULE: ./src/str-to-dd/get-power-of-10.ts
+
+
+
+/**
+ *
+ * @param a
+ * @param b
+ *
+ * @internal
+ */
+function ddMultD(a, b) {
+    return ddMultDouble1(b, a);
+}
+/**
+ *
+ * @param pow
+ *
+ * @internal
+ */
+function getPowerOf10(pow) {
+    // `10**21` (possibly `10**22`) is the max power of 10 that is exact in double
+    // precision
+    // we multiply in pairs to minimize error, e.g.
+    const m = pow % 21;
+    const d = (pow - m) / 21;
+    const x = 10 ** m;
+    if (d === 0) {
+        return [0, x]; // exact
+    }
+    const a = 10 ** 21;
+    const ax = twoProduct(a, x);
+    const aa = twoProduct(a, a);
+    const aax = ddMultD(aa, x);
+    const a4 = ddMultDd(aa, aa);
+    const aaax = ddMultDd(aa, ax);
+    const a8 = ddMultDd(a4, a4);
+    const a4x = ddMultD(a4, x);
+    const a4ax = ddMultDd(a4, ax);
+    const a4aax = ddMultDd(a4, aax);
+    const a4aaax = ddMultDd(a4, aaax);
+    if (d === 1) {
+        return ax;
+    }
+    if (d === 2) {
+        return aax;
+    }
+    if (d === 3) {
+        return aaax;
+    }
+    if (d === 4) {
+        return a4x;
+    }
+    if (d === 5) {
+        return a4ax;
+    }
+    if (d === 6) {
+        return a4aax;
+    }
+    if (d === 7) {
+        return a4aaax;
+    }
+    if (d === 8) {
+        return ddMultD(a8, x);
+    }
+    if (d === 9) {
+        return ddMultDd(a8, ax);
+    }
+    if (d === 10) {
+        return ddMultDd(a8, aax);
+    }
+    if (d === 11) {
+        return ddMultDd(a8, aaax);
+    }
+    if (d === 12) {
+        return ddMultDd(a8, a4x);
+    }
+    if (d === 13) {
+        return ddMultDd(a8, a4ax);
+    }
+    if (d === 14) {
+        return ddMultDd(a8, a4aax);
+    }
+    if (d === 15) {
+        return ddMultDd(a8, a4aaax);
+    }
+    throw new Error('`exp` must be between 0 and 308; This is a bug');
+}
+
+
+;// CONCATENATED MODULE: ./src/str-to-dd/str-to-dd.ts
+
+
+
+
+
+
+
+
+
+
+
+
+const { abs } = Math;
+// How to print floating-point numbers accurately (behind a paywall)
+// https://dl.acm.org/doi/10.1145/989393.989431
+// Chromium implementation at https://chromium.googlesource.com/v8/v8/+/refs/heads/main/src/base/numbers/strtod.cc
+// that converts a string to a double.
+/**
+ * Converts the given decimal string to a double-double and returns the result.
+ *
+ * * accurate to within `1` ulp^2
+ *
+ * @param str a string to convert to double-double precision
+ *
+ * Examples:
+ * ```
+ * strToDd('3.14159265358979323846264338327950')  //=> [1.2246467991473535e-16, 3.141592653589793]
+ * strToDd('6.0221408e+23')  //=> [-2097152, 6.0221408e+23]
+ * ```
+ */
+function strToDd(str) {
+    const { str: s, exp, negative } = normalizeStr(str);
+    if (negative) {
+        str = str.slice(1);
+    }
+    // get exact low, high and correction string parts
+    let { Z, seH: eH, seL: eL, seC: eC } = getParts(s);
+    // adding 1 ulp ensures the string significant digits are correct up to a point
+    const H = add1Ulp(Number(eH));
+    const _sHC = H.toFixed(3 * d);
+    const sHC = set0FromTo(_sHC, 0, d + Z);
+    // get exact high correction low and high string parts
+    let { Z: Z2, seH: seHCH, seL: seHCL } = getParts(sHC);
+    const HCH = add1Ulp(Number(seHCH));
+    const sHCH = HCH.toFixed(3 * d);
+    const sHCL = set0FromTo(sHCH, Z2, d + Z2 + 1);
+    // get exact low correction string part
+    let L = add1Ulp(Number(eL));
+    const lZ1 = getNumLeadingZeros(eL);
+    let sLC = L.toFixed(3 * d);
+    sLC = set0FromTo(sLC, d + Z - lZ1, 2 * d + Z + 1 - lZ1);
+    const HCL = Number(sHCL);
+    const LC = Number(sLC);
+    const C = Number(eC);
+    const HCHL = Number(seHCL);
+    // (correction         ) - (low    ) + (high)
+    // (HCL - LC + C - HCHL) - (HCH + L) + (H   )
+    const rL = ddAddDd(twoSum(HCL, -LC), twoSum(C, -HCHL)); // correction term
+    const rHL = ddAddDouble(twoSum(L, -HCH), H);
+    let r = ddAddDd(rHL, rL);
+    // get accurate power of 10
+    const exp10 = getPowerOf10(abs(exp));
+    r = exp === 0
+        ? r
+        : exp < 0
+            ? ddDivDd(r, exp10)
+            : ddMultDd(r, exp10);
+    const q = (add1Ulp(r[1]) - r[1]);
+    // remove extraneous bits (not strictly necessary)
+    r[0] = r[0] + q / 2 - q / 2;
+    r = negative ? r.map(r => -r) : [r[0], r[1]];
+    return r;
+}
+
+
 ;// CONCATENATED MODULE: ./src/index.ts
+
+
 
 
 
@@ -1324,6 +1897,8 @@ const src_doubleToOctets = doubleToOctets;
 const src_getHighestSetBit = getHighestSetBit;
 const src_ddDivDdWithError = ddDivDdWithError;
 const src_divWithErr = divWithErr;
+const src_ddToStr = ddToStr;
+const src_strToDd = strToDd;
 const operators = {
     //---- basic ----//
     fastTwoDiff: src_fastTwoDiff,
@@ -1375,56 +1950,60 @@ const operators = {
     getHighestSetBit: src_getHighestSetBit,
     getLowestSetBit: src_getLowestSetBit,
     exponent: src_exponent,
-    significand: src_significand
+    significand: src_significand,
+    ddToStr: src_ddToStr,
+    strToDd: src_strToDd
 };
 
 
 
-var __webpack_exports__bitLength = __webpack_exports__.ZS;
-var __webpack_exports__ddAbs = __webpack_exports__.V9;
-var __webpack_exports__ddAddDd = __webpack_exports__.aX;
-var __webpack_exports__ddAddDouble = __webpack_exports__.mi;
-var __webpack_exports__ddCompare = __webpack_exports__.Nx;
-var __webpack_exports__ddDiffDd = __webpack_exports__.Pz;
-var __webpack_exports__ddDivBy2 = __webpack_exports__.ZX;
-var __webpack_exports__ddDivDd = __webpack_exports__.TN;
-var __webpack_exports__ddDivDdWithError = __webpack_exports__.YH;
-var __webpack_exports__ddDivDouble = __webpack_exports__.El;
-var __webpack_exports__ddMax = __webpack_exports__.HY;
-var __webpack_exports__ddMin = __webpack_exports__.aS;
-var __webpack_exports__ddMultBy2 = __webpack_exports__.c8;
-var __webpack_exports__ddMultBy4 = __webpack_exports__.WB;
-var __webpack_exports__ddMultByNeg2 = __webpack_exports__.Su;
-var __webpack_exports__ddMultByNeg4 = __webpack_exports__.F5;
-var __webpack_exports__ddMultDd = __webpack_exports__.tO;
-var __webpack_exports__ddMultDouble1 = __webpack_exports__.RJ;
-var __webpack_exports__ddMultDouble2 = __webpack_exports__.MU;
-var __webpack_exports__ddNegativeOf = __webpack_exports__.Xo;
-var __webpack_exports__ddProduct = __webpack_exports__.WH;
-var __webpack_exports__ddSign = __webpack_exports__.Sv;
-var __webpack_exports__ddSqrt = __webpack_exports__.$r;
-var __webpack_exports__ddSum = __webpack_exports__._j;
-var __webpack_exports__divWithErr = __webpack_exports__.T0;
-var __webpack_exports__doubleDivDouble = __webpack_exports__.By;
-var __webpack_exports__doubleSqrt = __webpack_exports__.cC;
-var __webpack_exports__doubleToBinaryString = __webpack_exports__.pr;
-var __webpack_exports__doubleToOctets = __webpack_exports__.xm;
-var __webpack_exports__exponent = __webpack_exports__.ts;
-var __webpack_exports__fastTwoDiff = __webpack_exports__.Fz;
-var __webpack_exports__fastTwoSum = __webpack_exports__.vz;
-var __webpack_exports__getHighestSetBit = __webpack_exports__.kx;
-var __webpack_exports__getLowestSetBit = __webpack_exports__.hK;
-var __webpack_exports__isBitAligned = __webpack_exports__.m5;
-var __webpack_exports__lsbExponent = __webpack_exports__.pt;
-var __webpack_exports__msbExponent = __webpack_exports__.Jw;
-var __webpack_exports__operators = __webpack_exports__.Gn;
-var __webpack_exports__parseDouble = __webpack_exports__.Ds;
-var __webpack_exports__parseDoubleDetailed = __webpack_exports__.JO;
-var __webpack_exports__reduceSignificand = __webpack_exports__.S4;
-var __webpack_exports__significand = __webpack_exports__.aK;
-var __webpack_exports__split = __webpack_exports__.Vl;
-var __webpack_exports__sqrtWithErr = __webpack_exports__.iN;
-var __webpack_exports__twoDiff = __webpack_exports__.BH;
-var __webpack_exports__twoProduct = __webpack_exports__.Q6;
-var __webpack_exports__twoSum = __webpack_exports__.d9;
-export { __webpack_exports__bitLength as bitLength, __webpack_exports__ddAbs as ddAbs, __webpack_exports__ddAddDd as ddAddDd, __webpack_exports__ddAddDouble as ddAddDouble, __webpack_exports__ddCompare as ddCompare, __webpack_exports__ddDiffDd as ddDiffDd, __webpack_exports__ddDivBy2 as ddDivBy2, __webpack_exports__ddDivDd as ddDivDd, __webpack_exports__ddDivDdWithError as ddDivDdWithError, __webpack_exports__ddDivDouble as ddDivDouble, __webpack_exports__ddMax as ddMax, __webpack_exports__ddMin as ddMin, __webpack_exports__ddMultBy2 as ddMultBy2, __webpack_exports__ddMultBy4 as ddMultBy4, __webpack_exports__ddMultByNeg2 as ddMultByNeg2, __webpack_exports__ddMultByNeg4 as ddMultByNeg4, __webpack_exports__ddMultDd as ddMultDd, __webpack_exports__ddMultDouble1 as ddMultDouble1, __webpack_exports__ddMultDouble2 as ddMultDouble2, __webpack_exports__ddNegativeOf as ddNegativeOf, __webpack_exports__ddProduct as ddProduct, __webpack_exports__ddSign as ddSign, __webpack_exports__ddSqrt as ddSqrt, __webpack_exports__ddSum as ddSum, __webpack_exports__divWithErr as divWithErr, __webpack_exports__doubleDivDouble as doubleDivDouble, __webpack_exports__doubleSqrt as doubleSqrt, __webpack_exports__doubleToBinaryString as doubleToBinaryString, __webpack_exports__doubleToOctets as doubleToOctets, __webpack_exports__exponent as exponent, __webpack_exports__fastTwoDiff as fastTwoDiff, __webpack_exports__fastTwoSum as fastTwoSum, __webpack_exports__getHighestSetBit as getHighestSetBit, __webpack_exports__getLowestSetBit as getLowestSetBit, __webpack_exports__isBitAligned as isBitAligned, __webpack_exports__lsbExponent as lsbExponent, __webpack_exports__msbExponent as msbExponent, __webpack_exports__operators as operators, __webpack_exports__parseDouble as parseDouble, __webpack_exports__parseDoubleDetailed as parseDoubleDetailed, __webpack_exports__reduceSignificand as reduceSignificand, __webpack_exports__significand as significand, __webpack_exports__split as split, __webpack_exports__sqrtWithErr as sqrtWithErr, __webpack_exports__twoDiff as twoDiff, __webpack_exports__twoProduct as twoProduct, __webpack_exports__twoSum as twoSum };
+var __webpack_exports__bitLength = __webpack_exports__.ao;
+var __webpack_exports__ddAbs = __webpack_exports__.NN;
+var __webpack_exports__ddAddDd = __webpack_exports__.ei;
+var __webpack_exports__ddAddDouble = __webpack_exports__.zR;
+var __webpack_exports__ddCompare = __webpack_exports__.e0;
+var __webpack_exports__ddDiffDd = __webpack_exports__.w0;
+var __webpack_exports__ddDivBy2 = __webpack_exports__.vx;
+var __webpack_exports__ddDivDd = __webpack_exports__.A5;
+var __webpack_exports__ddDivDdWithError = __webpack_exports__.q$;
+var __webpack_exports__ddDivDouble = __webpack_exports__.pW;
+var __webpack_exports__ddMax = __webpack_exports__.zZ;
+var __webpack_exports__ddMin = __webpack_exports__.Rp;
+var __webpack_exports__ddMultBy2 = __webpack_exports__.IH;
+var __webpack_exports__ddMultBy4 = __webpack_exports__.Is;
+var __webpack_exports__ddMultByNeg2 = __webpack_exports__.Em;
+var __webpack_exports__ddMultByNeg4 = __webpack_exports__.Sw;
+var __webpack_exports__ddMultDd = __webpack_exports__.tp;
+var __webpack_exports__ddMultDouble1 = __webpack_exports__.Lz;
+var __webpack_exports__ddMultDouble2 = __webpack_exports__.QP;
+var __webpack_exports__ddNegativeOf = __webpack_exports__.Vd;
+var __webpack_exports__ddProduct = __webpack_exports__.Kq;
+var __webpack_exports__ddSign = __webpack_exports__.cV;
+var __webpack_exports__ddSqrt = __webpack_exports__.VL;
+var __webpack_exports__ddSum = __webpack_exports__.K_;
+var __webpack_exports__ddToStr = __webpack_exports__.Vx;
+var __webpack_exports__divWithErr = __webpack_exports__.P_;
+var __webpack_exports__doubleDivDouble = __webpack_exports__.Mw;
+var __webpack_exports__doubleSqrt = __webpack_exports__.O$;
+var __webpack_exports__doubleToBinaryString = __webpack_exports__.dC;
+var __webpack_exports__doubleToOctets = __webpack_exports__.T7;
+var __webpack_exports__exponent = __webpack_exports__.g6;
+var __webpack_exports__fastTwoDiff = __webpack_exports__.gD;
+var __webpack_exports__fastTwoSum = __webpack_exports__.uJ;
+var __webpack_exports__getHighestSetBit = __webpack_exports__.QK;
+var __webpack_exports__getLowestSetBit = __webpack_exports__.aX;
+var __webpack_exports__isBitAligned = __webpack_exports__.O2;
+var __webpack_exports__lsbExponent = __webpack_exports__.pE;
+var __webpack_exports__msbExponent = __webpack_exports__.Ei;
+var __webpack_exports__operators = __webpack_exports__.II;
+var __webpack_exports__parseDouble = __webpack_exports__.bt;
+var __webpack_exports__parseDoubleDetailed = __webpack_exports__.$n;
+var __webpack_exports__reduceSignificand = __webpack_exports__.K1;
+var __webpack_exports__significand = __webpack_exports__.uI;
+var __webpack_exports__split = __webpack_exports__.lD;
+var __webpack_exports__sqrtWithErr = __webpack_exports__.oi;
+var __webpack_exports__strToDd = __webpack_exports__.DL;
+var __webpack_exports__twoDiff = __webpack_exports__.QC;
+var __webpack_exports__twoProduct = __webpack_exports__.gB;
+var __webpack_exports__twoSum = __webpack_exports__.S4;
+export { __webpack_exports__bitLength as bitLength, __webpack_exports__ddAbs as ddAbs, __webpack_exports__ddAddDd as ddAddDd, __webpack_exports__ddAddDouble as ddAddDouble, __webpack_exports__ddCompare as ddCompare, __webpack_exports__ddDiffDd as ddDiffDd, __webpack_exports__ddDivBy2 as ddDivBy2, __webpack_exports__ddDivDd as ddDivDd, __webpack_exports__ddDivDdWithError as ddDivDdWithError, __webpack_exports__ddDivDouble as ddDivDouble, __webpack_exports__ddMax as ddMax, __webpack_exports__ddMin as ddMin, __webpack_exports__ddMultBy2 as ddMultBy2, __webpack_exports__ddMultBy4 as ddMultBy4, __webpack_exports__ddMultByNeg2 as ddMultByNeg2, __webpack_exports__ddMultByNeg4 as ddMultByNeg4, __webpack_exports__ddMultDd as ddMultDd, __webpack_exports__ddMultDouble1 as ddMultDouble1, __webpack_exports__ddMultDouble2 as ddMultDouble2, __webpack_exports__ddNegativeOf as ddNegativeOf, __webpack_exports__ddProduct as ddProduct, __webpack_exports__ddSign as ddSign, __webpack_exports__ddSqrt as ddSqrt, __webpack_exports__ddSum as ddSum, __webpack_exports__ddToStr as ddToStr, __webpack_exports__divWithErr as divWithErr, __webpack_exports__doubleDivDouble as doubleDivDouble, __webpack_exports__doubleSqrt as doubleSqrt, __webpack_exports__doubleToBinaryString as doubleToBinaryString, __webpack_exports__doubleToOctets as doubleToOctets, __webpack_exports__exponent as exponent, __webpack_exports__fastTwoDiff as fastTwoDiff, __webpack_exports__fastTwoSum as fastTwoSum, __webpack_exports__getHighestSetBit as getHighestSetBit, __webpack_exports__getLowestSetBit as getLowestSetBit, __webpack_exports__isBitAligned as isBitAligned, __webpack_exports__lsbExponent as lsbExponent, __webpack_exports__msbExponent as msbExponent, __webpack_exports__operators as operators, __webpack_exports__parseDouble as parseDouble, __webpack_exports__parseDoubleDetailed as parseDoubleDetailed, __webpack_exports__reduceSignificand as reduceSignificand, __webpack_exports__significand as significand, __webpack_exports__split as split, __webpack_exports__sqrtWithErr as sqrtWithErr, __webpack_exports__strToDd as strToDd, __webpack_exports__twoDiff as twoDiff, __webpack_exports__twoProduct as twoProduct, __webpack_exports__twoSum as twoSum };

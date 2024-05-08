@@ -13,9 +13,7 @@ const f = 2 ** 27 + 1;
  * @param y another double-double precision floating point number
  */
 function ddMultDd(x, y) {
-    //const xl = x[0];
     const xh = x[1];
-    //const yl = y[0];
     const yh = y[1];
     //const [cl1,ch] = twoProduct(xh,yh);
     const ch = xh * yh;
