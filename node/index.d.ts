@@ -43,6 +43,15 @@ import { ddDivDdWithError as ddDivDdWithError_ } from './double-double-with-erro
 import { divWithErr as divWithErr_ } from './double-with-err/div-with-err.js';
 import { ddToStr as ddToStr_ } from './dd-to-str/dd-to-str.js';
 import { strToDd as strToDd_ } from './str-to-dd/str-to-dd.js';
+import { ddSin as ddSin_ } from './double-double/unary/dd-sin.js';
+import { ddCos as ddCos_ } from './double-double/unary/dd-cos.js';
+import { ddEq as ddEq_ } from './double-double/binary/dd-eq.js';
+import { ddGt as ddGt_ } from './double-double/binary/dd-gt.js';
+import { ddGte as ddGte_ } from './double-double/binary/dd-gte.js';
+import { ddLt as ddLt_ } from './double-double/binary/dd-lt.js';
+import { ddLte as ddLte_ } from './double-double/binary/dd-lte.js';
+import { ddDiffDouble as ddDiffDouble_ } from './double-mixed-double-double/dd-diff-double.js';
+import { PIDd, eDd, ln2Dd, eulerDd } from './constants.js';
 declare const ddMultDouble2: typeof ddMultDouble2_;
 declare const parseDoubleDetailed: typeof parseDoubleDetailed_;
 declare const getLowestSetBit: typeof getLowestSetBit_;
@@ -123,6 +132,14 @@ declare const operators: {
     ddMultByNeg4: typeof ddMultByNeg4_;
     ddMin: typeof ddMin_;
     ddMax: typeof ddMax_;
+    ddSin: typeof ddSin_;
+    ddCos: typeof ddCos_;
+    ddEq: typeof ddEq_;
+    ddGt: typeof ddGt_;
+    ddGte: typeof ddGte_;
+    ddLt: typeof ddLt_;
+    ddLte: typeof ddLte_;
+    ddDiffDouble: typeof ddDiffDouble_;
     ddDivDdWithError: typeof ddDivDdWithError_;
     divWithErr: typeof divWithErr_;
     sqrtWithErr: typeof sqrtWithErr_;
@@ -142,4 +159,4 @@ declare const operators: {
     strToDd: typeof strToDd_;
 };
 export { operators };
-export { fastTwoDiff, fastTwoSum, split, twoDiff, twoProduct, doubleDivDouble, twoSum, reduceSignificand, doubleSqrt, ddSqrt, ddAbs, ddAddDouble, ddAddDd, ddProduct, ddSum, ddCompare, ddDiffDd, ddMultDouble1, ddMultDouble2, ddMultDd, ddDivDouble, ddDivDd, ddNegativeOf, ddSign, ddMultBy2, ddMultBy4, ddDivBy2, ddMultByNeg2, ddMultByNeg4, ddMin, ddMax, ddDivDdWithError, divWithErr, sqrtWithErr, parseDouble, parseDoubleDetailed, isBitAligned, msbExponent, lsbExponent, bitLength, doubleToBinaryString, doubleToOctets, getHighestSetBit, getLowestSetBit, exponent, significand, ddToStr, strToDd };
+export { fastTwoDiff, fastTwoSum, split, twoDiff, twoProduct, doubleDivDouble, twoSum, reduceSignificand, doubleSqrt, ddSqrt, ddAbs, ddAddDouble, ddAddDd, ddProduct, ddSum, ddCompare, ddDiffDd, ddMultDouble1, ddMultDouble2, ddMultDd, ddDivDouble, ddDivDd, ddNegativeOf, ddSign, ddMultBy2, ddMultBy4, ddDivBy2, ddMultByNeg2, ddMultByNeg4, ddMin, ddMax, ddDivDdWithError, divWithErr, sqrtWithErr, parseDouble, parseDoubleDetailed, isBitAligned, msbExponent, lsbExponent, bitLength, doubleToBinaryString, doubleToOctets, getHighestSetBit, getLowestSetBit, exponent, significand, ddToStr, strToDd, PIDd, eDd, ln2Dd, eulerDd };

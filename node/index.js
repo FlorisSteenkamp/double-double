@@ -43,6 +43,15 @@ import { ddDivDdWithError as ddDivDdWithError_ } from './double-double-with-erro
 import { divWithErr as divWithErr_ } from './double-with-err/div-with-err.js';
 import { ddToStr as ddToStr_ } from './dd-to-str/dd-to-str.js';
 import { strToDd as strToDd_ } from './str-to-dd/str-to-dd.js';
+import { ddSin as ddSin_ } from './double-double/unary/dd-sin.js';
+import { ddCos as ddCos_ } from './double-double/unary/dd-cos.js';
+import { ddEq as ddEq_ } from './double-double/binary/dd-eq.js';
+import { ddGt as ddGt_ } from './double-double/binary/dd-gt.js';
+import { ddGte as ddGte_ } from './double-double/binary/dd-gte.js';
+import { ddLt as ddLt_ } from './double-double/binary/dd-lt.js';
+import { ddLte as ddLte_ } from './double-double/binary/dd-lte.js';
+import { ddDiffDouble as ddDiffDouble_ } from './double-mixed-double-double/dd-diff-double.js';
+import { PIDd, eDd, ln2Dd, eulerDd } from './constants.js';
 const ddMultDouble2 = ddMultDouble2_;
 const parseDoubleDetailed = parseDoubleDetailed_;
 const getLowestSetBit = getLowestSetBit_;
@@ -91,6 +100,14 @@ const ddDivDdWithError = ddDivDdWithError_;
 const divWithErr = divWithErr_;
 const ddToStr = ddToStr_;
 const strToDd = strToDd_;
+const ddSin = ddSin_;
+const ddCos = ddCos_;
+const ddEq = ddEq_;
+const ddGt = ddGt_;
+const ddGte = ddGte_;
+const ddLt = ddLt_;
+const ddLte = ddLte_;
+const ddDiffDouble = ddDiffDouble_;
 const operators = {
     //---- basic ----//
     fastTwoDiff,
@@ -125,6 +142,14 @@ const operators = {
     ddMultByNeg4,
     ddMin,
     ddMax,
+    ddSin,
+    ddCos,
+    ddEq,
+    ddGt,
+    ddGte,
+    ddLt,
+    ddLte,
+    ddDiffDouble,
     //---- double-double precision error propagation - with error bound on input parameters
     ddDivDdWithError,
     //---- double precision error propagation - with error bound on input parameters
@@ -157,5 +182,13 @@ ddDivDdWithError,
 //---- double precision error propagation - with error bound on input parameters
 divWithErr, sqrtWithErr, 
 //---- double floating point representation ----//
-parseDouble, parseDoubleDetailed, isBitAligned, msbExponent, lsbExponent, bitLength, doubleToBinaryString, doubleToOctets, getHighestSetBit, getLowestSetBit, exponent, significand, ddToStr, strToDd };
+parseDouble, parseDoubleDetailed, isBitAligned, msbExponent, lsbExponent, bitLength, doubleToBinaryString, doubleToOctets, getHighestSetBit, getLowestSetBit, exponent, significand, ddToStr, strToDd, 
+// constants
+PIDd, eDd, ln2Dd, eulerDd };
+ddEq;
+ddGt;
+ddGte;
+ddLt;
+ddLte;
+ddDiffDouble;
 //# sourceMappingURL=index.js.map

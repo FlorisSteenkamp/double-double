@@ -24,6 +24,7 @@ var __webpack_exports__ = {};
 
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, {
+  eZ: () => (/* reexport */ PIDd),
   ao: () => (/* binding */ src_bitLength),
   NN: () => (/* binding */ src_ddAbs),
   ei: () => (/* binding */ src_ddAddDd),
@@ -54,12 +55,15 @@ __webpack_require__.d(__webpack_exports__, {
   O$: () => (/* binding */ src_doubleSqrt),
   dC: () => (/* binding */ src_doubleToBinaryString),
   T7: () => (/* binding */ src_doubleToOctets),
+  UF: () => (/* reexport */ eDd),
+  wO: () => (/* reexport */ eulerDd),
   g6: () => (/* binding */ src_exponent),
   gD: () => (/* binding */ src_fastTwoDiff),
   uJ: () => (/* binding */ src_fastTwoSum),
   QK: () => (/* binding */ src_getHighestSetBit),
   aX: () => (/* binding */ src_getLowestSetBit),
   O2: () => (/* binding */ src_isBitAligned),
+  v4: () => (/* reexport */ ln2Dd),
   pE: () => (/* binding */ src_lsbExponent),
   Ei: () => (/* binding */ src_msbExponent),
   II: () => (/* binding */ operators),
@@ -1805,7 +1809,257 @@ function strToDd(str) {
 }
 
 
+;// CONCATENATED MODULE: ./src/constants.ts
+// import { strToDd } from "./str-to-dd/str-to-dd.js";
+const PIDd = [1.2246467991473535e-16, 3.141592653589793];
+const eDd = [1.4456468917292502e-16, 2.718281828459045];
+const ln2Dd = [2.3190468138463e-17, 0.6931471805599453];
+const eulerDd = [-4.942915152430649e-18, 0.5772156649015329];
+// strToDd('0.5772156649015328606065120900824024310421593359399235988057672348');//?
+
+
+;// CONCATENATED MODULE: ./src/double-double/binary/dd-gt.ts
+/**
+ * Returns `true` if `x1 > x2`, `false` otherwise.
+ *
+ * @param x1 a double-double precision floating point number
+ * @param x2 a double-double precision floating point number
+ */
+function ddGt(x1, x2) {
+    if (x1[1] > x2[1]) {
+        return true;
+    }
+    if (x1[1] < x2[1]) {
+        return false;
+    }
+    if (x1[0] > x2[0]) {
+        return true;
+    }
+    return false;
+}
+
+
+;// CONCATENATED MODULE: ./src/double-double/unary/dd-sin.ts
+
+
+
+
+
+
+
+
+
+const { trunc } = Math;
+// See https://gist.github.com/publik-void/067f7f2fef32dbe5c27d6e215f824c91#sin-abs-error-minimized-degree-33
+// Maximum relative error: 1.64002557798425265331386526431095701e-39
+// Maximum absolute error: 7.80601195686311420504782780641951757e-41
+const a0 = [0, 1];
+const a1 = strToDd('-0.166666666666666666666666666666666667');
+const a2 = strToDd('0.00833333333333333333333333333333333069');
+const a3 = strToDd('-0.000198412698412698412698412698412671319');
+const a4 = strToDd('2.75573192239858906525573192223995808e-6');
+const a5 = strToDd('-2.50521083854417187750521077962123682e-8');
+const a6 = strToDd('1.60590438368216145993922289621550506e-10');
+const a7 = strToDd('-7.64716373181981647587481187300831335e-13');
+const a8 = strToDd('2.81145725434552075980975905006999319e-15');
+const a9 = strToDd('-8.22063524662432650297086257962703293e-18');
+const aa = strToDd('1.95729410633890026175367390152305383e-20');
+const ab = strToDd('-3.86817017051340241224838720319634797e-23');
+const ac = strToDd('6.44695023999222092772271073593727141e-26');
+const ad = strToDd('-9.1836779606017064087088551595474321e-29');
+const ae = strToDd('1.13078207057779775850779192271873238e-31');
+const af = strToDd('1.19290046424220296937971101373203567e-34');
+const PIDd_2 = ddDivDouble(PIDd, 2);
+const PIDd2 = ddMultDouble1(2, PIDd);
+/**
+ * Returns the sine of x.
+ *
+ * @param θ a double-double precision floating point number
+ *
+ * @example
+ * ```
+ * import { PIDd } from 'double-double';
+ * import { ddDivDouble } from 'double-double';
+ *
+ * ddSin(ddDivDouble(PIDd,6));  //=> [0,0.5]
+ * ```
+ */
+function ddSin(θ) {
+    let negate = θ[1] < 0;
+    if (negate) {
+        θ = [-θ[0], -θ[1]];
+    }
+    if (ddGt(θ, PIDd)) {
+        const _c = ddDivDd(θ, PIDd2);
+        const c = trunc(_c[1] + _c[0]);
+        θ = ddDiffDd(θ, ddMultDouble1(c, PIDd2));
+    }
+    if (ddGt(θ, PIDd)) {
+        // between 𝜋 and 2𝜋
+        θ = ddDiffDd(θ, PIDd);
+        negate = !negate;
+    }
+    if (ddGt(θ, PIDd_2)) {
+        // between 𝜋/2 and 𝜋
+        θ = ddDiffDd(PIDd, θ);
+    }
+    const x1 = θ;
+    const x2 = ddMultDd(θ, θ);
+    const r = ddMultDd(x1, (ddAddDd(a0, ddMultDd(x2, (ddAddDd(a1, ddMultDd(x2, (ddAddDd(a2, ddMultDd(x2, (ddAddDd(a3, ddMultDd(x2, (ddAddDd(a4, ddMultDd(x2, (ddAddDd(a5, ddMultDd(x2, (ddAddDd(a6, ddMultDd(x2, (ddAddDd(a7, ddMultDd(x2, (ddAddDd(a8, ddMultDd(x2, (ddAddDd(a9, ddMultDd(x2, (ddAddDd(aa, ddMultDd(x2, (ddAddDd(ab, ddMultDd(x2, (ddAddDd(ac, ddMultDd(x2, (ddAddDd(ad, ddMultDd(x2, (ddDiffDd(ae, ddMultDd(x2, af))))))))))))))))))))))))))))))))))))))))))))));
+    return negate ? [-r[0], -r[1]] : r;
+}
+
+
+;// CONCATENATED MODULE: ./src/double-double/unary/dd-cos.ts
+
+
+
+
+// See https://gist.github.com/publik-void/067f7f2fef32dbe5c27d6e215f824c91#sin-abs-error-minimized-degree-33
+// Maximum relative error: 1.64002557798425265331386526431095701e-39
+// Maximum absolute error: 7.80601195686311420504782780641951757e-41
+const dd_cos_PIDd_2 = ddDivDouble(PIDd, 2);
+/**
+ * Returns the cosine of x.
+ *
+ * @param θ a double-double precision floating point number
+ *
+ * @example
+ * ```
+ * import { PIDd } from 'double-double';
+ * import { ddDivDouble } from 'double-double';
+ *
+ * ddCos(ddDivDouble(PIDd,6));  //=> [5.017542110902477e-17, 0.8660254037844386]
+ * ```
+ */
+function ddCos(θ) {
+    const x_ = ddAddDd(θ, dd_cos_PIDd_2);
+    return ddSin(x_);
+}
+
+
+;// CONCATENATED MODULE: ./src/double-double/binary/dd-eq.ts
+/**
+ * Returns `true` if `x1 === x2`, `false` otherwise.
+ *
+ * @param x1 a double-double precision floating point number
+ * @param x2 a double-double precision floating point number
+ */
+function ddEq(x1, x2) {
+    return x1[0] === x2[0] && x1[1] === x2[1];
+}
+
+
+;// CONCATENATED MODULE: ./src/double-double/binary/dd-gte.ts
+/**
+ * Returns `true` if `x1 >= x2`, `false` otherwise.
+ *
+ * @param x1 a double-double precision floating point number
+ * @param x2 a double-double precision floating point number
+ */
+function ddGte(x1, x2) {
+    if (x1[1] > x2[1]) {
+        return true;
+    }
+    if (x1[1] < x2[1]) {
+        return false;
+    }
+    if (x1[0] >= x2[0]) {
+        return true;
+    }
+    return false;
+}
+
+
+;// CONCATENATED MODULE: ./src/double-double/binary/dd-lt.ts
+/**
+ * Returns `true` if `x1 < x2`, `false` otherwise.
+ *
+ * @param x1 a double-double precision floating point number
+ * @param x2 a double-double precision floating point number
+ */
+function ddLt(x1, x2) {
+    if (x1[1] < x2[1]) {
+        return true;
+    }
+    if (x1[1] > x2[1]) {
+        return false;
+    }
+    if (x1[0] < x2[0]) {
+        return true;
+    }
+    return false;
+}
+
+
+;// CONCATENATED MODULE: ./src/double-double/binary/dd-lte.ts
+/**
+ * Returns `true` if `x1 <= x2`, `false` otherwise.
+ *
+ * @param x1 a double-double precision floating point number
+ * @param x2 a double-double precision floating point number
+ */
+function ddLte(x1, x2) {
+    if (x1[1] < x2[1]) {
+        return true;
+    }
+    if (x1[1] > x2[1]) {
+        return false;
+    }
+    if (x1[0] <= x2[0]) {
+        return true;
+    }
+    return false;
+}
+
+
+;// CONCATENATED MODULE: ./src/double-mixed-double-double/dd-diff-double.ts
+/**
+ * Returns the result of subtracting the second given double-precision
+ * floating point number from the first double-double precision float.
+ *
+ * * relative error bound: 3u^2 + 13u^3, i.e. fl(a-b) = (a-b)(1+ϵ),
+ * where ϵ <= 3u^2 + 13u^3, u = 0.5 * Number.EPSILON
+ * * the error bound is not sharp - the worst case that could be found by the
+ * authors were 2.25u^2
+ *
+ * ALGORITHM 6 of https://hal.archives-ouvertes.fr/hal-01351529v3/document
+ * @param x a double-double precision floating point number
+ * @param y a double precision floating point number
+ */
+function ddDiffDouble(x, y) {
+    const xl = x[0];
+    const xh = x[1];
+    //const [sl,sh] = twoSum(xh,yh);
+    const sh = xh - y;
+    const _1 = sh - xh;
+    const sl = (xh - (sh - _1)) + (-y - _1);
+    //const [tl,th] = twoSum(xl,yl);
+    const th = xl;
+    const _2 = th - xl;
+    const tl = (xl - (th - _2)) - _2;
+    const c = sl + th;
+    //const [vl,vh] = fastTwoSum(sh,c)
+    const vh = sh + c;
+    const vl = c - (vh - sh);
+    const w = tl + vl;
+    //const [zl,zh] = fastTwoSum(vh,w)
+    const zh = vh + w;
+    const zl = w - (zh - vh);
+    return [zl, zh];
+}
+
+
 ;// CONCATENATED MODULE: ./src/index.ts
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1899,6 +2153,14 @@ const src_ddDivDdWithError = ddDivDdWithError;
 const src_divWithErr = divWithErr;
 const src_ddToStr = ddToStr;
 const src_strToDd = strToDd;
+const src_ddSin = ddSin;
+const src_ddCos = ddCos;
+const src_ddEq = ddEq;
+const src_ddGt = ddGt;
+const src_ddGte = ddGte;
+const src_ddLt = ddLt;
+const src_ddLte = ddLte;
+const src_ddDiffDouble = ddDiffDouble;
 const operators = {
     //---- basic ----//
     fastTwoDiff: src_fastTwoDiff,
@@ -1933,6 +2195,14 @@ const operators = {
     ddMultByNeg4: src_ddMultByNeg4,
     ddMin: src_ddMin,
     ddMax: src_ddMax,
+    ddSin: src_ddSin,
+    ddCos: src_ddCos,
+    ddEq: src_ddEq,
+    ddGt: src_ddGt,
+    ddGte: src_ddGte,
+    ddLt: src_ddLt,
+    ddLte: src_ddLte,
+    ddDiffDouble: src_ddDiffDouble,
     //---- double-double precision error propagation - with error bound on input parameters
     ddDivDdWithError: src_ddDivDdWithError,
     //---- double precision error propagation - with error bound on input parameters
@@ -1956,7 +2226,14 @@ const operators = {
 };
 
 
+src_ddEq;
+src_ddGt;
+src_ddGte;
+src_ddLt;
+src_ddLte;
+src_ddDiffDouble;
 
+var __webpack_exports__PIDd = __webpack_exports__.eZ;
 var __webpack_exports__bitLength = __webpack_exports__.ao;
 var __webpack_exports__ddAbs = __webpack_exports__.NN;
 var __webpack_exports__ddAddDd = __webpack_exports__.ei;
@@ -1987,12 +2264,15 @@ var __webpack_exports__doubleDivDouble = __webpack_exports__.Mw;
 var __webpack_exports__doubleSqrt = __webpack_exports__.O$;
 var __webpack_exports__doubleToBinaryString = __webpack_exports__.dC;
 var __webpack_exports__doubleToOctets = __webpack_exports__.T7;
+var __webpack_exports__eDd = __webpack_exports__.UF;
+var __webpack_exports__eulerDd = __webpack_exports__.wO;
 var __webpack_exports__exponent = __webpack_exports__.g6;
 var __webpack_exports__fastTwoDiff = __webpack_exports__.gD;
 var __webpack_exports__fastTwoSum = __webpack_exports__.uJ;
 var __webpack_exports__getHighestSetBit = __webpack_exports__.QK;
 var __webpack_exports__getLowestSetBit = __webpack_exports__.aX;
 var __webpack_exports__isBitAligned = __webpack_exports__.O2;
+var __webpack_exports__ln2Dd = __webpack_exports__.v4;
 var __webpack_exports__lsbExponent = __webpack_exports__.pE;
 var __webpack_exports__msbExponent = __webpack_exports__.Ei;
 var __webpack_exports__operators = __webpack_exports__.II;
@@ -2006,4 +2286,4 @@ var __webpack_exports__strToDd = __webpack_exports__.DL;
 var __webpack_exports__twoDiff = __webpack_exports__.QC;
 var __webpack_exports__twoProduct = __webpack_exports__.gB;
 var __webpack_exports__twoSum = __webpack_exports__.S4;
-export { __webpack_exports__bitLength as bitLength, __webpack_exports__ddAbs as ddAbs, __webpack_exports__ddAddDd as ddAddDd, __webpack_exports__ddAddDouble as ddAddDouble, __webpack_exports__ddCompare as ddCompare, __webpack_exports__ddDiffDd as ddDiffDd, __webpack_exports__ddDivBy2 as ddDivBy2, __webpack_exports__ddDivDd as ddDivDd, __webpack_exports__ddDivDdWithError as ddDivDdWithError, __webpack_exports__ddDivDouble as ddDivDouble, __webpack_exports__ddMax as ddMax, __webpack_exports__ddMin as ddMin, __webpack_exports__ddMultBy2 as ddMultBy2, __webpack_exports__ddMultBy4 as ddMultBy4, __webpack_exports__ddMultByNeg2 as ddMultByNeg2, __webpack_exports__ddMultByNeg4 as ddMultByNeg4, __webpack_exports__ddMultDd as ddMultDd, __webpack_exports__ddMultDouble1 as ddMultDouble1, __webpack_exports__ddMultDouble2 as ddMultDouble2, __webpack_exports__ddNegativeOf as ddNegativeOf, __webpack_exports__ddProduct as ddProduct, __webpack_exports__ddSign as ddSign, __webpack_exports__ddSqrt as ddSqrt, __webpack_exports__ddSum as ddSum, __webpack_exports__ddToStr as ddToStr, __webpack_exports__divWithErr as divWithErr, __webpack_exports__doubleDivDouble as doubleDivDouble, __webpack_exports__doubleSqrt as doubleSqrt, __webpack_exports__doubleToBinaryString as doubleToBinaryString, __webpack_exports__doubleToOctets as doubleToOctets, __webpack_exports__exponent as exponent, __webpack_exports__fastTwoDiff as fastTwoDiff, __webpack_exports__fastTwoSum as fastTwoSum, __webpack_exports__getHighestSetBit as getHighestSetBit, __webpack_exports__getLowestSetBit as getLowestSetBit, __webpack_exports__isBitAligned as isBitAligned, __webpack_exports__lsbExponent as lsbExponent, __webpack_exports__msbExponent as msbExponent, __webpack_exports__operators as operators, __webpack_exports__parseDouble as parseDouble, __webpack_exports__parseDoubleDetailed as parseDoubleDetailed, __webpack_exports__reduceSignificand as reduceSignificand, __webpack_exports__significand as significand, __webpack_exports__split as split, __webpack_exports__sqrtWithErr as sqrtWithErr, __webpack_exports__strToDd as strToDd, __webpack_exports__twoDiff as twoDiff, __webpack_exports__twoProduct as twoProduct, __webpack_exports__twoSum as twoSum };
+export { __webpack_exports__PIDd as PIDd, __webpack_exports__bitLength as bitLength, __webpack_exports__ddAbs as ddAbs, __webpack_exports__ddAddDd as ddAddDd, __webpack_exports__ddAddDouble as ddAddDouble, __webpack_exports__ddCompare as ddCompare, __webpack_exports__ddDiffDd as ddDiffDd, __webpack_exports__ddDivBy2 as ddDivBy2, __webpack_exports__ddDivDd as ddDivDd, __webpack_exports__ddDivDdWithError as ddDivDdWithError, __webpack_exports__ddDivDouble as ddDivDouble, __webpack_exports__ddMax as ddMax, __webpack_exports__ddMin as ddMin, __webpack_exports__ddMultBy2 as ddMultBy2, __webpack_exports__ddMultBy4 as ddMultBy4, __webpack_exports__ddMultByNeg2 as ddMultByNeg2, __webpack_exports__ddMultByNeg4 as ddMultByNeg4, __webpack_exports__ddMultDd as ddMultDd, __webpack_exports__ddMultDouble1 as ddMultDouble1, __webpack_exports__ddMultDouble2 as ddMultDouble2, __webpack_exports__ddNegativeOf as ddNegativeOf, __webpack_exports__ddProduct as ddProduct, __webpack_exports__ddSign as ddSign, __webpack_exports__ddSqrt as ddSqrt, __webpack_exports__ddSum as ddSum, __webpack_exports__ddToStr as ddToStr, __webpack_exports__divWithErr as divWithErr, __webpack_exports__doubleDivDouble as doubleDivDouble, __webpack_exports__doubleSqrt as doubleSqrt, __webpack_exports__doubleToBinaryString as doubleToBinaryString, __webpack_exports__doubleToOctets as doubleToOctets, __webpack_exports__eDd as eDd, __webpack_exports__eulerDd as eulerDd, __webpack_exports__exponent as exponent, __webpack_exports__fastTwoDiff as fastTwoDiff, __webpack_exports__fastTwoSum as fastTwoSum, __webpack_exports__getHighestSetBit as getHighestSetBit, __webpack_exports__getLowestSetBit as getLowestSetBit, __webpack_exports__isBitAligned as isBitAligned, __webpack_exports__ln2Dd as ln2Dd, __webpack_exports__lsbExponent as lsbExponent, __webpack_exports__msbExponent as msbExponent, __webpack_exports__operators as operators, __webpack_exports__parseDouble as parseDouble, __webpack_exports__parseDoubleDetailed as parseDoubleDetailed, __webpack_exports__reduceSignificand as reduceSignificand, __webpack_exports__significand as significand, __webpack_exports__split as split, __webpack_exports__sqrtWithErr as sqrtWithErr, __webpack_exports__strToDd as strToDd, __webpack_exports__twoDiff as twoDiff, __webpack_exports__twoProduct as twoProduct, __webpack_exports__twoSum as twoSum };

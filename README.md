@@ -5,15 +5,38 @@
 
 ## New!  ★★★
 
-`ddToStr` and `strToDd`
+### functions
 
-# Examples
+`ddToStr` and `strToDd`\
+`ddSin` and `ddCos`\
+`ddEq`, `ddGt`, `ddGte`, `ddLt`, `ddLte`\
+`ddDiffDouble`
+
+### constants
+
+```
+PIDd    //=> [1.2246467991473535e-16, 3.141592653589793]
+eDd     //=> [1.4456468917292502e-16, 2.718281828459045]
+ln2Dd   //=> [2.3190468138463e-17, 0.6931471805599453];
+eulerDd //=> [-4.942915152430649e-18, 0.5772156649015329];
+```
+
+### Examples
+
 ```
 strToDd('3.1415926535897932384626433832795');  //=> [1.2246467991473535e-16, 3.141592653589793]
 strToDd('6.0221408e+23');  //=> [-2097152, 6.0221408e+23]
 
 ddToStr([1.2246467991473535e-16, 3.141592653589793]);  //=> '3.1415926535897932384626433832795_30530870267274333'
+
+dDsin(ddDivDouble(PIDd,6));  //=> [0,0.5]
+ddCos(ddDivDouble(PIDd,6));  //=> [5.017542110902477e-17, 0.8660254037844386]
+
+ddGt([0,1],[0,2]);  //=> false
 ```
+
+
+
 
 
 ## [Documentation](https://florissteenkamp.github.io/double-double/)
