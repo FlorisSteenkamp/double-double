@@ -2,7 +2,7 @@
     "name": "double-double",
     "sideEffects": false,
     "description": "Pure double-double precision functions *with strict error bounds*.",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "author": {
         "name": "Floris Steenkamp"
     },
