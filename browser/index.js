@@ -25,58 +25,65 @@ var __webpack_exports__ = {};
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, {
   eZ: () => (/* reexport */ PIDd),
-  ao: () => (/* binding */ src_bitLength),
-  NN: () => (/* binding */ src_ddAbs),
-  ei: () => (/* binding */ src_ddAddDd),
-  zR: () => (/* binding */ src_ddAddDouble),
-  e0: () => (/* binding */ src_ddCompare),
-  w0: () => (/* binding */ src_ddDiffDd),
-  vx: () => (/* binding */ src_ddDivBy2),
-  A5: () => (/* binding */ src_ddDivDd),
-  q$: () => (/* binding */ src_ddDivDdWithError),
-  pW: () => (/* binding */ src_ddDivDouble),
-  zZ: () => (/* binding */ src_ddMax),
-  Rp: () => (/* binding */ src_ddMin),
-  IH: () => (/* binding */ src_ddMultBy2),
-  Is: () => (/* binding */ src_ddMultBy4),
-  Em: () => (/* binding */ src_ddMultByNeg2),
-  Sw: () => (/* binding */ src_ddMultByNeg4),
-  tp: () => (/* binding */ src_ddMultDd),
-  Lz: () => (/* binding */ src_ddMultDouble1),
-  QP: () => (/* binding */ src_ddMultDouble2),
-  Vd: () => (/* binding */ src_ddNegativeOf),
-  Kq: () => (/* binding */ src_ddProduct),
-  cV: () => (/* binding */ src_ddSign),
-  VL: () => (/* binding */ src_ddSqrt),
-  K_: () => (/* binding */ src_ddSum),
-  Vx: () => (/* binding */ src_ddToStr),
-  P_: () => (/* binding */ src_divWithErr),
-  Mw: () => (/* binding */ src_doubleDivDouble),
-  O$: () => (/* binding */ src_doubleSqrt),
-  dC: () => (/* binding */ src_doubleToBinaryString),
-  T7: () => (/* binding */ src_doubleToOctets),
+  ao: () => (/* reexport */ bitLength),
+  NN: () => (/* reexport */ ddAbs),
+  ei: () => (/* reexport */ ddAddDd),
+  zR: () => (/* reexport */ ddAddDouble),
+  e0: () => (/* reexport */ ddCompare),
+  QV: () => (/* reexport */ ddCos),
+  w0: () => (/* reexport */ ddDiffDd),
+  PA: () => (/* reexport */ ddDiffDouble),
+  vx: () => (/* reexport */ ddDivBy2),
+  A5: () => (/* reexport */ ddDivDd),
+  q$: () => (/* reexport */ ddDivDdWithError),
+  pW: () => (/* reexport */ ddDivDouble),
+  rC: () => (/* reexport */ ddEq),
+  SH: () => (/* reexport */ ddGt),
+  Tn: () => (/* reexport */ ddGte),
+  jL: () => (/* reexport */ ddLt),
+  kT: () => (/* reexport */ ddLte),
+  zZ: () => (/* reexport */ ddMax),
+  Rp: () => (/* reexport */ ddMin),
+  IH: () => (/* reexport */ ddMultBy2),
+  Is: () => (/* reexport */ ddMultBy4),
+  Em: () => (/* reexport */ ddMultByNeg2),
+  Sw: () => (/* reexport */ ddMultByNeg4),
+  tp: () => (/* reexport */ ddMultDd),
+  Lz: () => (/* reexport */ ddMultDouble1),
+  QP: () => (/* reexport */ ddMultDouble2),
+  Vd: () => (/* reexport */ ddNegativeOf),
+  Kq: () => (/* reexport */ ddProduct),
+  cV: () => (/* reexport */ ddSign),
+  Rc: () => (/* reexport */ ddSin),
+  VL: () => (/* reexport */ ddSqrt),
+  K_: () => (/* reexport */ ddSum),
+  Vx: () => (/* reexport */ ddToStr),
+  P_: () => (/* reexport */ divWithErr),
+  Mw: () => (/* reexport */ doubleDivDouble),
+  O$: () => (/* reexport */ doubleSqrt),
+  dC: () => (/* reexport */ doubleToBinaryString),
+  T7: () => (/* reexport */ doubleToOctets),
   UF: () => (/* reexport */ eDd),
   wO: () => (/* reexport */ eulerDd),
-  g6: () => (/* binding */ src_exponent),
-  gD: () => (/* binding */ src_fastTwoDiff),
-  uJ: () => (/* binding */ src_fastTwoSum),
-  QK: () => (/* binding */ src_getHighestSetBit),
-  aX: () => (/* binding */ src_getLowestSetBit),
-  O2: () => (/* binding */ src_isBitAligned),
+  g6: () => (/* reexport */ exponent),
+  gD: () => (/* reexport */ fastTwoDiff),
+  uJ: () => (/* reexport */ fastTwoSum),
+  QK: () => (/* reexport */ getHighestSetBit),
+  aX: () => (/* reexport */ getLowestSetBit),
+  O2: () => (/* reexport */ isBitAligned),
   v4: () => (/* reexport */ ln2Dd),
-  pE: () => (/* binding */ src_lsbExponent),
-  Ei: () => (/* binding */ src_msbExponent),
-  II: () => (/* binding */ operators),
-  bt: () => (/* binding */ src_parseDouble),
-  $n: () => (/* binding */ src_parseDoubleDetailed),
-  K1: () => (/* binding */ src_reduceSignificand),
-  uI: () => (/* binding */ src_significand),
-  lD: () => (/* binding */ src_split),
-  oi: () => (/* binding */ src_sqrtWithErr),
-  DL: () => (/* binding */ src_strToDd),
-  QC: () => (/* binding */ src_twoDiff),
-  gB: () => (/* binding */ src_twoProduct),
-  S4: () => (/* binding */ src_twoSum)
+  pE: () => (/* reexport */ lsbExponent),
+  Ei: () => (/* reexport */ msbExponent),
+  bt: () => (/* reexport */ parseDouble),
+  $n: () => (/* reexport */ parseDoubleDetailed),
+  K1: () => (/* reexport */ reduceSignificand),
+  uI: () => (/* reexport */ significand),
+  lD: () => (/* reexport */ split),
+  oi: () => (/* reexport */ sqrtWithErr),
+  DL: () => (/* reexport */ strToDd),
+  QC: () => (/* reexport */ twoDiff),
+  gB: () => (/* reexport */ twoProduct),
+  S4: () => (/* reexport */ twoSum)
 });
 
 ;// CONCATENATED MODULE: ./src/double-double/binary/dd-diff-dd.ts
@@ -930,7 +937,7 @@ function parseDouble(x) {
     const p0 = parts[0];
     const p1 = parts[1];
     const sign = p0 >> 7;
-    const exponent_ = ((p0 & 127) << 4) + ((p1 & 0b11110000) >> 4);
+    const exponent_ = ((p0 & 0b0111_1111) << 4) + ((p1 & 0b11110000) >> 4);
     //---- Check for negative / positive zero / denormalized numbers.
     const hiddenMsb = exponent_ === 0 ? 0 : 16;
     // Note: exponent === 0 => 0 or denormalized number (a.k.a. subnormal number).
@@ -939,7 +946,7 @@ function parseDouble(x) {
         : exponent_ - 1023;
     //---- Break up the significand into bytes
     const significand = parts.slice(1);
-    significand[0] = (p1 & 15) + hiddenMsb;
+    significand[0] = (p1 & 0b0000_1111) + hiddenMsb;
     return {
         sign,
         exponent,
@@ -2105,133 +2112,6 @@ function ddDiffDouble(x, y) {
 
 
 
-const src_ddMultDouble2 = ddMultDouble2;
-const src_parseDoubleDetailed = parseDoubleDetailed;
-const src_getLowestSetBit = getLowestSetBit;
-const src_ddMin = ddMin;
-const src_ddMax = ddMax;
-const src_ddSqrt = ddSqrt;
-const src_doubleSqrt = doubleSqrt;
-const src_sqrtWithErr = sqrtWithErr;
-const src_ddAbs = ddAbs;
-const src_ddAddDouble = ddAddDouble;
-const src_ddAddDd = ddAddDd;
-const src_ddProduct = ddProduct;
-const src_ddSum = ddSum;
-const src_ddCompare = ddCompare;
-const src_ddDiffDd = ddDiffDd;
-const src_ddMultDouble1 = ddMultDouble1;
-const src_ddMultBy2 = ddMultBy2;
-const src_ddMultBy4 = ddMultBy4;
-const src_ddDivBy2 = ddDivBy2;
-const src_ddMultByNeg2 = ddMultByNeg2;
-const src_ddMultByNeg4 = ddMultByNeg4;
-const src_ddMultDd = ddMultDd;
-const src_ddDivDouble = ddDivDouble;
-const src_ddDivDd = ddDivDd;
-const src_ddNegativeOf = ddNegativeOf;
-const src_ddSign = ddSign;
-const src_fastTwoDiff = fastTwoDiff;
-const src_fastTwoSum = fastTwoSum;
-const src_split = split;
-const src_twoDiff = twoDiff;
-const src_twoProduct = twoProduct;
-const src_doubleDivDouble = doubleDivDouble;
-const src_twoSum = twoSum;
-const src_reduceSignificand = reduceSignificand;
-const src_parseDouble = parseDouble;
-const src_isBitAligned = isBitAligned;
-const src_msbExponent = msbExponent;
-const src_lsbExponent = lsbExponent;
-const src_bitLength = bitLength;
-const src_exponent = exponent;
-const src_significand = significand;
-const src_doubleToBinaryString = doubleToBinaryString;
-const src_doubleToOctets = doubleToOctets;
-const src_getHighestSetBit = getHighestSetBit;
-const src_ddDivDdWithError = ddDivDdWithError;
-const src_divWithErr = divWithErr;
-const src_ddToStr = ddToStr;
-const src_strToDd = strToDd;
-const src_ddSin = ddSin;
-const src_ddCos = ddCos;
-const src_ddEq = ddEq;
-const src_ddGt = ddGt;
-const src_ddGte = ddGte;
-const src_ddLt = ddLt;
-const src_ddLte = ddLte;
-const src_ddDiffDouble = ddDiffDouble;
-const operators = {
-    //---- basic ----//
-    fastTwoDiff: src_fastTwoDiff,
-    fastTwoSum: src_fastTwoSum,
-    split: src_split,
-    twoDiff: src_twoDiff,
-    twoProduct: src_twoProduct,
-    doubleDivDouble: src_doubleDivDouble,
-    twoSum: src_twoSum,
-    reduceSignificand: src_reduceSignificand,
-    //---- double-double precision ----//
-    doubleSqrt: src_doubleSqrt,
-    ddSqrt: src_ddSqrt,
-    ddAbs: src_ddAbs,
-    ddAddDouble: src_ddAddDouble,
-    ddAddDd: src_ddAddDd,
-    ddProduct: src_ddProduct,
-    ddSum: src_ddSum,
-    ddCompare: src_ddCompare,
-    ddDiffDd: src_ddDiffDd,
-    ddMultDouble1: src_ddMultDouble1,
-    ddMultDouble2: src_ddMultDouble2,
-    ddMultDd: src_ddMultDd,
-    ddDivDouble: src_ddDivDouble,
-    ddDivDd: src_ddDivDd,
-    ddNegativeOf: src_ddNegativeOf,
-    ddSign: src_ddSign,
-    ddMultBy2: src_ddMultBy2,
-    ddMultBy4: src_ddMultBy4,
-    ddDivBy2: src_ddDivBy2,
-    ddMultByNeg2: src_ddMultByNeg2,
-    ddMultByNeg4: src_ddMultByNeg4,
-    ddMin: src_ddMin,
-    ddMax: src_ddMax,
-    ddSin: src_ddSin,
-    ddCos: src_ddCos,
-    ddEq: src_ddEq,
-    ddGt: src_ddGt,
-    ddGte: src_ddGte,
-    ddLt: src_ddLt,
-    ddLte: src_ddLte,
-    ddDiffDouble: src_ddDiffDouble,
-    //---- double-double precision error propagation - with error bound on input parameters
-    ddDivDdWithError: src_ddDivDdWithError,
-    //---- double precision error propagation - with error bound on input parameters
-    divWithErr: src_divWithErr,
-    sqrtWithErr: src_sqrtWithErr,
-    //---- double floating point representation ----//
-    parseDouble: src_parseDouble,
-    parseDoubleDetailed: src_parseDoubleDetailed,
-    isBitAligned: src_isBitAligned,
-    msbExponent: src_msbExponent,
-    lsbExponent: src_lsbExponent,
-    bitLength: src_bitLength,
-    doubleToBinaryString: src_doubleToBinaryString,
-    doubleToOctets: src_doubleToOctets,
-    getHighestSetBit: src_getHighestSetBit,
-    getLowestSetBit: src_getLowestSetBit,
-    exponent: src_exponent,
-    significand: src_significand,
-    ddToStr: src_ddToStr,
-    strToDd: src_strToDd
-};
-
-
-src_ddEq;
-src_ddGt;
-src_ddGte;
-src_ddLt;
-src_ddLte;
-src_ddDiffDouble;
 
 var __webpack_exports__PIDd = __webpack_exports__.eZ;
 var __webpack_exports__bitLength = __webpack_exports__.ao;
@@ -2239,11 +2119,18 @@ var __webpack_exports__ddAbs = __webpack_exports__.NN;
 var __webpack_exports__ddAddDd = __webpack_exports__.ei;
 var __webpack_exports__ddAddDouble = __webpack_exports__.zR;
 var __webpack_exports__ddCompare = __webpack_exports__.e0;
+var __webpack_exports__ddCos = __webpack_exports__.QV;
 var __webpack_exports__ddDiffDd = __webpack_exports__.w0;
+var __webpack_exports__ddDiffDouble = __webpack_exports__.PA;
 var __webpack_exports__ddDivBy2 = __webpack_exports__.vx;
 var __webpack_exports__ddDivDd = __webpack_exports__.A5;
 var __webpack_exports__ddDivDdWithError = __webpack_exports__.q$;
 var __webpack_exports__ddDivDouble = __webpack_exports__.pW;
+var __webpack_exports__ddEq = __webpack_exports__.rC;
+var __webpack_exports__ddGt = __webpack_exports__.SH;
+var __webpack_exports__ddGte = __webpack_exports__.Tn;
+var __webpack_exports__ddLt = __webpack_exports__.jL;
+var __webpack_exports__ddLte = __webpack_exports__.kT;
 var __webpack_exports__ddMax = __webpack_exports__.zZ;
 var __webpack_exports__ddMin = __webpack_exports__.Rp;
 var __webpack_exports__ddMultBy2 = __webpack_exports__.IH;
@@ -2256,6 +2143,7 @@ var __webpack_exports__ddMultDouble2 = __webpack_exports__.QP;
 var __webpack_exports__ddNegativeOf = __webpack_exports__.Vd;
 var __webpack_exports__ddProduct = __webpack_exports__.Kq;
 var __webpack_exports__ddSign = __webpack_exports__.cV;
+var __webpack_exports__ddSin = __webpack_exports__.Rc;
 var __webpack_exports__ddSqrt = __webpack_exports__.VL;
 var __webpack_exports__ddSum = __webpack_exports__.K_;
 var __webpack_exports__ddToStr = __webpack_exports__.Vx;
@@ -2275,7 +2163,6 @@ var __webpack_exports__isBitAligned = __webpack_exports__.O2;
 var __webpack_exports__ln2Dd = __webpack_exports__.v4;
 var __webpack_exports__lsbExponent = __webpack_exports__.pE;
 var __webpack_exports__msbExponent = __webpack_exports__.Ei;
-var __webpack_exports__operators = __webpack_exports__.II;
 var __webpack_exports__parseDouble = __webpack_exports__.bt;
 var __webpack_exports__parseDoubleDetailed = __webpack_exports__.$n;
 var __webpack_exports__reduceSignificand = __webpack_exports__.K1;
@@ -2286,4 +2173,4 @@ var __webpack_exports__strToDd = __webpack_exports__.DL;
 var __webpack_exports__twoDiff = __webpack_exports__.QC;
 var __webpack_exports__twoProduct = __webpack_exports__.gB;
 var __webpack_exports__twoSum = __webpack_exports__.S4;
-export { __webpack_exports__PIDd as PIDd, __webpack_exports__bitLength as bitLength, __webpack_exports__ddAbs as ddAbs, __webpack_exports__ddAddDd as ddAddDd, __webpack_exports__ddAddDouble as ddAddDouble, __webpack_exports__ddCompare as ddCompare, __webpack_exports__ddDiffDd as ddDiffDd, __webpack_exports__ddDivBy2 as ddDivBy2, __webpack_exports__ddDivDd as ddDivDd, __webpack_exports__ddDivDdWithError as ddDivDdWithError, __webpack_exports__ddDivDouble as ddDivDouble, __webpack_exports__ddMax as ddMax, __webpack_exports__ddMin as ddMin, __webpack_exports__ddMultBy2 as ddMultBy2, __webpack_exports__ddMultBy4 as ddMultBy4, __webpack_exports__ddMultByNeg2 as ddMultByNeg2, __webpack_exports__ddMultByNeg4 as ddMultByNeg4, __webpack_exports__ddMultDd as ddMultDd, __webpack_exports__ddMultDouble1 as ddMultDouble1, __webpack_exports__ddMultDouble2 as ddMultDouble2, __webpack_exports__ddNegativeOf as ddNegativeOf, __webpack_exports__ddProduct as ddProduct, __webpack_exports__ddSign as ddSign, __webpack_exports__ddSqrt as ddSqrt, __webpack_exports__ddSum as ddSum, __webpack_exports__ddToStr as ddToStr, __webpack_exports__divWithErr as divWithErr, __webpack_exports__doubleDivDouble as doubleDivDouble, __webpack_exports__doubleSqrt as doubleSqrt, __webpack_exports__doubleToBinaryString as doubleToBinaryString, __webpack_exports__doubleToOctets as doubleToOctets, __webpack_exports__eDd as eDd, __webpack_exports__eulerDd as eulerDd, __webpack_exports__exponent as exponent, __webpack_exports__fastTwoDiff as fastTwoDiff, __webpack_exports__fastTwoSum as fastTwoSum, __webpack_exports__getHighestSetBit as getHighestSetBit, __webpack_exports__getLowestSetBit as getLowestSetBit, __webpack_exports__isBitAligned as isBitAligned, __webpack_exports__ln2Dd as ln2Dd, __webpack_exports__lsbExponent as lsbExponent, __webpack_exports__msbExponent as msbExponent, __webpack_exports__operators as operators, __webpack_exports__parseDouble as parseDouble, __webpack_exports__parseDoubleDetailed as parseDoubleDetailed, __webpack_exports__reduceSignificand as reduceSignificand, __webpack_exports__significand as significand, __webpack_exports__split as split, __webpack_exports__sqrtWithErr as sqrtWithErr, __webpack_exports__strToDd as strToDd, __webpack_exports__twoDiff as twoDiff, __webpack_exports__twoProduct as twoProduct, __webpack_exports__twoSum as twoSum };
+export { __webpack_exports__PIDd as PIDd, __webpack_exports__bitLength as bitLength, __webpack_exports__ddAbs as ddAbs, __webpack_exports__ddAddDd as ddAddDd, __webpack_exports__ddAddDouble as ddAddDouble, __webpack_exports__ddCompare as ddCompare, __webpack_exports__ddCos as ddCos, __webpack_exports__ddDiffDd as ddDiffDd, __webpack_exports__ddDiffDouble as ddDiffDouble, __webpack_exports__ddDivBy2 as ddDivBy2, __webpack_exports__ddDivDd as ddDivDd, __webpack_exports__ddDivDdWithError as ddDivDdWithError, __webpack_exports__ddDivDouble as ddDivDouble, __webpack_exports__ddEq as ddEq, __webpack_exports__ddGt as ddGt, __webpack_exports__ddGte as ddGte, __webpack_exports__ddLt as ddLt, __webpack_exports__ddLte as ddLte, __webpack_exports__ddMax as ddMax, __webpack_exports__ddMin as ddMin, __webpack_exports__ddMultBy2 as ddMultBy2, __webpack_exports__ddMultBy4 as ddMultBy4, __webpack_exports__ddMultByNeg2 as ddMultByNeg2, __webpack_exports__ddMultByNeg4 as ddMultByNeg4, __webpack_exports__ddMultDd as ddMultDd, __webpack_exports__ddMultDouble1 as ddMultDouble1, __webpack_exports__ddMultDouble2 as ddMultDouble2, __webpack_exports__ddNegativeOf as ddNegativeOf, __webpack_exports__ddProduct as ddProduct, __webpack_exports__ddSign as ddSign, __webpack_exports__ddSin as ddSin, __webpack_exports__ddSqrt as ddSqrt, __webpack_exports__ddSum as ddSum, __webpack_exports__ddToStr as ddToStr, __webpack_exports__divWithErr as divWithErr, __webpack_exports__doubleDivDouble as doubleDivDouble, __webpack_exports__doubleSqrt as doubleSqrt, __webpack_exports__doubleToBinaryString as doubleToBinaryString, __webpack_exports__doubleToOctets as doubleToOctets, __webpack_exports__eDd as eDd, __webpack_exports__eulerDd as eulerDd, __webpack_exports__exponent as exponent, __webpack_exports__fastTwoDiff as fastTwoDiff, __webpack_exports__fastTwoSum as fastTwoSum, __webpack_exports__getHighestSetBit as getHighestSetBit, __webpack_exports__getLowestSetBit as getLowestSetBit, __webpack_exports__isBitAligned as isBitAligned, __webpack_exports__ln2Dd as ln2Dd, __webpack_exports__lsbExponent as lsbExponent, __webpack_exports__msbExponent as msbExponent, __webpack_exports__parseDouble as parseDouble, __webpack_exports__parseDoubleDetailed as parseDoubleDetailed, __webpack_exports__reduceSignificand as reduceSignificand, __webpack_exports__significand as significand, __webpack_exports__split as split, __webpack_exports__sqrtWithErr as sqrtWithErr, __webpack_exports__strToDd as strToDd, __webpack_exports__twoDiff as twoDiff, __webpack_exports__twoProduct as twoProduct, __webpack_exports__twoSum as twoSum };

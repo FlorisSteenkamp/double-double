@@ -14,7 +14,7 @@ function parseDouble(x) {
     const p0 = parts[0];
     const p1 = parts[1];
     const sign = p0 >> 7;
-    const exponent_ = ((p0 & 127) << 4) + ((p1 & 0b11110000) >> 4);
+    const exponent_ = ((p0 & 0b0111_1111) << 4) + ((p1 & 0b11110000) >> 4);
     //---- Check for negative / positive zero / denormalized numbers.
     const hiddenMsb = exponent_ === 0 ? 0 : 16;
     // Note: exponent === 0 => 0 or denormalized number (a.k.a. subnormal number).
@@ -23,7 +23,7 @@ function parseDouble(x) {
         : exponent_ - 1023;
     //---- Break up the significand into bytes
     const significand = parts.slice(1);
-    significand[0] = (p1 & 15) + hiddenMsb;
+    significand[0] = (p1 & 0b0000_1111) + hiddenMsb;
     return {
         sign,
         exponent,
