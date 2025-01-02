@@ -86,7 +86,7 @@ __webpack_require__.d(__webpack_exports__, {
   S4: () => (/* reexport */ twoSum)
 });
 
-;// CONCATENATED MODULE: ./src/double-double/binary/dd-diff-dd.ts
+;// ./src/double-double/binary/dd-diff-dd.ts
 /**
  * Returns the result of subtracting the second given double-double-precision
  * floating point number from the first.
@@ -125,7 +125,7 @@ function ddDiffDd(x, y) {
 }
 
 
-;// CONCATENATED MODULE: ./src/double-double/binary/dd-min.ts
+;// ./src/double-double/binary/dd-min.ts
 
 // We *have* to do the below❗ The assignee is a getter❗ The assigned is a pure function❗
 /** @internal */
@@ -141,7 +141,7 @@ function ddMin(a, b) {
 }
 
 
-;// CONCATENATED MODULE: ./src/double-double/binary/dd-max.ts
+;// ./src/double-double/binary/dd-max.ts
 
 // We *have* to do the below❗ The assignee is a getter❗ The assigned is a pure function❗
 /** @internal */
@@ -157,7 +157,7 @@ function ddMax(a, b) {
 }
 
 
-;// CONCATENATED MODULE: ./src/double-double/unary/dd-sqrt.ts
+;// ./src/double-double/unary/dd-sqrt.ts
 /** @internal */
 const f = 134217729; // 2**27 + 1;
 // Taken from https://github.com/munrocket/double.js/blob/master/src/double.ts
@@ -187,7 +187,7 @@ function ddSqrt(x) {
 }
 
 
-;// CONCATENATED MODULE: ./src/double-mixed-double-double/double-sqrt.ts
+;// ./src/double-mixed-double-double/double-sqrt.ts
 /** @internal */
 const double_sqrt_f = 134217729; // 2**27 + 1;
 // Taken from https://github.com/munrocket/double.js/blob/master/src/double.ts
@@ -215,7 +215,7 @@ function doubleSqrt(x) {
 }
 
 
-;// CONCATENATED MODULE: ./src/double-with-err/sqrt-with-err.ts
+;// ./src/double-with-err/sqrt-with-err.ts
 /** @internal */
 const eps = Number.EPSILON;
 /**
@@ -252,7 +252,7 @@ function sqrtWithErr(x, x_) {
 }
 
 
-;// CONCATENATED MODULE: ./src/double-double/unary/dd-abs.ts
+;// ./src/double-double/unary/dd-abs.ts
 /**
  * Returns the absolute value of the given double-double precision floating
  * point number.
@@ -264,7 +264,7 @@ function ddAbs(f) {
 }
 
 
-;// CONCATENATED MODULE: ./src/double-mixed-double-double/dd-add-double.ts
+;// ./src/double-mixed-double-double/dd-add-double.ts
 /**
  * Returns the result of adding a double to a double-double precision floating
  * point number.
@@ -292,7 +292,7 @@ function ddAddDouble(x, y) {
 }
 
 
-;// CONCATENATED MODULE: ./src/double-double/binary/dd-add-dd.ts
+;// ./src/double-double/binary/dd-add-dd.ts
 /**
  * Returns the result of adding two double-double-precision floating point
  * numbers.
@@ -331,7 +331,7 @@ function ddAddDd(x, y) {
 }
 
 
-;// CONCATENATED MODULE: ./src/double-double/binary/dd-mult-dd.ts
+;// ./src/double-double/binary/dd-mult-dd.ts
 /** @internal */
 const dd_mult_dd_f = 2 ** 27 + 1;
 /**
@@ -365,7 +365,7 @@ function ddMultDd(x, y) {
 }
 
 
-;// CONCATENATED MODULE: ./src/double-double/multi/dd-product.ts
+;// ./src/double-double/multi/dd-product.ts
 
 /**
  * Returns the result of multiplying together an array of double-double-precision
@@ -384,7 +384,7 @@ function ddProduct(qs) {
 }
 
 
-;// CONCATENATED MODULE: ./src/double-double/multi/dd-sum.ts
+;// ./src/double-double/multi/dd-sum.ts
 
 /**
  * Returns the result of summing an array of double-double-precision floating
@@ -402,7 +402,7 @@ function ddSum(qs) {
 }
 
 
-;// CONCATENATED MODULE: ./src/double-double/binary/dd-compare.ts
+;// ./src/double-double/binary/dd-compare.ts
 /**
  * Returns 0 if a === b, a +tive value if a > b or a negative value if a < b.
  *
@@ -434,7 +434,7 @@ function ddCompare(x, y) {
 }
 
 
-;// CONCATENATED MODULE: ./src/double-mixed-double-double/dd-mult-double.ts
+;// ./src/double-mixed-double-double/dd-mult-double.ts
 /** @internal */
 const dd_mult_double_f = 134217729; // 2**27 + 1;
 /**
@@ -508,7 +508,7 @@ function ddMultDouble2(y, x) {
 }
 
 
-;// CONCATENATED MODULE: ./src/double-double/unary/dd-mult-by-2.ts
+;// ./src/double-double/unary/dd-mult-by-2.ts
 /**
  * Returns the result of multiplying the given double-double by 2.
  * * The result is exact
@@ -519,7 +519,7 @@ function ddMultBy2(f) {
 }
 
 
-;// CONCATENATED MODULE: ./src/double-double/unary/dd-mult-by-4.ts
+;// ./src/double-double/unary/dd-mult-by-4.ts
 /**
  * Returns the result of multiplying the given double-double by 4.
  * * The result is exact
@@ -530,7 +530,7 @@ function ddMultBy4(f) {
 }
 
 
-;// CONCATENATED MODULE: ./src/double-double/unary/dd-div-by-2.ts
+;// ./src/double-double/unary/dd-div-by-2.ts
 /**
  * Returns the result of dividing the given double-double by 2.
  * @param f a double-double precision floating point number
@@ -540,7 +540,7 @@ function ddDivBy2(f) {
 }
 
 
-;// CONCATENATED MODULE: ./src/double-double/unary/dd-mult-by-neg-2.ts
+;// ./src/double-double/unary/dd-mult-by-neg-2.ts
 /**
  * Returns the result of multiplying the given double-double by -2.
  * * The result is exact
@@ -551,7 +551,7 @@ function ddMultByNeg2(f) {
 }
 
 
-;// CONCATENATED MODULE: ./src/double-double/unary/dd-mult-by-neg-4.ts
+;// ./src/double-double/unary/dd-mult-by-neg-4.ts
 /**
  * Returns the result of multiplying the given double-double by -4.
  * * The result is exact
@@ -562,7 +562,7 @@ function ddMultByNeg4(f) {
 }
 
 
-;// CONCATENATED MODULE: ./src/double-mixed-double-double/dd-div-double.ts
+;// ./src/double-mixed-double-double/dd-div-double.ts
 /** @internal */
 const dd_div_double_f = 134217729; // 2**27 + 1;
 /**
@@ -600,7 +600,7 @@ function ddDivDouble(x, y) {
 }
 
 
-;// CONCATENATED MODULE: ./src/double-double/binary/dd-div-dd.ts
+;// ./src/double-double/binary/dd-div-dd.ts
 /** @internal */
 const dd_div_dd_f = 134217729; // 2**27 + 1;
 /**
@@ -647,7 +647,7 @@ function ddDivDd(x, y) {
 }
 
 
-;// CONCATENATED MODULE: ./src/double-double/unary/dd-negative-of.ts
+;// ./src/double-double/unary/dd-negative-of.ts
 /**
  * Returns the negative of the given double-double precision floating point
  * number.
@@ -659,7 +659,7 @@ function ddNegativeOf(f) {
 }
 
 
-;// CONCATENATED MODULE: ./src/double-double/unary/dd-sign.ts
+;// ./src/double-double/unary/dd-sign.ts
 /**
  * Returns the sign of the given double-double-precision floating point number.
  * * a positive or negative double or zero is returned - not necessarily +1, 0
@@ -671,7 +671,7 @@ function ddSign(f) {
 }
 
 
-;// CONCATENATED MODULE: ./src/basic/fast-two-diff.ts
+;// ./src/basic/fast-two-diff.ts
 /**
  * Returns the difference and exact error of subtracting two floating point
  * numbers.
@@ -690,7 +690,7 @@ function fastTwoDiff(a, b) {
 }
 
 
-;// CONCATENATED MODULE: ./src/basic/fast-two-sum.ts
+;// ./src/basic/fast-two-sum.ts
 /**
  * Returns the sum and exact error of adding two floating point numbers.
  * Uses an EFT (error-free transformation), i.e. a+b === x+y exactly.
@@ -709,7 +709,7 @@ function fastTwoSum(a, b) {
 //const R = a + b; const r = b - (R - a); return [r, R];
 
 
-;// CONCATENATED MODULE: ./src/basic/split.ts
+;// ./src/basic/split.ts
 /**
  * === 2^Math.ceil(p/2) + 1 where p is the # of significand bits in a double === 53.
  * @internal
@@ -737,7 +737,7 @@ function split(a) {
 // const c = f * a; const a_h = c - (c - a); const a_l = a - a_h; return [a_h, a_l];
 
 
-;// CONCATENATED MODULE: ./src/basic/two-diff.ts
+;// ./src/basic/two-diff.ts
 /**
  * Returns the exact result of subtracting b from a.
  *
@@ -752,7 +752,7 @@ function twoDiff(a, b) {
 }
 
 
-;// CONCATENATED MODULE: ./src/basic/two-product.ts
+;// ./src/basic/two-product.ts
 /** @internal */
 const two_product_f = 134217729; // 2**27 + 1;
 /**
@@ -789,7 +789,7 @@ function twoProduct(a, b) {
 }
 
 
-;// CONCATENATED MODULE: ./src/double-mixed-double-double/double-div-double.ts
+;// ./src/double-mixed-double-double/double-div-double.ts
 /** @internal */
 const double_div_double_f = 134217729; // 2**27 + 1;
 /**
@@ -826,7 +826,7 @@ function doubleDivDouble(x, y) {
 }
 
 
-;// CONCATENATED MODULE: ./src/basic/two-sum.ts
+;// ./src/basic/two-sum.ts
 /**
  * Returns the exact result of adding two doubles.
  *
@@ -848,7 +848,7 @@ function twoSum(a, b) {
 //const R = a + b; const _ = R - a; const r = (a - (R - _)) + (b - _); return [r,R]
 
 
-;// CONCATENATED MODULE: ./src/basic/reduce-significand.ts
+;// ./src/basic/reduce-significand.ts
 /**
  * Truncates a floating point value's significand and returns the result.
  * Similar to split, but with the ability to specify the number of bits to keep.
@@ -873,7 +873,7 @@ function reduceSignificand(a, bits) {
 }
 
 
-;// CONCATENATED MODULE: ./src/double-representation/double-to-octets.ts
+;// ./src/double-representation/double-to-octets.ts
 // Modified from https://github.com/bartaz/ieee754-visualization/
 // under the MIT license
 // Copyright 2013 Bartek Szopka (original author)
@@ -890,7 +890,7 @@ function doubleToOctets(number) {
 }
 
 
-;// CONCATENATED MODULE: ./src/double-representation/double-to-binary-string.ts
+;// ./src/double-representation/double-to-binary-string.ts
 // Modified from https://github.com/bartaz/ieee754-visualization/
 // under the MIT license
 // Copyright 2013 Bartek Szopka (original author)
@@ -920,7 +920,7 @@ function int8ToBinaryString(i) {
 }
 
 
-;// CONCATENATED MODULE: ./src/double-representation/parse-double.ts
+;// ./src/double-representation/parse-double.ts
 // Modified from https://github.com/bartaz/ieee754-visualization/
 // under the MIT license
 // Copyright 2013 Bartek Szopka (original author)
@@ -975,7 +975,7 @@ function parseDoubleDetailed(x) {
 }
 
 
-;// CONCATENATED MODULE: ./src/double-representation/significand.ts
+;// ./src/double-representation/significand.ts
 
 /**
  * Return the significand of the given double with the hidden bit added (in case
@@ -988,7 +988,7 @@ function significand(a) {
 }
 
 
-;// CONCATENATED MODULE: ./src/double-representation/get-max-set-bit.ts
+;// ./src/double-representation/get-max-set-bit.ts
 
 /**
  * Returns the lowest set bit of the given value in [1, (2**31)-1],
@@ -1067,7 +1067,7 @@ function getHighestSetBit(a) {
 }
 
 
-;// CONCATENATED MODULE: ./src/double-representation/exponent.ts
+;// ./src/double-representation/exponent.ts
 
 /**
  * Returns the normalized exponent of the given number.
@@ -1078,7 +1078,7 @@ function exponent(a) {
 }
 
 
-;// CONCATENATED MODULE: ./src/double-representation/is-bit-aligned.ts
+;// ./src/double-representation/is-bit-aligned.ts
 
 
 /**
@@ -1121,7 +1121,7 @@ function isBitAligned(a, maxBitLength, gridSpacingExponent) {
 }
 
 
-;// CONCATENATED MODULE: ./src/double-representation/msb-exponent.ts
+;// ./src/double-representation/msb-exponent.ts
 
 
 /**
@@ -1139,7 +1139,7 @@ function msbExponent(a) {
 }
 
 
-;// CONCATENATED MODULE: ./src/double-representation/lsb-exponent.ts
+;// ./src/double-representation/lsb-exponent.ts
 
 
 /**
@@ -1156,7 +1156,7 @@ function lsbExponent(a) {
 }
 
 
-;// CONCATENATED MODULE: ./src/double-representation/bit-length.ts
+;// ./src/double-representation/bit-length.ts
 
 /**
  * Returns the bit-length of the significand of the given number in such a way
@@ -1171,7 +1171,7 @@ function bitLength(a) {
 }
 
 
-;// CONCATENATED MODULE: ./src/double-double-with-error/dd-div-dd-with-error.ts
+;// ./src/double-double-with-error/dd-div-dd-with-error.ts
 
 // We *have* to do the below❗ The assignee is a getter❗ The assigned is a pure function❗
 /** @internal */
@@ -1215,7 +1215,7 @@ function ddDivDdWithError(numer, denom, nE, dE) {
 }
 
 
-;// CONCATENATED MODULE: ./src/double-with-err/div-with-err.ts
+;// ./src/double-with-err/div-with-err.ts
 /** @internal */
 const div_with_err_u = Number.EPSILON / 2;
 /**
@@ -1245,7 +1245,7 @@ function divWithErr(n, d, nE, dE) {
 }
 
 
-;// CONCATENATED MODULE: ./src/str-to-dd/get-zeros-str.ts
+;// ./src/str-to-dd/get-zeros-str.ts
 /**
  * Returns a string having the given number of zeros.
  *
@@ -1256,7 +1256,7 @@ function getZerosStr(n) {
 }
 
 
-;// CONCATENATED MODULE: ./src/str-to-dd/mult-str-by-pow-of-10.ts
+;// ./src/str-to-dd/mult-str-by-pow-of-10.ts
 
 /**
  * * string must not contain an `'e'`, e.g. `'1e-10'` is not allowed
@@ -1319,7 +1319,7 @@ function multStrByPowOf10(s, pow) {
 }
 
 
-;// CONCATENATED MODULE: ./src/dd-to-str/dd-to-str.ts
+;// ./src/dd-to-str/dd-to-str.ts
 
 const { floor, max, round, log2, log10, ceil } = Math;
 const LOG2_10 = log2(1024) / log10(1024);
@@ -1390,7 +1390,7 @@ function removeExtraneousZeros(str) {
 }
 
 
-;// CONCATENATED MODULE: ./src/str-to-dd/get-num-leading-zeros-after-point.ts
+;// ./src/str-to-dd/get-num-leading-zeros-after-point.ts
 /**
  * Returns the number of leading zeros (plus 1) after the decimal point or `0`
  * if the number is >= 1 or equal to zero.
@@ -1431,7 +1431,7 @@ function getNumLeadingZerosAfterPoint(str) {
 }
 
 
-;// CONCATENATED MODULE: ./src/str-to-dd/set-0-from-to.ts
+;// ./src/str-to-dd/set-0-from-to.ts
 /**
  *
  * @param str
@@ -1469,7 +1469,7 @@ function set0At(str, idx) {
 }
 
 
-;// CONCATENATED MODULE: ./src/str-to-dd/num-significant-digits.ts
+;// ./src/str-to-dd/num-significant-digits.ts
 /**
  * The number of significant digits per nibble.
  *
@@ -1479,7 +1479,7 @@ function set0At(str, idx) {
 const d = 15;
 
 
-;// CONCATENATED MODULE: ./src/str-to-dd/get-parts.ts
+;// ./src/str-to-dd/get-parts.ts
 
 
 
@@ -1526,7 +1526,7 @@ function getParts(str) {
 }
 
 
-;// CONCATENATED MODULE: ./src/str-to-dd/add-1-ulp.ts
+;// ./src/str-to-dd/add-1-ulp.ts
 const { EPSILON: add_1_ulp_eps } = Number;
 const add_1_ulp_u = add_1_ulp_eps / 2;
 const es = (add_1_ulp_eps ** 2) / 2;
@@ -1543,7 +1543,7 @@ function add1Ulp(n) {
 }
 
 
-;// CONCATENATED MODULE: ./src/str-to-dd/get-num-leading-zeros.ts
+;// ./src/str-to-dd/get-num-leading-zeros.ts
 /**
  * Returns the number of leading extraneous zeros before the decimal point.
  *
@@ -1575,7 +1575,7 @@ function getNumLeadingZeros(str) {
 }
 
 
-;// CONCATENATED MODULE: ./src/str-to-dd/get-num-leading-zeros-before-point.ts
+;// ./src/str-to-dd/get-num-leading-zeros-before-point.ts
 /**
  * Returns the number of leading zeros before the decimal point.
  *
@@ -1595,7 +1595,7 @@ function getNumLeadingZerosBeforePoint(str) {
 }
 
 
-;// CONCATENATED MODULE: ./src/str-to-dd/extract-exp.ts
+;// ./src/str-to-dd/extract-exp.ts
 function extractExp(s) {
     const idx = s.indexOf('e');
     let exp = 0;
@@ -1607,7 +1607,7 @@ function extractExp(s) {
 }
 
 
-;// CONCATENATED MODULE: ./src/str-to-dd/normalize-str.ts
+;// ./src/str-to-dd/normalize-str.ts
 
 
 
@@ -1650,9 +1650,7 @@ function normalizeStr(s) {
 }
 
 
-;// CONCATENATED MODULE: ./src/str-to-dd/get-power-of-10.ts
-
-
+;// ./src/str-to-dd/get-power-of-10.ts
 
 /**
  *
@@ -1665,82 +1663,31 @@ function ddMultD(a, b) {
     return ddMultDouble1(b, a);
 }
 /**
- *
- * @param pow
+ * CACHE[i] == lower part of the double-double representing 10 ** ((i + 1) * 23)
  *
  * @internal
  */
-function getPowerOf10(pow) {
-    // `10**21` (possibly `10**22`) is the max power of 10 that is exact in double
-    // precision
-    // we multiply in pairs to minimize error, e.g.
-    const m = pow % 21;
-    const d = (pow - m) / 21;
-    const x = 10 ** m;
-    if (d === 0) {
-        return [0, x]; // exact
-    }
-    const a = 10 ** 21;
-    const ax = twoProduct(a, x);
-    const aa = twoProduct(a, a);
-    const aax = ddMultD(aa, x);
-    const a4 = ddMultDd(aa, aa);
-    const aaax = ddMultDd(aa, ax);
-    const a8 = ddMultDd(a4, a4);
-    const a4x = ddMultD(a4, x);
-    const a4ax = ddMultDd(a4, ax);
-    const a4aax = ddMultDd(a4, aax);
-    const a4aaax = ddMultDd(a4, aaax);
-    if (d === 1) {
-        return ax;
-    }
-    if (d === 2) {
-        return aax;
-    }
-    if (d === 3) {
-        return aaax;
-    }
-    if (d === 4) {
-        return a4x;
-    }
-    if (d === 5) {
-        return a4ax;
-    }
-    if (d === 6) {
-        return a4aax;
-    }
-    if (d === 7) {
-        return a4aaax;
-    }
-    if (d === 8) {
-        return ddMultD(a8, x);
-    }
-    if (d === 9) {
-        return ddMultDd(a8, ax);
-    }
-    if (d === 10) {
-        return ddMultDd(a8, aax);
-    }
-    if (d === 11) {
-        return ddMultDd(a8, aaax);
-    }
-    if (d === 12) {
-        return ddMultDd(a8, a4x);
-    }
-    if (d === 13) {
-        return ddMultDd(a8, a4ax);
-    }
-    if (d === 14) {
-        return ddMultDd(a8, a4aax);
-    }
-    if (d === 15) {
-        return ddMultDd(a8, a4aaax);
-    }
-    throw new Error('`exp` must be between 0 and 308; This is a bug');
+const CACHE = new Float64Array(13);
+/**
+ * @param exp
+ *
+ * @internal
+ */
+function getPowerOf10(exp) {
+    // Powers of 10 up to 10**22 can be exactly represented as a double.
+    if (exp < 23)
+        return [0, 10 ** exp];
+    // exponent == 23 * (i + 1) + m
+    const m = exp % 23;
+    const cp = exp - m;
+    const i = cp / 23 - 1;
+    // Calculate the lower double of 10 ** (23 * (i + 1)) or read of from CACHE.
+    let lo = CACHE[i] || (CACHE[i] = Number(10n ** BigInt(cp) - BigInt(10 ** cp)));
+    return ddMultD([lo, 10 ** cp], 10 ** m);
 }
 
 
-;// CONCATENATED MODULE: ./src/str-to-dd/str-to-dd.ts
+;// ./src/str-to-dd/str-to-dd.ts
 
 
 
@@ -1816,7 +1763,7 @@ function strToDd(str) {
 }
 
 
-;// CONCATENATED MODULE: ./src/constants.ts
+;// ./src/constants.ts
 // import { strToDd } from "./str-to-dd/str-to-dd.js";
 const PIDd = [1.2246467991473535e-16, 3.141592653589793];
 const eDd = [1.4456468917292502e-16, 2.718281828459045];
@@ -1825,7 +1772,7 @@ const eulerDd = [-4.942915152430649e-18, 0.5772156649015329];
 // strToDd('0.5772156649015328606065120900824024310421593359399235988057672348');//?
 
 
-;// CONCATENATED MODULE: ./src/double-double/binary/dd-gt.ts
+;// ./src/double-double/binary/dd-gt.ts
 /**
  * Returns `true` if `x1 > x2`, `false` otherwise.
  *
@@ -1846,7 +1793,7 @@ function ddGt(x1, x2) {
 }
 
 
-;// CONCATENATED MODULE: ./src/double-double/unary/dd-sin.ts
+;// ./src/double-double/unary/dd-sin.ts
 
 
 
@@ -1917,7 +1864,7 @@ function ddSin(θ) {
 }
 
 
-;// CONCATENATED MODULE: ./src/double-double/unary/dd-cos.ts
+;// ./src/double-double/unary/dd-cos.ts
 
 
 
@@ -1945,7 +1892,7 @@ function ddCos(θ) {
 }
 
 
-;// CONCATENATED MODULE: ./src/double-double/binary/dd-eq.ts
+;// ./src/double-double/binary/dd-eq.ts
 /**
  * Returns `true` if `x1 === x2`, `false` otherwise.
  *
@@ -1957,7 +1904,7 @@ function ddEq(x1, x2) {
 }
 
 
-;// CONCATENATED MODULE: ./src/double-double/binary/dd-gte.ts
+;// ./src/double-double/binary/dd-gte.ts
 /**
  * Returns `true` if `x1 >= x2`, `false` otherwise.
  *
@@ -1978,7 +1925,7 @@ function ddGte(x1, x2) {
 }
 
 
-;// CONCATENATED MODULE: ./src/double-double/binary/dd-lt.ts
+;// ./src/double-double/binary/dd-lt.ts
 /**
  * Returns `true` if `x1 < x2`, `false` otherwise.
  *
@@ -1999,7 +1946,7 @@ function ddLt(x1, x2) {
 }
 
 
-;// CONCATENATED MODULE: ./src/double-double/binary/dd-lte.ts
+;// ./src/double-double/binary/dd-lte.ts
 /**
  * Returns `true` if `x1 <= x2`, `false` otherwise.
  *
@@ -2020,7 +1967,7 @@ function ddLte(x1, x2) {
 }
 
 
-;// CONCATENATED MODULE: ./src/double-mixed-double-double/dd-diff-double.ts
+;// ./src/double-mixed-double-double/dd-diff-double.ts
 /**
  * Returns the result of subtracting the second given double-precision
  * floating point number from the first double-double precision float.
@@ -2057,7 +2004,7 @@ function ddDiffDouble(x, y) {
 }
 
 
-;// CONCATENATED MODULE: ./src/index.ts
+;// ./src/index.ts
 
 
 

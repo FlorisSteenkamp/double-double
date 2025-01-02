@@ -1,8 +1,7 @@
 /**
- *
- * @param pow
+ * @param exp
  *
  * @internal
  */
-declare function getPowerOf10(pow: number): number[];
+declare function getPowerOf10(exp: number): number[];
 export { getPowerOf10 };
