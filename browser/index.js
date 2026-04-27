@@ -20,71 +20,6 @@
 /******/ })();
 /******/ 
 /************************************************************************/
-var __webpack_exports__ = {};
-
-// EXPORTS
-__webpack_require__.d(__webpack_exports__, {
-  eZ: () => (/* reexport */ PIDd),
-  ao: () => (/* reexport */ bitLength),
-  NN: () => (/* reexport */ ddAbs),
-  ei: () => (/* reexport */ ddAddDd),
-  zR: () => (/* reexport */ ddAddDouble),
-  e0: () => (/* reexport */ ddCompare),
-  QV: () => (/* reexport */ ddCos),
-  w0: () => (/* reexport */ ddDiffDd),
-  PA: () => (/* reexport */ ddDiffDouble),
-  vx: () => (/* reexport */ ddDivBy2),
-  A5: () => (/* reexport */ ddDivDd),
-  q$: () => (/* reexport */ ddDivDdWithError),
-  pW: () => (/* reexport */ ddDivDouble),
-  rC: () => (/* reexport */ ddEq),
-  SH: () => (/* reexport */ ddGt),
-  Tn: () => (/* reexport */ ddGte),
-  jL: () => (/* reexport */ ddLt),
-  kT: () => (/* reexport */ ddLte),
-  zZ: () => (/* reexport */ ddMax),
-  Rp: () => (/* reexport */ ddMin),
-  IH: () => (/* reexport */ ddMultBy2),
-  Is: () => (/* reexport */ ddMultBy4),
-  Em: () => (/* reexport */ ddMultByNeg2),
-  Sw: () => (/* reexport */ ddMultByNeg4),
-  tp: () => (/* reexport */ ddMultDd),
-  Lz: () => (/* reexport */ ddMultDouble1),
-  QP: () => (/* reexport */ ddMultDouble2),
-  Vd: () => (/* reexport */ ddNegativeOf),
-  Kq: () => (/* reexport */ ddProduct),
-  cV: () => (/* reexport */ ddSign),
-  Rc: () => (/* reexport */ ddSin),
-  VL: () => (/* reexport */ ddSqrt),
-  K_: () => (/* reexport */ ddSum),
-  Vx: () => (/* reexport */ ddToStr),
-  P_: () => (/* reexport */ divWithErr),
-  Mw: () => (/* reexport */ doubleDivDouble),
-  O$: () => (/* reexport */ doubleSqrt),
-  dC: () => (/* reexport */ doubleToBinaryString),
-  T7: () => (/* reexport */ doubleToOctets),
-  UF: () => (/* reexport */ eDd),
-  wO: () => (/* reexport */ eulerDd),
-  g6: () => (/* reexport */ exponent),
-  gD: () => (/* reexport */ fastTwoDiff),
-  uJ: () => (/* reexport */ fastTwoSum),
-  QK: () => (/* reexport */ getHighestSetBit),
-  aX: () => (/* reexport */ getLowestSetBit),
-  O2: () => (/* reexport */ isBitAligned),
-  v4: () => (/* reexport */ ln2Dd),
-  pE: () => (/* reexport */ lsbExponent),
-  Ei: () => (/* reexport */ msbExponent),
-  bt: () => (/* reexport */ parseDouble),
-  $n: () => (/* reexport */ parseDoubleDetailed),
-  K1: () => (/* reexport */ reduceSignificand),
-  uI: () => (/* reexport */ significand),
-  lD: () => (/* reexport */ split),
-  oi: () => (/* reexport */ sqrtWithErr),
-  DL: () => (/* reexport */ strToDd),
-  QC: () => (/* reexport */ twoDiff),
-  gB: () => (/* reexport */ twoProduct),
-  S4: () => (/* reexport */ twoSum)
-});
 
 ;// ./src/double-double/binary/dd-diff-dd.ts
 /**
@@ -662,6 +597,7 @@ function ddNegativeOf(f) {
 ;// ./src/double-double/unary/dd-sign.ts
 /**
  * Returns the sign of the given double-double-precision floating point number.
+ *
  * * a positive or negative double or zero is returned - not necessarily +1, 0
  * or -1
  * * prefer inlining this - it is really only here for reference
@@ -2060,64 +1996,4 @@ function ddDiffDouble(x, y) {
 
 
 
-var __webpack_exports__PIDd = __webpack_exports__.eZ;
-var __webpack_exports__bitLength = __webpack_exports__.ao;
-var __webpack_exports__ddAbs = __webpack_exports__.NN;
-var __webpack_exports__ddAddDd = __webpack_exports__.ei;
-var __webpack_exports__ddAddDouble = __webpack_exports__.zR;
-var __webpack_exports__ddCompare = __webpack_exports__.e0;
-var __webpack_exports__ddCos = __webpack_exports__.QV;
-var __webpack_exports__ddDiffDd = __webpack_exports__.w0;
-var __webpack_exports__ddDiffDouble = __webpack_exports__.PA;
-var __webpack_exports__ddDivBy2 = __webpack_exports__.vx;
-var __webpack_exports__ddDivDd = __webpack_exports__.A5;
-var __webpack_exports__ddDivDdWithError = __webpack_exports__.q$;
-var __webpack_exports__ddDivDouble = __webpack_exports__.pW;
-var __webpack_exports__ddEq = __webpack_exports__.rC;
-var __webpack_exports__ddGt = __webpack_exports__.SH;
-var __webpack_exports__ddGte = __webpack_exports__.Tn;
-var __webpack_exports__ddLt = __webpack_exports__.jL;
-var __webpack_exports__ddLte = __webpack_exports__.kT;
-var __webpack_exports__ddMax = __webpack_exports__.zZ;
-var __webpack_exports__ddMin = __webpack_exports__.Rp;
-var __webpack_exports__ddMultBy2 = __webpack_exports__.IH;
-var __webpack_exports__ddMultBy4 = __webpack_exports__.Is;
-var __webpack_exports__ddMultByNeg2 = __webpack_exports__.Em;
-var __webpack_exports__ddMultByNeg4 = __webpack_exports__.Sw;
-var __webpack_exports__ddMultDd = __webpack_exports__.tp;
-var __webpack_exports__ddMultDouble1 = __webpack_exports__.Lz;
-var __webpack_exports__ddMultDouble2 = __webpack_exports__.QP;
-var __webpack_exports__ddNegativeOf = __webpack_exports__.Vd;
-var __webpack_exports__ddProduct = __webpack_exports__.Kq;
-var __webpack_exports__ddSign = __webpack_exports__.cV;
-var __webpack_exports__ddSin = __webpack_exports__.Rc;
-var __webpack_exports__ddSqrt = __webpack_exports__.VL;
-var __webpack_exports__ddSum = __webpack_exports__.K_;
-var __webpack_exports__ddToStr = __webpack_exports__.Vx;
-var __webpack_exports__divWithErr = __webpack_exports__.P_;
-var __webpack_exports__doubleDivDouble = __webpack_exports__.Mw;
-var __webpack_exports__doubleSqrt = __webpack_exports__.O$;
-var __webpack_exports__doubleToBinaryString = __webpack_exports__.dC;
-var __webpack_exports__doubleToOctets = __webpack_exports__.T7;
-var __webpack_exports__eDd = __webpack_exports__.UF;
-var __webpack_exports__eulerDd = __webpack_exports__.wO;
-var __webpack_exports__exponent = __webpack_exports__.g6;
-var __webpack_exports__fastTwoDiff = __webpack_exports__.gD;
-var __webpack_exports__fastTwoSum = __webpack_exports__.uJ;
-var __webpack_exports__getHighestSetBit = __webpack_exports__.QK;
-var __webpack_exports__getLowestSetBit = __webpack_exports__.aX;
-var __webpack_exports__isBitAligned = __webpack_exports__.O2;
-var __webpack_exports__ln2Dd = __webpack_exports__.v4;
-var __webpack_exports__lsbExponent = __webpack_exports__.pE;
-var __webpack_exports__msbExponent = __webpack_exports__.Ei;
-var __webpack_exports__parseDouble = __webpack_exports__.bt;
-var __webpack_exports__parseDoubleDetailed = __webpack_exports__.$n;
-var __webpack_exports__reduceSignificand = __webpack_exports__.K1;
-var __webpack_exports__significand = __webpack_exports__.uI;
-var __webpack_exports__split = __webpack_exports__.lD;
-var __webpack_exports__sqrtWithErr = __webpack_exports__.oi;
-var __webpack_exports__strToDd = __webpack_exports__.DL;
-var __webpack_exports__twoDiff = __webpack_exports__.QC;
-var __webpack_exports__twoProduct = __webpack_exports__.gB;
-var __webpack_exports__twoSum = __webpack_exports__.S4;
-export { __webpack_exports__PIDd as PIDd, __webpack_exports__bitLength as bitLength, __webpack_exports__ddAbs as ddAbs, __webpack_exports__ddAddDd as ddAddDd, __webpack_exports__ddAddDouble as ddAddDouble, __webpack_exports__ddCompare as ddCompare, __webpack_exports__ddCos as ddCos, __webpack_exports__ddDiffDd as ddDiffDd, __webpack_exports__ddDiffDouble as ddDiffDouble, __webpack_exports__ddDivBy2 as ddDivBy2, __webpack_exports__ddDivDd as ddDivDd, __webpack_exports__ddDivDdWithError as ddDivDdWithError, __webpack_exports__ddDivDouble as ddDivDouble, __webpack_exports__ddEq as ddEq, __webpack_exports__ddGt as ddGt, __webpack_exports__ddGte as ddGte, __webpack_exports__ddLt as ddLt, __webpack_exports__ddLte as ddLte, __webpack_exports__ddMax as ddMax, __webpack_exports__ddMin as ddMin, __webpack_exports__ddMultBy2 as ddMultBy2, __webpack_exports__ddMultBy4 as ddMultBy4, __webpack_exports__ddMultByNeg2 as ddMultByNeg2, __webpack_exports__ddMultByNeg4 as ddMultByNeg4, __webpack_exports__ddMultDd as ddMultDd, __webpack_exports__ddMultDouble1 as ddMultDouble1, __webpack_exports__ddMultDouble2 as ddMultDouble2, __webpack_exports__ddNegativeOf as ddNegativeOf, __webpack_exports__ddProduct as ddProduct, __webpack_exports__ddSign as ddSign, __webpack_exports__ddSin as ddSin, __webpack_exports__ddSqrt as ddSqrt, __webpack_exports__ddSum as ddSum, __webpack_exports__ddToStr as ddToStr, __webpack_exports__divWithErr as divWithErr, __webpack_exports__doubleDivDouble as doubleDivDouble, __webpack_exports__doubleSqrt as doubleSqrt, __webpack_exports__doubleToBinaryString as doubleToBinaryString, __webpack_exports__doubleToOctets as doubleToOctets, __webpack_exports__eDd as eDd, __webpack_exports__eulerDd as eulerDd, __webpack_exports__exponent as exponent, __webpack_exports__fastTwoDiff as fastTwoDiff, __webpack_exports__fastTwoSum as fastTwoSum, __webpack_exports__getHighestSetBit as getHighestSetBit, __webpack_exports__getLowestSetBit as getLowestSetBit, __webpack_exports__isBitAligned as isBitAligned, __webpack_exports__ln2Dd as ln2Dd, __webpack_exports__lsbExponent as lsbExponent, __webpack_exports__msbExponent as msbExponent, __webpack_exports__parseDouble as parseDouble, __webpack_exports__parseDoubleDetailed as parseDoubleDetailed, __webpack_exports__reduceSignificand as reduceSignificand, __webpack_exports__significand as significand, __webpack_exports__split as split, __webpack_exports__sqrtWithErr as sqrtWithErr, __webpack_exports__strToDd as strToDd, __webpack_exports__twoDiff as twoDiff, __webpack_exports__twoProduct as twoProduct, __webpack_exports__twoSum as twoSum };
+export { PIDd, bitLength, ddAbs, ddAddDd, ddAddDouble, ddCompare, ddCos, ddDiffDd, ddDiffDouble, ddDivBy2, ddDivDd, ddDivDdWithError, ddDivDouble, ddEq, ddGt, ddGte, ddLt, ddLte, ddMax, ddMin, ddMultBy2, ddMultBy4, ddMultByNeg2, ddMultByNeg4, ddMultDd, ddMultDouble1, ddMultDouble2, ddNegativeOf, ddProduct, ddSign, ddSin, ddSqrt, ddSum, ddToStr, divWithErr, doubleDivDouble, doubleSqrt, doubleToBinaryString, doubleToOctets, eDd, eulerDd, exponent, fastTwoDiff, fastTwoSum, getHighestSetBit, getLowestSetBit, isBitAligned, ln2Dd, lsbExponent, msbExponent, parseDouble, parseDoubleDetailed, reduceSignificand, significand, split, sqrtWithErr, strToDd, twoDiff, twoProduct, twoSum };
