@@ -175,8 +175,6 @@ if (r1[0] === r2[0] && r1[1] === r2[1]) {
 
 ### Browsers - directly, without a bundler, using the pre-bundled minified .js file
 
-Please note that no tree shaking will take place in this case.
-
 ```html
 <!doctype html>
 
