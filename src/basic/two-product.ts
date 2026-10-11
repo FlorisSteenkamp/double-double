@@ -14,6 +14,9 @@ const f = 134217729; // 2**27 + 1;
  * represents the roundoff error in the calculation of x. Furthermore, if 
  * round-to-even tiebreaking is used, x and y are non-adjacent.
  * 
+ * * assumes no overflow; note that (Veltkamp) splitting overflows (giving
+ * `NaN`) if the magnitude of `a` or `b` exceeds ~2^996
+ * 
  * See https://people.eecs.berkeley.edu/~jrs/papers/robustr.pdf
  * @param a A double
  * @param b Another double

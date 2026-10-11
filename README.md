@@ -15,22 +15,22 @@
 ### constants
 
 ```
-PIDd    //=> [1.2246467991473535e-16, 3.141592653589793]
+PIDd    //=> [1.2246467991473532e-16, 3.141592653589793]
 eDd     //=> [1.4456468917292502e-16, 2.718281828459045]
-ln2Dd   //=> [2.3190468138463e-17, 0.6931471805599453];
-eulerDd //=> [-4.942915152430649e-18, 0.5772156649015329];
+ln2Dd   //=> [2.3190468138462996e-17, 0.6931471805599453];
+eulerDd //=> [-4.942915152430645e-18, 0.5772156649015329];
 ```
 
 ### Examples
 
 ```
-strToDd('3.1415926535897932384626433832795');  //=> [1.2246467991473535e-16, 3.141592653589793]
+strToDd('3.1415926535897932384626433832795');  //=> [1.2246467991473532e-16, 3.141592653589793]
 strToDd('6.0221408e+23');  //=> [-2097152, 6.0221408e+23]
 
-ddToStr([1.2246467991473535e-16, 3.141592653589793]);  //=> '3.1415926535897932384626433832795_30530870267274333'
+ddToStr([1.2246467991473532e-16, 3.141592653589793]);  //=> '3.14159265358979323846264338327950_5878966979117714'
 
 ddSin(ddDivDouble(PIDd,6));  //=> [0,0.5]
-ddCos(ddDivDouble(PIDd,6));  //=> [5.017542110902477e-17, 0.8660254037844386]
+ddCos(ddDivDouble(PIDd,6));  //=> [5.017542110903452e-17, 0.8660254037844386]
 
 ddGt([0,1],[0,2]);  //=> false
 ```
@@ -201,45 +201,21 @@ if (r1[0] === r2[0] && r1[1] === r2[1]) {
 </html>
 ```
 
-### Bundlers (Webpack, Rollup, ...)
+### Bundlers (Webpack, Rollup, esbuild, Vite, ...)
 
-Tree shaking will take place if supported by your bundler.
+Import the functions you need directly, e.g.:
 
-Webpack will be taken as an example here.
+```TypeScript
+import { ddAddDd, twoProduct } from 'double-double';
+```
 
-Since your webpack config file might still use `CommonJS` you must rename 
-`webpack.config.js` to `webpack.config.cjs`.
-
-If you are using TypeScript:
+The package is marked as side-effect free so unused functions will be removed 
+by tree shaking.
 
 This is an [ESM only](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c)
-library.
-
-Follow this [guide](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c#how-can-i-make-my-typescript-project-output-esm).
-
-
->**❗Important❗**
->
->When using bundlers:
->
->```TypeScript
->import { operators } from 'double-double'
->```
->
-> and then later in the code get the functions you need, e.g.:
->
->```TypeScript
->const { ddAddDd as add, twoProduct, /* etc. */ } = operators;
->```
->
->as opposed to importing the operators directly.
->
->This will increase performance roughly 5 times!
->
->**Why?** Because Webpack (and Rollup) exports functions using getters that gets 
->invoked on every function call adding a big overhead and slowing down each
->function. This is not an issue if the code is not bundled, e.g. when
->using Node.js.
+library. If you are using TypeScript, set `"moduleResolution"` to `"Bundler"` 
+(when using a bundler) or `"NodeNext"` (when targeting Node.js directly) in your 
+`tsconfig.json`.
 
 
 ## Research

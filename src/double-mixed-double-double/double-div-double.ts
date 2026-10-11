@@ -12,6 +12,9 @@ const f = 134217729;  // 2**27 + 1;
  * * relative error bound: 3u^2, i.e. fl(a/b) = (a/b)(1+ϵ), where ϵ <= 3u^2, 
  * u = 0.5 * Number.EPSILON 
  * 
+ * * assumes no overflow; note that (Veltkamp) splitting overflows (giving
+ * `NaN`) if the magnitude of `x/y` or `y` exceeds ~2^996
+ * 
  * * ALGORITHM 15 of https://hal.archives-ouvertes.fr/hal-01351529v3/document
  * (slightly modified)
  * @param x dividend

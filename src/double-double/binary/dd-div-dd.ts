@@ -11,6 +11,9 @@ const f = 134217729;  // 2**27 + 1;
  * where ϵ <= 15u^2 + 56u^3, u = 0.5 * Number.EPSILON 
  * * the largest error found was 8.465u^2
  * 
+ * * assumes no overflow; note that (Veltkamp) splitting overflows (giving
+ * `NaN`) if the magnitude of `x[1]/y[1]` or `y[1]` exceeds ~2^996
+ * 
  * * ALGORITHM 17 of https://hal.archives-ouvertes.fr/hal-01351529v3/document
  * @param x a double-double precision floating point number
  * @param y another double-double precision floating point number

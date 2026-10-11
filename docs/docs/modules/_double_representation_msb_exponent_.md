@@ -15,6 +15,6 @@ NaN if a === 0 or +-inf or NaN.
 
 Name | Type | Description |
 ------ | ------ | ------ |
-`a` | number | An array of numbers to check  |
+`a` | number | a double precision floating point number  |
 
 **Returns:** *number*

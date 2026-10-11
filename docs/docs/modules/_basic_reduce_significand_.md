@@ -17,6 +17,9 @@ following algorithm will produce a (p-s)-bit value a_hi and a
 nonoverlapping (s-1)-bit value a_lo such that abs(a_hi) >= abs(a_lo) and
 a = a_hi + a_lo.
 
+* assumes no overflow; note that (Veltkamp) splitting overflows (giving
+`NaN`) if the magnitude of `a` exceeds ~2^996
+
 * see [Shewchuk](https://people.eecs.berkeley.edu/~jrs/papers/robustr.pdf)
 
 **Parameters:**

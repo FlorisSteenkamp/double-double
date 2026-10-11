@@ -21,9 +21,9 @@
  * These are not
  *   a -> 00|101100|100
  *   b -> 00|000100|100
- * @param as An array of numbers to check
+ * @param a The number to check
  * @param maxBitLength The max allowed bitlength
- * @param gridSpacingExponent The grid spacing === 1^gridSpacingExponent
+ * @param gridSpacingExponent The grid spacing === 2^gridSpacingExponent
  */
 declare function isBitAligned(a: number, maxBitLength: number, gridSpacingExponent: number): boolean;
 export { isBitAligned };

@@ -6,10 +6,14 @@ import { ddMultDd } from "../binary/dd-mult-dd.js";
  * floating point numbers naively (i.e. not using pairwise addition to reduce 
  * error a bit).
  * 
- * * an error bound is given by: (n-1)(1+ϵ), 
- * where ϵ <= 7u^2, u = 0.5 * Number.EPSILON 
+ * * relative error bound: (1+ϵ)^(n-1) - 1 ≈ (n-1)ϵ,
+ * where |ϵ| < 5u^2, u = 0.5 * Number.EPSILON (the error bound of a single
+ * multiplication), assuming no underflow or overflow
+ * * returns `[0,1]` (i.e. one) if the given array is empty
  */
-function ddProduct(qs: number[][]) {
+function ddProduct(qs: number[][]): number[] {
+    if (qs.length === 0) { return [0,1]; }
+
     let q = qs[0];
     for (let i=1; i<qs.length; i++) {
         q = ddMultDd(q, qs[i]);

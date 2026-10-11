@@ -15,6 +15,6 @@ a is not subnormal or 0, etc.)
 
 Name | Type | Description |
 ------ | ------ | ------ |
-`a` | number | A double  |
+`a` | number | a double precision floating point number  |
 
 **Returns:** *number[]*

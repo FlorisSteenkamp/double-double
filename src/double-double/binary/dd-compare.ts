@@ -1,30 +1,23 @@
 
 /**
- * Returns 0 if a === b, a +tive value if a > b or a negative value if a < b.
+ * Returns `0` if `x === y`, a positive value if `x > y` or a negative value if 
+ * `x < y` (or `NaN` if `x` or `y` is `NaN`).
+ * 
+ * * only the sign of the result is meaningful, e.g. it can be used as a 
+ * comparator in `Array.prototype.sort`
+ * * assumes the double-doubles are normalized (as returned by the functions in
+ * this library), i.e. `hi === fl(hi + lo)`, in which case the result is exact
  * 
  * @param x a double-double precision floating point number
  * @param y another double-double precision floating point number
  */
 function ddCompare(x: number[], y: number[]) {
-    //return ddDiffDd(x,y)[1];
-    
-    const xl = x[0];
     const xh = x[1];
-    const yl = y[0];
     const yh = y[1];
 
-    //const [sl,sh] = twoSum(xh,yh);
-    const sh = xh - yh; const _1 = sh - xh; const sl = (xh - (sh - _1)) + (-yh - _1);
-    //const [tl,th] = twoSum(xl,yl);
-    const th = xl - yl; const _2 = th - xl; const tl = (xl - (th - _2)) + (-yl - _2);
-    const c = sl + th;
-    //const [vl,vh] = fastTwoSum(sh,c)
-    const vh = sh + c; const vl = c - (vh - sh);
-    const w = tl + vl
-    //const [zl,zh] = fastTwoSum(vh,w)
-    const zh = vh + w; 
-
-    return zh;
+    // Note: the difference of two distinct doubles is never 0 (due to 
+    // subnormals) so the sign is always correct
+    return xh === yh ? x[0] - y[0] : xh - yh;
 }
 
 

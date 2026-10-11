@@ -1,94 +1,131 @@
-import { twoSum } from '../basic/two-sum.js';
-import { ddAddDd } from '../double-double/binary/dd-add-dd.js';
-import { ddMultDd } from '../double-double/binary/dd-mult-dd.js';
-import { ddDivDd } from '../double-double/binary/dd-div-dd.js';
-import { ddAddDouble } from '../double-mixed-double-double/dd-add-double.js';
-import { getParts } from './get-parts.js';
-import { set0FromTo } from './set-0-from-to.js';
-import { d } from './num-significant-digits.js';
-import { add1Ulp } from './add-1-ulp.js';
-import { getNumLeadingZeros } from './get-num-leading-zeros.js';
-import { normalizeStr } from './normalize-str.js';
-import { getPowerOf10 } from './get-power-of-10.js';
 
-const { abs } = Math;
-
-
-// How to print floating-point numbers accurately (behind a paywall)
-// https://dl.acm.org/doi/10.1145/989393.989431
-
-// Chromium implementation at https://chromium.googlesource.com/v8/v8/+/refs/heads/main/src/base/numbers/strtod.cc
-// that converts a string to a double.
+/** @internal */
+const DECIMAL_REGEX = /^([+-]?)(\d*)(?:\.(\d*))?(?:[eE]([+-]?\d+))?$/;
 
 
 /**
  * Converts the given decimal string to a double-double and returns the result.
- * 
- * * accurate to within `1` ulp^2
- * 
+ *
+ * * the result is correctly rounded, i.e. the high part is the double nearest
+ * to the exact value and the low part is the double nearest to the exact
+ * remainder (ties to even)
+ * * the full double range is supported, including subnormals; values too
+ * large in magnitude return `[0,Infinity]` (or `[0,-Infinity]`); zero 
+ * (including values that underflow) is returned as `[0,0]`, never `-0`
+ * * accepts an optional sign, a decimal point and an optional exponent, e.g.
+ * `'-1.5e-10'` or `'+.3E5'`; any other string returns `[0,Number(str)]`, e.g.
+ * `[0,NaN]`, `[0,Infinity]`
+ *
  * @param str a string to convert to double-double precision
- * 
+ *
  * Examples:
  * ```
- * strToDd('3.14159265358979323846264338327950')  //=> [1.2246467991473535e-16, 3.141592653589793]
+ * strToDd('3.14159265358979323846264338327950')  //=> [1.2246467991473532e-16, 3.141592653589793]
  * strToDd('6.0221408e+23')  //=> [-2097152, 6.0221408e+23]
  * ```
  */
-function strToDd(str: string) {
-    const { str: s, exp, negative } = normalizeStr(str);
+function strToDd(str: string): number[] {
+    const match = str.trim().match(DECIMAL_REGEX);
+    if (match === null || (match[2] === '' && !match[3])) {
+        return [0, Number(str)];
+    }
 
-    if (negative) { str = str.slice(1); }
+    const [, signStr, intStr, fracStr = '', expStr = '0'] = match;
+    const negative = signStr === '-';
 
-    // get exact low, high and correction string parts
-    let { Z, seH: eH, seL: eL, seC: eC } = getParts(s);
+    // the value is `digits * 10**exp10`
+    let digits = (intStr + fracStr).replace(/^0+/, '');
+    if (digits === '') { return [0,0]; }
 
-    // adding 1 ulp ensures the string significant digits are correct up to a point
-    const H = add1Ulp(Number(eH));
-    const _sHC = H.toFixed(3*d);
-    const sHC = set0FromTo(_sHC, 0, d + Z);
+    let exp10 = Number(expStr) - fracStr.length;
+    const trimmed = digits.replace(/0+$/, '');
+    exp10 += digits.length - trimmed.length;
+    digits = trimmed;
 
-    // get exact high correction low and high string parts
-    let { Z:Z2, seH:seHCH, seL:seHCL} = getParts(sHC);
+    // floor(log10(value))
+    const order = digits.length - 1 + exp10;
+    if (order > 309) {
+        return [0, negative ? -Infinity : Infinity];
+    }
+    if (order < -325) {
+        // smaller than half the smallest subnormal
+        return [0,0];
+    }
 
-    const HCH = add1Ulp(Number(seHCH));
-    const sHCH = HCH.toFixed(3*d);
-    const sHCL = set0FromTo(sHCH, Z2, d + Z2 + 1);
+    const n = BigInt(digits);
+    const num = exp10 >= 0 ? n*10n**BigInt(exp10) : n;
+    const den = exp10 >= 0 ? 1n : 10n**BigInt(-exp10);
 
-    // get exact low correction string part
-    let L = add1Ulp(Number(eL));
-    const lZ1 = getNumLeadingZeros(eL);
-    let sLC = L.toFixed(3*d);
-    sLC = set0FromTo(sLC, d + Z - lZ1, 2*d + Z + 1 - lZ1);
+    const { x: hi, rem, den: remDen, e2 } = divToDouble(num, den, 0);
 
-    const HCL = Number(sHCL);
-    const LC = Number(sLC);
-    const C = Number(eC);
-    const HCHL = Number(seHCL);
+    if (!Number.isFinite(hi)) {
+        return [0, negative ? -Infinity : Infinity];
+    }
 
-    // (correction         ) - (low    ) + (high)
-    // (HCL - LC + C - HCHL) - (HCH + L) + (H   )
-    const rL = ddAddDd(twoSum(HCL,-LC), twoSum(C,-HCHL));  // correction term
-    const rHL = ddAddDouble(twoSum(L, -HCH), H);
-    
-    let r = ddAddDd(rHL,rL);
+    // `0 - x` (rather than `-x`) avoids `-0`
+    const lo = rem === 0n
+        ? 0
+        : rem > 0n
+        ? divToDouble(rem, remDen, e2).x
+        : 0 - divToDouble(-rem, remDen, e2).x;
 
-    // get accurate power of 10
-    const exp10 = getPowerOf10(abs(exp));
+    return negative ? [0 - lo, 0 - hi] : [lo,hi];
+}
 
-    r = exp === 0
-        ? r
-        : exp < 0
-        ? ddDivDd(r,exp10)
-        : ddMultDd(r,exp10);
 
-    const q = (add1Ulp(r[1]) - r[1]);
+/**
+ * Returns `num/den * 2**e2` correctly rounded (ties to even) to a double `x`
+ * together with the exact (signed) remainder given as `rem/den * 2**e2`.
+ *
+ * * precondition: `num > 0n`, `den > 0n`
+ *
+ * @internal
+ */
+function divToDouble(num: bigint, den: bigint, e2: number) {
+    // choose `t` such that `2**52 <= num*2**t/den < 2**53`
+    let t = 53 - (bitLength(num) - bitLength(den));
+    if (shiftLeft(num, t) >= den << 53n) { t--; }
 
-    // remove extraneous bits (not strictly necessary)
-    r[0] = r[0] + q/2 - q/2;
+    // the lsb of a double cannot be smaller than 2**-1074 (subnormals)
+    t = Math.min(t, e2 + 1074);
 
-    r = negative ? r.map(r => -r) : [r[0],r[1]];
+    const N = t >= 0 ? num << BigInt(t) : num;
+    const D = t >= 0 ? den : den << BigInt(-t);
 
-    return r;
+    let q = N/D;
+    let r = N - q*D;
+    if (2n*r > D || (2n*r === D && (q & 1n) === 1n)) {
+        q++;
+        r -= D;
+    }
+
+    return { x: mulPow2(Number(q), e2 - t), rem: r, den: D, e2: e2 - t };
+}
+
+
+/** @internal */
+function shiftLeft(a: bigint, t: number) {
+    return t >= 0 ? a << BigInt(t) : a >> BigInt(-t);
+}
+
+
+/** @internal */
+function bitLength(a: bigint) {
+    return a.toString(2).length;
+}
+
+
+/**
+ * Returns `x * 2**p`, exactly if the result is representable, i.e. without
+ * intermediate overflow / underflow.
+ *
+ * @internal
+ */
+function mulPow2(x: number, p: number) {
+    while (p > 1000) { x *= 2**1000; p -= 1000; }
+    while (p < -1000) { x *= 2**-1000; p += 1000; }
+
+    return x * 2**p;
 }
 
 

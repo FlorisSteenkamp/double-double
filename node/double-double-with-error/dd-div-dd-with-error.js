@@ -1,17 +1,19 @@
 import { ddDivDd } from "../double-double/binary/dd-div-dd.js";
-// We *have* to do the below❗ The assignee is a getter❗ The assigned is a pure function❗
-/** @internal */
-const div = ddDivDd;
 /** @internal */
 const eps = Number.EPSILON;
 /** @internal */
 const u = eps / 2;
 /** @internal */
 const uu = u * u;
+/** @internal */
+const uuu = u * u * u;
 /**
  * Returns the result of dividing two double-double-precision floating point
  * numbers together with an absolute error bound where nE and dE are absolute
  * error bounds on the *input* values.
+ *
+ * * the rounding error of the division itself is bounded using the proven
+ * relative error bound of `ddDivDd`, i.e. `15u^2 + 56u^3`
  *
  * @param numer numerator - a double-double-precision float
  * @param denom denominator - a double-double-precision float
@@ -24,7 +26,7 @@ function ddDivDdWithError(numer, denom, nE, dE) {
     const d = denom[0];
     const D = denom[1];
     // estimate the result of the division
-    const est = div(numer, denom);
+    const est = ddDivDd(numer, denom);
     const _n = Math.abs(n + N); // absolute value of estimate of n accurate to within 1/2 ulp
     const _d = Math.abs(d + D); // absolute value of estimate of d accurate to within 1/2 ulp
     const δd = u * _d; // the max error in the rounding to _d
@@ -36,7 +38,7 @@ function ddDivDdWithError(numer, denom, nE, dE) {
         // the error can be arbitrarily high; est is mostly irrelevant
         return { est, err: Number.POSITIVE_INFINITY };
     }
-    const err = ((_d * nE + _n * dE) / minD ** 2) + 9 * uu * Math.abs(_n / _d);
+    const err = ((_d * nE + _n * dE) / minD ** 2) + (15 * uu + 56 * uuu) * Math.abs(_n / _d);
     return { est, err };
 }
 export { ddDivDdWithError };

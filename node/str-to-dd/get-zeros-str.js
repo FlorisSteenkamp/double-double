@@ -4,7 +4,7 @@
  * @internal
  */
 function getZerosStr(n) {
-    return new Array(n + 1).join('0');
+    return '0'.repeat(n);
 }
 export { getZerosStr };
 //# sourceMappingURL=get-zeros-str.js.map

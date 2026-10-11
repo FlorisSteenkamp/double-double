@@ -35,8 +35,8 @@ These are not
 
 Name | Type | Description |
 ------ | ------ | ------ |
-`a` | number | - |
+`a` | number | The number to check |
 `maxBitLength` | number | The max allowed bitlength |
-`gridSpacingExponent` | number | The grid spacing === 1^gridSpacingExponent  |
+`gridSpacingExponent` | number | The grid spacing === 2^gridSpacingExponent  |
 
 **Returns:** *boolean*

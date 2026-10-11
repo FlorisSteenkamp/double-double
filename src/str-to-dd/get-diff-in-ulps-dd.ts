@@ -61,14 +61,14 @@ function getDiffInUlpsDd(
         } else {
             const numDigitsAfterDot2 = s2.length - i2 - 1;
             s2 = removeDot(s2);
-            const zeros = new Array(numDigitsAfterDot2 + 1).join('0');
+            const zeros = '0'.repeat(numDigitsAfterDot2);
             s1 += zeros;
         }
     } else {
         if (i2 === -1) {
             const numDigitsAfterDot1 = s1.length - i1 - 1;
             s1 = removeDot(s1);
-            const zeros = new Array(numDigitsAfterDot1 + 1).join('0');
+            const zeros = '0'.repeat(numDigitsAfterDot1);
             s2 += zeros;
         } else {
             const numDigitsAfterDot1 = s1.length - i1 - 1;
@@ -80,11 +80,10 @@ function getDiffInUlpsDd(
             const diff = numDigitsAfterDot1 - numDigitsAfterDot2;
 
             if (diff > 0) {
-                const zeros = new Array(diff + 1).join('0');
+                const zeros = '0'.repeat(diff);
                 s2 += zeros;
             } else if (diff < 0) {
-                s2 = removeDot(s2);
-                const zeros = new Array(-diff + 1).join('0');
+                const zeros = '0'.repeat(-diff);
                 s1 += zeros;
             } else {
                 // do nothing

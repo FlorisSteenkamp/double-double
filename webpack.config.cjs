@@ -25,7 +25,18 @@ const config_Basic = {
         rules: [
             {
                 test: /\.tsx?$/,
-                use: 'ts-loader',
+                // SWC only strips the types (type checking is done by `tsc`);
+                // note: ts-loader cannot be used since TypeScript 7 no longer 
+                // provides a JavaScript API
+                use: {
+                    loader: 'swc-loader',
+                    options: {
+                        jsc: { 
+                            parser: { syntax: 'typescript' },
+                            target: 'esnext'
+                        }
+                    }
+                },
                 exclude: /node_modules/,
                 sideEffects: false,
             },

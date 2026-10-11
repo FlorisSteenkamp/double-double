@@ -1,5 +1,11 @@
 /**
- * Returns 0 if a === b, a +tive value if a > b or a negative value if a < b.
+ * Returns `0` if `x === y`, a positive value if `x > y` or a negative value if
+ * `x < y` (or `NaN` if `x` or `y` is `NaN`).
+ *
+ * * only the sign of the result is meaningful, e.g. it can be used as a
+ * comparator in `Array.prototype.sort`
+ * * assumes the double-doubles are normalized (as returned by the functions in
+ * this library), i.e. `hi === fl(hi + lo)`, in which case the result is exact
  *
  * @param x a double-double precision floating point number
  * @param y another double-double precision floating point number

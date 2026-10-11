@@ -6,6 +6,9 @@
  * u = 0.5 * Number.EPSILON
  * * the bound is very sharp
  *
+ * * assumes no overflow; note that (Veltkamp) splitting overflows (giving
+ * `NaN`) if the magnitude of `x[1]/y` or `y` exceeds ~2^996
+ *
  * * ALGORITHM 15 of https://hal.archives-ouvertes.fr/hal-01351529v3/document
  * @param x a double-double precision floating point number
  * @param y the double-precision divisor

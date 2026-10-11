@@ -24,6 +24,7 @@ module.exports = {
                 label: 'Unary',
                 items: [
                     'modules/_double_double_unary_dd_abs_',
+                    'modules/_double_double_unary_dd_cos_',
                     'modules/_double_double_unary_dd_div_by_2_',
                     'modules/_double_double_unary_dd_mult_by_2_',
                     'modules/_double_double_unary_dd_mult_by_4_',
@@ -31,6 +32,7 @@ module.exports = {
                     'modules/_double_double_unary_dd_mult_by_neg_4_',
                     'modules/_double_double_unary_dd_negative_of_',
                     'modules/_double_double_unary_dd_sign_',
+                    'modules/_double_double_unary_dd_sin_',
                     'modules/_double_double_unary_dd_sqrt_',
                 ],
                 collapsed: true
@@ -43,6 +45,11 @@ module.exports = {
                     'modules/_double_double_binary_dd_compare_',
                     'modules/_double_double_binary_dd_diff_dd_',
                     'modules/_double_double_binary_dd_div_dd_',
+                    'modules/_double_double_binary_dd_eq_',
+                    'modules/_double_double_binary_dd_gt_',
+                    'modules/_double_double_binary_dd_gte_',
+                    'modules/_double_double_binary_dd_lt_',
+                    'modules/_double_double_binary_dd_lte_',
                     'modules/_double_double_binary_dd_max_',
                     'modules/_double_double_binary_dd_min_',
                     'modules/_double_double_binary_dd_mult_dd_'
@@ -63,6 +70,7 @@ module.exports = {
                 label: 'Mixed precision',
                 items: [
                     'modules/_double_mixed_double_double_dd_add_double_',
+                    'modules/_double_mixed_double_double_dd_diff_double_',
                     'modules/_double_mixed_double_double_dd_div_double_',
                     'modules/_double_mixed_double_double_dd_mult_double_',
                     'modules/_double_mixed_double_double_double_div_double_',
@@ -82,7 +90,7 @@ module.exports = {
             },
             {
                 type: 'category',
-                label: 'TRepresentation',
+                label: 'Representation',
                 items: [
                     'modules/_double_representation_bit_length_',
                     'modules/_double_representation_exponent_',
@@ -92,6 +100,23 @@ module.exports = {
                     'modules/_double_representation_msb_exponent_',
                     'modules/_double_representation_parse_double_',
                     'modules/_double_representation_significand_',
+                ],
+                collapsed: true
+            },
+            {
+                type: 'category',
+                label: 'String conversion',
+                items: [
+                    'modules/_dd_to_str_dd_to_str_',
+                    'modules/_str_to_dd_str_to_dd_',
+                ],
+                collapsed: true
+            },
+            {
+                type: 'category',
+                label: 'Constants',
+                items: [
+                    'modules/_constants_',
                 ],
                 collapsed: true
             },

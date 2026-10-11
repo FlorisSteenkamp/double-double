@@ -5,15 +5,26 @@
 
 
 /** 
- * Returns the ieee-574 8 bytes composing the given double, starting from the
+ * Shared buffer used to read the bytes of a double.
+ * 
+ * @internal
+ */
+const buffer = new ArrayBuffer(8);
+/** @internal */
+const dv = new DataView(buffer);
+/** @internal */
+const u8 = new Uint8Array(buffer);
+
+
+/** 
+ * Returns the IEEE-754 8 bytes composing the given double, starting from the
  * sign bit and ending in the lsb of the significand.
  * e.g. 123.456 -> [64, 94, 221, 47, 26, 159, 190, 119] 
  * @internal
  */
 function doubleToOctets(number: number) {
-    const buffer = new ArrayBuffer(8);
-    new DataView(buffer).setFloat64(0, number, false);
-    return Array.from(new Uint8Array(buffer));
+    dv.setFloat64(0, number, false);
+    return Array.from(u8);
 }
 
 

@@ -13,10 +13,13 @@ double.
 
 * slower than ALGORITHM 8 (one call to fastTwoSum more) but about 2x more
 accurate
-* relative error bound: 1.5u^2 + 4u^3, i.e. fl(a+b) = (a+b)(1+ϵ),
+* relative error bound: 1.5u^2 + 4u^3, i.e. fl(a*b) = (a*b)(1+ϵ),
 where ϵ <= 1.5u^2 + 4u^3, u = 0.5 * Number.EPSILON
 * the bound is very sharp
 * probably prefer `ddMultDouble2` due to extra speed
+
+* assumes no overflow; note that (Veltkamp) splitting overflows (giving
+`NaN`) if the magnitude of `x[1]` or `y` exceeds ~2^996
 
 * ALGORITHM 7 of https://hal.archives-ouvertes.fr/hal-01351529v3/document
 
@@ -45,6 +48,9 @@ accurate
 where ϵ <= 3u^2, u = 0.5 * Number.EPSILON
 * the bound is sharp
 * probably prefer this algorithm due to extra speed
+
+* assumes no overflow; note that (Veltkamp) splitting overflows (giving
+`NaN`) if the magnitude of `x[1]` or `y` exceeds ~2^996
 
 * ALGORITHM 8 of https://hal.archives-ouvertes.fr/hal-01351529v3/document
 

@@ -1,92 +1,66 @@
-import { significand } from "./significand.js";
-
 
 /**
- * Returns the lowest set bit of the given value in [1, (2**31)-1], 
- * i.e. from 1 up to 2147483647 else if no bit is set (input === 0) returns 
- * NaN, otherwise if the number is out of range returns a non-finite 
- * number.
- * See https://stackoverflow.com/a/35190288/2010061
+ * Shared view used to read the bits of a double without allocating.
+ *
  * @internal
  */
-function getLowestSetBit_(a: number) {
-    return Math.log2(a & -a);
-}
+const dv = new DataView(new ArrayBuffer(8));
 
 
 /**
  * Returns the lowest set bit of the given number's significand (where the lsb
- * is bit 0 and the msb is bit 52). If no bit is set (input === 0 or +-inf or 
+ * is bit 0 and the msb is bit 52). If no bit is set (input === 0 or +-inf or
  * NaN) returns NaN.
  * See https://stackoverflow.com/a/35190288/2010061
  */
 function getLowestSetBit(a: number) {
-    if (a === 0 || !Number.isFinite(a)) { 
+    if (a === 0 || !Number.isFinite(a)) {
         // There is no lowest set bit
-        return NaN; 
+        return NaN;
     }
 
-    // Note: the significand includes the hidden bit!
-    const s = significand(a);
+    dv.setFloat64(0, a);
 
-    const len = s.length;
-    for (let i=len-1; i>=0; i--) {
-        if (s[i] === 0) { continue; }
-        const l = getLowestSetBit_(s[i]);
-        if (Number.isFinite(l)) {
-            return (8*(len-i-1)) + l;
-        }
+    // the low 32 bits of the significand
+    const lo = dv.getUint32(4);
+    if (lo !== 0) {
+        return 31 - Math.clz32(lo & -lo);
     }
 
-    return NaN;
+    // the high 20 bits of the significand with the hidden bit added (in case
+    // `a` is not subnormal); note: this cannot be 0 since `a !== 0`
+    const hi = dv.getUint32(0);
+    const h = (hi & 0xf_ffff) | ((hi & 0x7ff0_0000) === 0 ? 0 : 0x10_0000);
+
+    return 32 + 31 - Math.clz32(h & -h);
 }
 
 
 /**
- * Returns the highest set bit of the given value in [1, 255], i.e. from 1 up 
- * to 255. If the input number === 0 returns NaN.
- * See https://stackoverflow.com/a/35190288/2010061
- * @internal
- */
-function getHighestSetBit_(a: number) {
-    return a >= 128 ? 7 
-         : a >= 64 ? 6
-         : a >= 32 ? 5
-         : a >= 16 ? 4
-         : a >= 8  ? 3
-         : a >= 4  ? 2
-         : a >= 2  ? 1
-         : a >= 1  ? 0
-         : NaN;
-}
-
-
-/**
- * Returns the highest set bit of the given double. If no bit is set (input 
+ * Returns the highest set bit of the given double. If no bit is set (input
  * === 0 or +/-inf or NaN) returns NaN.
  * See https://stackoverflow.com/a/35190288/2010061
  */
 function getHighestSetBit(a: number): number {
-    if (a === 0 || !Number.isFinite(a)) { 
-        // There is no lowest set bit
-        return NaN; 
+    if (a === 0 || !Number.isFinite(a)) {
+        // There is no highest set bit
+        return NaN;
     }
 
-    // At this point there must be a highest set bit (always === 52 if the 
-    // number is not a subnormal.
+    dv.setFloat64(0, a);
 
-    const s = significand(a);
+    const hi = dv.getUint32(0);
 
-    const len = s.length;
-    for (let i=0; i<len; i++) {
-        
-        const l = getHighestSetBit_(s[i]);
-        if (Number.isFinite(l)) {
-            return (8*(len-i-1)) + l;
-        }
+    // the hidden bit is set if `a` is not subnormal
+    if ((hi & 0x7ff0_0000) !== 0) { return 52; }
+
+    // subnormal
+    const h = hi & 0xf_ffff;
+    if (h !== 0) {
+        return 32 + 31 - Math.clz32(h);
     }
 
-    return NaN;
+    return 31 - Math.clz32(dv.getUint32(4));
 }
 
 

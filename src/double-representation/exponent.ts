@@ -1,4 +1,10 @@
-import { parseDouble } from './parse-double.js';
+
+/**
+ * Shared view used to read the bits of a double without allocating.
+ *
+ * @internal
+ */
+const dv = new DataView(new ArrayBuffer(8));
 
 
 /**
@@ -6,7 +12,13 @@ import { parseDouble } from './parse-double.js';
  * @param a A double
  */
 function exponent(a: number) {
-    return parseDouble(a).exponent;
+    dv.setFloat64(0, a);
+
+    // the 11 exponent bits follow the sign bit
+    const e = (dv.getUint16(0) >>> 4) & 0x7ff;
+
+    // Subnormals (and 0) use a biased exponent of 1 (not 0!)
+    return e === 0 ? -1022 : e - 1023;
 }
 
 

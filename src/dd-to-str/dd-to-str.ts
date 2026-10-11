@@ -1,10 +1,13 @@
 import { multStrByPowOf10 } from "../str-to-dd/mult-str-by-pow-of-10.js";
 
-const { floor, max, round, log2, log10, ceil } = Math;
+const { floor, max, log2, ceil } = Math;
 
 
-const LOG2_10 = log2(1024)/log10(1024);
+/** @internal */
+const LOG2_10 = log2(10);
 
+/** @internal */
+const dv = new DataView(new ArrayBuffer(8));
 
 
 /**
@@ -13,13 +16,30 @@ const LOG2_10 = log2(1024)/log10(1024);
  * 
  * * there will always be enough decimal digits returned but some could be
  * extraneous.
+ * * non-finite values return `'NaN'`, `'Infinity'` or `'-Infinity'`
  * 
- * @param dd 
+ * @param dd a double-double precision floating point number
+ * 
+ * @example
+ * ```
+ * ddToStr([1.2246467991473532e-16, 3.141592653589793]);  //=> '3.141592653589793238462643383279505878966979117714'
+ * ```
  */
 function ddToStr(
         dd: number[]) {
 
     let [l,h] = dd;
+
+    if (!Number.isFinite(h) || !Number.isFinite(l)) {
+        return String(h + l);
+    }
+
+    if (h === 0) {
+        if (l === 0) { return '0'; }
+        // not normalized
+        h = l;
+        l = 0;
+    }
 
     let negative = false;
     if (h < 0) {
@@ -27,40 +47,50 @@ function ddToStr(
         l = -l;
         negative = true;
     }
-    
-    if (h === 0) {
-        return '0';
-    }
 
     const scale2 = max(0,-floor(log2(h)) + 3*53);
-
-    if (scale2 === 0) {
-        const llb = BigInt(round(l));
-        const hhb = BigInt(round(h));
-
-        const str = (llb + hhb).toString();
-        return negative ? '-' + str : str;
-    }
-
-    const scale2b = BigInt(scale2);
     const scale10 = ceil(scale2/LOG2_10);
-    const scale10b = BigInt(scale10);
 
-    const ll = l*(2**scale2);
-    const hh = h*(2**scale2);
-    const llb = BigInt(round(ll));
-    const hhb = BigInt(round(hh));
+    // the scaling is done exactly (using `BigInt`) to avoid overflow
+    const b = (roundScaled(l, scale2) + roundScaled(h, scale2))*(10n**BigInt(scale10));
+    const bb = b/(2n**BigInt(scale2));
 
-    const b = (llb + hhb)*(10n**scale10b);
-    const bb = b/(2n**(scale2b));
-    
-    let bStr = bb.toString();
-
-    let str = multStrByPowOf10(bStr,-scale10);
+    let str = multStrByPowOf10(bb.toString(),-scale10);
 
     str = removeExtraneousZeros(str);
 
     return negative ? '-' + str : str;
+}
+
+
+/**
+ * Returns `x * 2**s` rounded (ties away from zero) to an integer.
+ * 
+ * @internal
+ */
+function roundScaled(x: number, s: number): bigint {
+    if (x === 0) { return 0n; }
+
+    dv.setFloat64(0, x);
+    const bits = dv.getBigUint64(0);
+    const biasedExp = Number((bits >> 52n) & 0x7ffn);
+    let m = bits & 0xf_ffff_ffff_ffffn;
+    let e: number;
+    if (biasedExp === 0) {
+        // subnormal
+        e = -1074;
+    } else {
+        m |= 1n << 52n;
+        e = biasedExp - 1075;
+    }
+
+    // x === ±m * 2**e
+    const sh = e + s;
+    const r = sh >= 0
+        ? m << BigInt(sh)
+        : (m + (1n << BigInt(-sh - 1))) >> BigInt(-sh);
+
+    return x < 0 ? -r : r;
 }
 
 

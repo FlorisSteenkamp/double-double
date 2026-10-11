@@ -9,12 +9,12 @@ sidebar_label: "lsbExponent"
 *Defined in [double-representation/lsb-exponent.ts:12](https://github.com/FlorisSteenkamp/double-double/blob/d35ae52/src/double-representation/lsb-exponent.ts#L12)*
 
 Returns the true exponent of the lsb that is set of the given number or
-NaN if a === 0 or +-inf or NaN.
+`NaN` if `a === 0` or `a` is `+-Infinity` or `NaN`.
 
 **Parameters:**
 
 Name | Type | Description |
 ------ | ------ | ------ |
-`a` | number | An array of numbers to check  |
+`a` | number | a double precision floating point number  |
 
 **Returns:** *number*

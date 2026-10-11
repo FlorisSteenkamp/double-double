@@ -1,6 +1,6 @@
 
 function extractExp(s: string) {
-    const idx = s.indexOf('e');
+    const idx = s.search(/[eE]/);
     let exp = 0;
     if (idx !== -1) {
         exp = Number(s.slice(idx + 1));

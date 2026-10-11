@@ -12,8 +12,10 @@ Returns the result of multiplying together an array of double-double-precision
 floating point numbers naively (i.e. not using pairwise addition to reduce
 error a bit).
 
-* an error bound is given by: (n-1)(1+ϵ),
-where ϵ <= 7u^2, u = 0.5 * Number.EPSILON
+* relative error bound: (1+ϵ)^(n-1) - 1 ≈ (n-1)ϵ,
+where |ϵ| < 5u^2, u = 0.5 * Number.EPSILON (the error bound of a single
+multiplication), assuming no underflow or overflow
+* returns `[0,1]` (i.e. one) if the given array is empty
 
 **Parameters:**
 

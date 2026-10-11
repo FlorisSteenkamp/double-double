@@ -12,29 +12,6 @@ sidebar_label: "Getting started"
 npm install double-double
 ```
 
->**❗Important❗**
->
->Use
->
->```TypeScript
->import { operators } from 'double-double'
->```
->
-> and then later in the code get the functions you need, e.g.:
->
->```TypeScript
->const { ddAddDd as add, twoProduct, /* etc. */ } = operators;
->```
->
->as opposed to importing the operators directly.
->
->This will increase performance roughly 5 times!
->
->**Why?** Because Webpack (and Rollup) exports functions using getters that gets 
->invoked on every function call adding a big overhead and slowing down each
->function. This will not be an issue if code is not bundled, e.g. when
->using Node.js.
-
 ## Overview
 * **[Double-double precision](https://en.wikipedia.org/wiki/Quadruple-precision_floating-point_format#Double-double_arithmetic)** floating point operators (similar to quad precision)
 * Each function documents a strict error bound (see research [1] below)
